@@ -14,7 +14,7 @@ LLDark
 Demo
 ==============
 ![ManualSwitch.gif](https://gitee.com/internetWei/llDark/raw/master/Resource/ManualSwitch.gif)图1 ![SystemSwitch.gif](https://gitee.com/internetWei/llDark/raw/master/Resource/SystemSwitch.gif)图2 
-![5fc6688ef81f7e3bd98fd962.gif](https://pic.downk.cc/item/5fc6688ef81f7e3bd98fd962.gif)图3
+[ScreenSplace.gif](https://gitee.com/internetWei/llDark/raw/master/Resource/ScreenSplace.gif)图3
 
 用法
 ==============
