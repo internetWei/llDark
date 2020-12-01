@@ -1,19 +1,20 @@
 LLDark
 ==============
 适用于iOS的强大深色主题框架，旨在快速适配深色模式。
-国内用户访问这个[链接](https://gitee.com/internetWei/llDark)会更快一些。
+国内用户访问这个[链接](https://gitee.com/internetWei/llDark)可能会更快一些。
 
 特性
 ==============
-- 集成简单；修改量小，不会破坏项目当前结构。
-- 高性能；经过测试和系统切换主题时的性能相当。
-- 功能强大；适配所有场景(CALayer、网络图片、NSAttributedString……)。
+- 集成简单；修改量小，不会破坏项目当前结构
+- 高性能；经过测试和系统切换主题的性能相当
+- 功能强大；适配所有场景(CALayer、网络图片、NSAttributedString……)
 - 兼容iOS13以下的机型
-- iOS13以上机型自动适配深色启动图(启动图将跟随APP设置的主题模式，而不是由系统控制)，可参考图3
+- iOS13以上机型自动适配深色启动图(启动图将跟随APP设置的主题模式，默认跟随系统)，可参考图3效果
 
 Demo
 ==============
-![fe7e0003132f87224586](https://pic.downk.cc/item/5fc5b945d590d4788a8f6e1c.gif)图1     ![fe3d000340e405dbbb16](https://pic.downk.cc/item/5fc5e700d590d4788aa71cb7.gif)图2
+![ManualSwitch.gif](https://gitee.com/internetWei/llDark/raw/master/Resource/ManualSwitch.gif)图1 ![SystemSwitch.gif](https://gitee.com/internetWei/llDark/raw/master/Resource/SystemSwitch.gif)图2 
+![ScreenSplace.gif](https://gitee.com/internetWei/llDark/blob/master/Resource/ScreenSplace.gif)图3
 
 用法
 ==============
@@ -103,7 +104,7 @@ imageView.image = UIImage.themeImage(@"lightImage", @"darkImage");
 // 具体使用方法请阅读源码注释，效果图请参考图5。
 ``````
 
-![137a9000178656346577e](https://pic.downk.cc/item/5fc60802d590d4788ab3a29b.png) 图5.0 (图片中的饱合度，蒙层透明度均可以用代码调整。)
+![137a9000178656346577e](https://pic.downk.cc/item/5fc60802d590d4788ab3a29b.png) 图5.0 (图片中的饱合度，蒙层透明度均可以调整。)
 
 
 快速适配
@@ -148,7 +149,9 @@ imageView.image = UIImage.themeImage(@"lightImage", @"darkImage");
 联系
 ==============
 如果你发现bug，请创建一个Issue
+
 如果你有更好的改进，please pull reqeust me
+
 个人邮箱`internetwei@foxmail.com`
 
 许可证
