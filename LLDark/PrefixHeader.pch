@@ -1,0 +1,18 @@
+//
+//  PrefixHeader.pch
+//  LLDark
+//
+//  Created by LL on 2020/12/1.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#define kColorRGBA(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
+#define kColorRGB(r,g,b) kColorRGBA(r,g,b,1.0)
+
+#define kWhiteColor UIColor.whiteColor.themeColor(nil)
+
+#define kBlackColor kColorRGB(27, 27, 27).themeColor(nil)
+
+#endif /* PrefixHeader_pch */
