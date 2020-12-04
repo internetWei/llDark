@@ -14,9 +14,7 @@ Features
 
 Demo
 ==============
-![ManualSwitch.gif](https://gitee.com/internetWei/llDark/raw/master/Resource/ManualSwitch1.gif) 
-![SystemSwitch.gif](https://gitee.com/internetWei/llDark/raw/master/Resource/SystemSwitch1.gif)
-https://gitee.com/internetWei/llDark/raw/master/Resource/ScreenSplace.gif
+![Manual.gif](https://gitee.com/internetWei/llDark/raw/master/Demo/Resouces/manual.gif) ![System.gif](https://gitee.com/internetWei/llDark/raw/master/Demo/Resouces/followSystem.gif) ![Screen.gif](https://gitee.com/internetWei/llDark/raw/master/Demo/Resouces/screenSplace.gif)
 
 Usage
 ==============
@@ -194,9 +192,7 @@ LLDark
 
 Demo
 ==============
-![ManualSwitch.gif](https://gitee.com/internetWei/llDark/raw/master/Resource/ManualSwitch1.gif) 
-![SystemSwitch.gif](https://gitee.com/internetWei/llDark/raw/master/Resource/SystemSwitch1.gif)
-https://gitee.com/internetWei/llDark/raw/master/Resource/ScreenSplace.gif
+![Manual.gif](https://gitee.com/internetWei/llDark/raw/master/Demo/Resouces/manual.gif) ![System.gif](https://gitee.com/internetWei/llDark/raw/master/Demo/Resouces/followSystem.gif) ![Screen.gif](https://gitee.com/internetWei/llDark/raw/master/Demo/Resouces/screenSplace.gif)
 
 用法
 ==============
