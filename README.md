@@ -154,6 +154,7 @@ The project supports iOS 9.0 and Xcode 10.0 at least. If you want to use it on l
 Note
 ==============
 1. Need to monitor the theme mode to modify the status bar color.
+2. Please do not modify the name of AppDelegate.
 
 Known issues
 ==============
@@ -335,6 +336,7 @@ Tips:
 注意点
 ==============
 1. 需要自己监听主题模式修改状态栏颜色。
+2. 请不要修改AppDelegate的名称。
 
 已知问题
 ==============
