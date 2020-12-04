@@ -102,7 +102,7 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:url]]];
         dispatch_async(dispatch_get_main_queue(), ^{
-            imageView2.image = image;
+//            imageView2.image = image;
         });
     });
     imageView2.darkStyle(LLDarkStyleSaturation, 0.1, url);
@@ -125,7 +125,7 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:url]]];
         dispatch_async(dispatch_get_main_queue(), ^{
-            imageView3.image = image;
+//            imageView3.image = image;
         });
     });
     imageView3.darkStyle(LLDarkStyleMask, 0.5, url);
