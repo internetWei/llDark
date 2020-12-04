@@ -8,6 +8,12 @@
 #ifndef LLDark_h
 #define LLDark_h
 
+//! Project version number for Masonry.
+FOUNDATION_EXPORT double LLDarkVersionNumber;
+
+//! Project version string for Masonry.
+FOUNDATION_EXPORT const unsigned char LLDarkVersionString[];
+
 #if __has_include(<LLDark.h>)
 
 #import <LLDarkManager.h>
