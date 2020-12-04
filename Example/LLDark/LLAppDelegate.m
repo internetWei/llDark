@@ -8,11 +8,22 @@
 
 #import "LLAppDelegate.h"
 
+#import "LLViewController.h"
+
 @implementation LLAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    sleep(2);
+    if (@available(iOS 13.0, *)) {} else {
+        self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+        self.window.backgroundColor = [UIColor whiteColor];
+        
+        LLViewController * vc = [[LLViewController alloc] init];
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+        self.window.rootViewController = nav;
+        [self.window makeKeyAndVisible];
+    }
     return YES;
 }
 

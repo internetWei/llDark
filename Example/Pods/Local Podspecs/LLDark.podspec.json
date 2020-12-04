@@ -1,0 +1,22 @@
+{
+  "name": "LLDark",
+  "version": "0.1.0",
+  "summary": "A short description of LLDark.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/internetwei/LLDark",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "internetwei": "internetwei@foxmail.com"
+  },
+  "source": {
+    "git": "https://github.com/internetwei/LLDark.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "LLDark/Classes/**/*"
+}

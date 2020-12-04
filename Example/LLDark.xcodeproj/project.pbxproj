@@ -21,6 +21,34 @@
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
+		6A438171257A099F000B6A59 /* LLDarkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A438146257A099F000B6A59 /* LLDarkManager.m */; };
+		6A438172257A099F000B6A59 /* NSObject+Dark.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A438147257A099F000B6A59 /* NSObject+Dark.m */; };
+		6A438173257A099F000B6A59 /* LLDarkSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A438148257A099F000B6A59 /* LLDarkSource.m */; };
+		6A438174257A099F000B6A59 /* UIColor+Dark.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A43814A257A099F000B6A59 /* UIColor+Dark.m */; };
+		6A438175257A099F000B6A59 /* UIImage+Dark.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A43814B257A099F000B6A59 /* UIImage+Dark.m */; };
+		6A438176257A099F000B6A59 /* UIImageView+Dark.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A438150257A099F000B6A59 /* UIImageView+Dark.m */; };
+		6A438177257A099F000B6A59 /* UIView+Dark.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A438153257A099F000B6A59 /* UIView+Dark.m */; };
+		6A438178257A099F000B6A59 /* LLLaunchScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A438154257A099F000B6A59 /* LLLaunchScreen.m */; };
+		6A438179257A099F000B6A59 /* CATextLayer+Dark.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A438155257A099F000B6A59 /* CATextLayer+Dark.m */; };
+		6A43817A257A099F000B6A59 /* NSObject+Refresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A438156257A099F000B6A59 /* NSObject+Refresh.m */; };
+		6A43817B257A099F000B6A59 /* LLThird.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A438157257A099F000B6A59 /* LLThird.m */; };
+		6A43817C257A099F000B6A59 /* UIViewController+Refresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A438158257A099F000B6A59 /* UIViewController+Refresh.m */; };
+		6A43817D257A099F000B6A59 /* UIView+Refresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A438159257A099F000B6A59 /* UIView+Refresh.m */; };
+		6A43817E257A099F000B6A59 /* CALayer+Dark.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A43815D257A099F000B6A59 /* CALayer+Dark.m */; };
+		6A43817F257A099F000B6A59 /* LLDarkWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A43815E257A099F000B6A59 /* LLDarkWindow.m */; };
+		6A438180257A099F000B6A59 /* NSMutableAttributedString+Refresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A43815F257A099F000B6A59 /* NSMutableAttributedString+Refresh.m */; };
+		6A438181257A099F000B6A59 /* CAGradientLayer+Dark.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A438160257A099F000B6A59 /* CAGradientLayer+Dark.m */; };
+		6A438182257A099F000B6A59 /* NSObject+Expand.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A438163257A099F000B6A59 /* NSObject+Expand.m */; };
+		6A438183257A099F000B6A59 /* CAShapeLayer+Dark.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A438164257A099F000B6A59 /* CAShapeLayer+Dark.m */; };
+		6A438184257A099F000B6A59 /* CALayer+Refresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A43816A257A099F000B6A59 /* CALayer+Refresh.m */; };
+		6A438185257A099F000B6A59 /* NSMutableDictionary+Refresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A43816E257A099F000B6A59 /* NSMutableDictionary+Refresh.m */; };
+		6A438189257A142F000B6A59 /* DarkExpand.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A438188257A142F000B6A59 /* DarkExpand.m */; };
+		6A438193257A145C000B6A59 /* durk_light.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A43818D257A145C000B6A59 /* durk_light.png */; };
+		6A438194257A145C000B6A59 /* background_light@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A43818E257A145C000B6A59 /* background_light@2x.png */; };
+		6A438195257A145C000B6A59 /* background_light@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A43818F257A145C000B6A59 /* background_light@3x.png */; };
+		6A438196257A145C000B6A59 /* durk_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A438190257A145C000B6A59 /* durk_dark.png */; };
+		6A438197257A145C000B6A59 /* background_dark@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A438191257A145C000B6A59 /* background_dark@3x.png */; };
+		6A438198257A145C000B6A59 /* background_dark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A438192257A145C000B6A59 /* background_dark@2x.png */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		784783D91516EFA9B8B4813A /* Pods_LLDark_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B97F165BE7EC69341D21D293 /* Pods_LLDark_Tests.framework */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
@@ -38,8 +66,8 @@
 
 /* Begin PBXFileReference section */
 		004B59601B6CD7AFE2F96D7E /* Pods-LLDark_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LLDark_Tests.debug.xcconfig"; path = "Target Support Files/Pods-LLDark_Tests/Pods-LLDark_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		0BD931C49CBCBD8AB35005A2 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		13BE13FA0AA63714E4FA840B /* LLDark.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = LLDark.podspec; path = ../LLDark.podspec; sourceTree = "<group>"; };
+		0BD931C49CBCBD8AB35005A2 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		13BE13FA0AA63714E4FA840B /* LLDark.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LLDark.podspec; path = ../LLDark.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		4C2B3ED160BCBA3F2C85C66B /* Pods-LLDark_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LLDark_Example.release.xcconfig"; path = "Target Support Files/Pods-LLDark_Example/Pods-LLDark_Example.release.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* LLDark_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LLDark_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -60,13 +88,64 @@
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
+		6A438144257A099F000B6A59 /* UIImage+Dark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Dark.h"; sourceTree = "<group>"; };
+		6A438145257A099F000B6A59 /* UIColor+Dark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Dark.h"; sourceTree = "<group>"; };
+		6A438146257A099F000B6A59 /* LLDarkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLDarkManager.m; sourceTree = "<group>"; };
+		6A438147257A099F000B6A59 /* NSObject+Dark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Dark.m"; sourceTree = "<group>"; };
+		6A438148257A099F000B6A59 /* LLDarkSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLDarkSource.m; sourceTree = "<group>"; };
+		6A438149257A099F000B6A59 /* UIImageView+Dark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Dark.h"; sourceTree = "<group>"; };
+		6A43814A257A099F000B6A59 /* UIColor+Dark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Dark.m"; sourceTree = "<group>"; };
+		6A43814B257A099F000B6A59 /* UIImage+Dark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Dark.m"; sourceTree = "<group>"; };
+		6A43814C257A099F000B6A59 /* LLDarkConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLDarkConfig.h; sourceTree = "<group>"; };
+		6A43814D257A099F000B6A59 /* LLDarkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLDarkManager.h; sourceTree = "<group>"; };
+		6A43814E257A099F000B6A59 /* LLDarkSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLDarkSource.h; sourceTree = "<group>"; };
+		6A43814F257A099F000B6A59 /* NSObject+Dark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Dark.h"; sourceTree = "<group>"; };
+		6A438150257A099F000B6A59 /* UIImageView+Dark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Dark.m"; sourceTree = "<group>"; };
+		6A438152257A099F000B6A59 /* NSObject+Expand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Expand.h"; sourceTree = "<group>"; };
+		6A438153257A099F000B6A59 /* UIView+Dark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Dark.m"; sourceTree = "<group>"; };
+		6A438154257A099F000B6A59 /* LLLaunchScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLLaunchScreen.m; sourceTree = "<group>"; };
+		6A438155257A099F000B6A59 /* CATextLayer+Dark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CATextLayer+Dark.m"; sourceTree = "<group>"; };
+		6A438156257A099F000B6A59 /* NSObject+Refresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Refresh.m"; sourceTree = "<group>"; };
+		6A438157257A099F000B6A59 /* LLThird.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLThird.m; sourceTree = "<group>"; };
+		6A438158257A099F000B6A59 /* UIViewController+Refresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Refresh.m"; sourceTree = "<group>"; };
+		6A438159257A099F000B6A59 /* UIView+Refresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Refresh.m"; sourceTree = "<group>"; };
+		6A43815A257A099F000B6A59 /* CAShapeLayer+Dark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CAShapeLayer+Dark.h"; sourceTree = "<group>"; };
+		6A43815B257A099F000B6A59 /* CALayer+Refresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Refresh.h"; sourceTree = "<group>"; };
+		6A43815C257A099F000B6A59 /* NSMutableDictionary+Refresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+Refresh.h"; sourceTree = "<group>"; };
+		6A43815D257A099F000B6A59 /* CALayer+Dark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+Dark.m"; sourceTree = "<group>"; };
+		6A43815E257A099F000B6A59 /* LLDarkWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLDarkWindow.m; sourceTree = "<group>"; };
+		6A43815F257A099F000B6A59 /* NSMutableAttributedString+Refresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+Refresh.m"; sourceTree = "<group>"; };
+		6A438160257A099F000B6A59 /* CAGradientLayer+Dark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CAGradientLayer+Dark.m"; sourceTree = "<group>"; };
+		6A438161257A099F000B6A59 /* LLLaunchScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLLaunchScreen.h; sourceTree = "<group>"; };
+		6A438162257A099F000B6A59 /* UIView+Dark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Dark.h"; sourceTree = "<group>"; };
+		6A438163257A099F000B6A59 /* NSObject+Expand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Expand.m"; sourceTree = "<group>"; };
+		6A438164257A099F000B6A59 /* CAShapeLayer+Dark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CAShapeLayer+Dark.m"; sourceTree = "<group>"; };
+		6A438165257A099F000B6A59 /* LLDarkDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLDarkDefine.h; sourceTree = "<group>"; };
+		6A438166257A099F000B6A59 /* UIViewController+Refresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Refresh.h"; sourceTree = "<group>"; };
+		6A438167257A099F000B6A59 /* UIView+Refresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Refresh.h"; sourceTree = "<group>"; };
+		6A438168257A099F000B6A59 /* NSObject+Refresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Refresh.h"; sourceTree = "<group>"; };
+		6A438169257A099F000B6A59 /* CATextLayer+Dark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CATextLayer+Dark.h"; sourceTree = "<group>"; };
+		6A43816A257A099F000B6A59 /* CALayer+Refresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+Refresh.m"; sourceTree = "<group>"; };
+		6A43816B257A099F000B6A59 /* CAGradientLayer+Dark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CAGradientLayer+Dark.h"; sourceTree = "<group>"; };
+		6A43816C257A099F000B6A59 /* NSMutableAttributedString+Refresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+Refresh.h"; sourceTree = "<group>"; };
+		6A43816D257A099F000B6A59 /* LLDarkWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLDarkWindow.h; sourceTree = "<group>"; };
+		6A43816E257A099F000B6A59 /* NSMutableDictionary+Refresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+Refresh.m"; sourceTree = "<group>"; };
+		6A43816F257A099F000B6A59 /* CALayer+Dark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Dark.h"; sourceTree = "<group>"; };
+		6A438170257A099F000B6A59 /* LLDark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLDark.h; sourceTree = "<group>"; };
+		6A438188257A142F000B6A59 /* DarkExpand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DarkExpand.m; sourceTree = "<group>"; };
+		6A43818D257A145C000B6A59 /* durk_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = durk_light.png; sourceTree = "<group>"; };
+		6A43818E257A145C000B6A59 /* background_light@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background_light@2x.png"; sourceTree = "<group>"; };
+		6A43818F257A145C000B6A59 /* background_light@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background_light@3x.png"; sourceTree = "<group>"; };
+		6A438190257A145C000B6A59 /* durk_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = durk_dark.png; sourceTree = "<group>"; };
+		6A438191257A145C000B6A59 /* background_dark@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background_dark@3x.png"; sourceTree = "<group>"; };
+		6A438192257A145C000B6A59 /* background_dark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background_dark@2x.png"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		72397926D2E728E18047EAD6 /* Pods-LLDark_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LLDark_Example.debug.xcconfig"; path = "Target Support Files/Pods-LLDark_Example/Pods-LLDark_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		83F3BC389B3746C1C2B67E3F /* Pods_LLDark_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LLDark_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9389EE93C66E7FC1265D752A /* Pods-LLDark_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LLDark_Tests.release.xcconfig"; path = "Target Support Files/Pods-LLDark_Tests/Pods-LLDark_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		B97F165BE7EC69341D21D293 /* Pods_LLDark_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LLDark_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CB080021EFCD76E2CAC396B1 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		CB080021EFCD76E2CAC396B1 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,11 +211,14 @@
 		6003F593195388D20070C39A /* Example for LLDark */ = {
 			isa = PBXGroup;
 			children = (
+				6A43818C257A145C000B6A59 /* Resource */,
+				6A438142257A099F000B6A59 /* LLDark */,
 				6003F59C195388D20070C39A /* LLAppDelegate.h */,
 				6003F59D195388D20070C39A /* LLAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A5195388D20070C39A /* LLViewController.h */,
 				6003F5A6195388D20070C39A /* LLViewController.m */,
+				6A438188257A142F000B6A59 /* DarkExpand.m */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -185,6 +267,86 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
+		6A438142257A099F000B6A59 /* LLDark */ = {
+			isa = PBXGroup;
+			children = (
+				6A438143257A099F000B6A59 /* Public */,
+				6A438151257A099F000B6A59 /* Private */,
+				6A438170257A099F000B6A59 /* LLDark.h */,
+			);
+			path = LLDark;
+			sourceTree = "<group>";
+		};
+		6A438143257A099F000B6A59 /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				6A438144257A099F000B6A59 /* UIImage+Dark.h */,
+				6A438145257A099F000B6A59 /* UIColor+Dark.h */,
+				6A438146257A099F000B6A59 /* LLDarkManager.m */,
+				6A438147257A099F000B6A59 /* NSObject+Dark.m */,
+				6A438148257A099F000B6A59 /* LLDarkSource.m */,
+				6A438149257A099F000B6A59 /* UIImageView+Dark.h */,
+				6A43814A257A099F000B6A59 /* UIColor+Dark.m */,
+				6A43814B257A099F000B6A59 /* UIImage+Dark.m */,
+				6A43814C257A099F000B6A59 /* LLDarkConfig.h */,
+				6A43814D257A099F000B6A59 /* LLDarkManager.h */,
+				6A43814E257A099F000B6A59 /* LLDarkSource.h */,
+				6A43814F257A099F000B6A59 /* NSObject+Dark.h */,
+				6A438150257A099F000B6A59 /* UIImageView+Dark.m */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
+		6A438151257A099F000B6A59 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				6A438152257A099F000B6A59 /* NSObject+Expand.h */,
+				6A438153257A099F000B6A59 /* UIView+Dark.m */,
+				6A438154257A099F000B6A59 /* LLLaunchScreen.m */,
+				6A438155257A099F000B6A59 /* CATextLayer+Dark.m */,
+				6A438156257A099F000B6A59 /* NSObject+Refresh.m */,
+				6A438157257A099F000B6A59 /* LLThird.m */,
+				6A438158257A099F000B6A59 /* UIViewController+Refresh.m */,
+				6A438159257A099F000B6A59 /* UIView+Refresh.m */,
+				6A43815A257A099F000B6A59 /* CAShapeLayer+Dark.h */,
+				6A43815B257A099F000B6A59 /* CALayer+Refresh.h */,
+				6A43815C257A099F000B6A59 /* NSMutableDictionary+Refresh.h */,
+				6A43815D257A099F000B6A59 /* CALayer+Dark.m */,
+				6A43815E257A099F000B6A59 /* LLDarkWindow.m */,
+				6A43815F257A099F000B6A59 /* NSMutableAttributedString+Refresh.m */,
+				6A438160257A099F000B6A59 /* CAGradientLayer+Dark.m */,
+				6A438161257A099F000B6A59 /* LLLaunchScreen.h */,
+				6A438162257A099F000B6A59 /* UIView+Dark.h */,
+				6A438163257A099F000B6A59 /* NSObject+Expand.m */,
+				6A438164257A099F000B6A59 /* CAShapeLayer+Dark.m */,
+				6A438165257A099F000B6A59 /* LLDarkDefine.h */,
+				6A438166257A099F000B6A59 /* UIViewController+Refresh.h */,
+				6A438167257A099F000B6A59 /* UIView+Refresh.h */,
+				6A438168257A099F000B6A59 /* NSObject+Refresh.h */,
+				6A438169257A099F000B6A59 /* CATextLayer+Dark.h */,
+				6A43816A257A099F000B6A59 /* CALayer+Refresh.m */,
+				6A43816B257A099F000B6A59 /* CAGradientLayer+Dark.h */,
+				6A43816C257A099F000B6A59 /* NSMutableAttributedString+Refresh.h */,
+				6A43816D257A099F000B6A59 /* LLDarkWindow.h */,
+				6A43816E257A099F000B6A59 /* NSMutableDictionary+Refresh.m */,
+				6A43816F257A099F000B6A59 /* CALayer+Dark.h */,
+			);
+			path = Private;
+			sourceTree = "<group>";
+		};
+		6A43818C257A145C000B6A59 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				6A43818D257A145C000B6A59 /* durk_light.png */,
+				6A43818E257A145C000B6A59 /* background_light@2x.png */,
+				6A43818F257A145C000B6A59 /* background_light@3x.png */,
+				6A438190257A145C000B6A59 /* durk_dark.png */,
+				6A438191257A145C000B6A59 /* background_dark@3x.png */,
+				6A438192257A145C000B6A59 /* background_dark@2x.png */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
 		BAE877E75CC1FE638BF9924F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,7 +355,6 @@
 				004B59601B6CD7AFE2F96D7E /* Pods-LLDark_Tests.debug.xcconfig */,
 				9389EE93C66E7FC1265D752A /* Pods-LLDark_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -258,6 +419,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -278,9 +440,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
+				6A438195257A145C000B6A59 /* background_light@3x.png in Resources */,
+				6A438198257A145C000B6A59 /* background_dark@2x.png in Resources */,
+				6A438194257A145C000B6A59 /* background_light@2x.png in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
+				6A438197257A145C000B6A59 /* background_dark@3x.png in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
+				6A438193257A145C000B6A59 /* durk_light.png in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
+				6A438196257A145C000B6A59 /* durk_dark.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,9 +532,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A438172257A099F000B6A59 /* NSObject+Dark.m in Sources */,
+				6A438181257A099F000B6A59 /* CAGradientLayer+Dark.m in Sources */,
 				6003F59E195388D20070C39A /* LLAppDelegate.m in Sources */,
+				6A438189257A142F000B6A59 /* DarkExpand.m in Sources */,
+				6A438178257A099F000B6A59 /* LLLaunchScreen.m in Sources */,
+				6A438180257A099F000B6A59 /* NSMutableAttributedString+Refresh.m in Sources */,
+				6A438183257A099F000B6A59 /* CAShapeLayer+Dark.m in Sources */,
+				6A43817B257A099F000B6A59 /* LLThird.m in Sources */,
+				6A438177257A099F000B6A59 /* UIView+Dark.m in Sources */,
+				6A43817F257A099F000B6A59 /* LLDarkWindow.m in Sources */,
+				6A438179257A099F000B6A59 /* CATextLayer+Dark.m in Sources */,
+				6A438176257A099F000B6A59 /* UIImageView+Dark.m in Sources */,
+				6A43817A257A099F000B6A59 /* NSObject+Refresh.m in Sources */,
+				6A438173257A099F000B6A59 /* LLDarkSource.m in Sources */,
+				6A43817C257A099F000B6A59 /* UIViewController+Refresh.m in Sources */,
 				6003F5A7195388D20070C39A /* LLViewController.m in Sources */,
+				6A438174257A099F000B6A59 /* UIColor+Dark.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				6A438171257A099F000B6A59 /* LLDarkManager.m in Sources */,
+				6A43817E257A099F000B6A59 /* CALayer+Dark.m in Sources */,
+				6A438185257A099F000B6A59 /* NSMutableDictionary+Refresh.m in Sources */,
+				6A438182257A099F000B6A59 /* NSObject+Expand.m in Sources */,
+				6A43817D257A099F000B6A59 /* UIView+Refresh.m in Sources */,
+				6A438175257A099F000B6A59 /* UIImage+Dark.m in Sources */,
+				6A438184257A099F000B6A59 /* CALayer+Refresh.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,7 +639,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -482,7 +672,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -497,6 +687,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LLDark/LLDark-Prefix.pch";
 				INFOPLIST_FILE = "LLDark/LLDark-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -513,6 +704,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LLDark/LLDark-Prefix.pch";
 				INFOPLIST_FILE = "LLDark/LLDark-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";

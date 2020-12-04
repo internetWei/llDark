@@ -9,34 +9,13 @@
 Pod::Spec.new do |s|
   s.name             = 'LLDark'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of LLDark.'
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
-
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
-
-  s.homepage         = 'https://github.com/internetwei/LLDark'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  s.summary          = 'A powerful dark theme framework for iOS, designed to quickly adapt to dark mode.'
+  s.homepage         = 'https://github.com/internetWei/llDark'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'internetwei' => 'internetwei@foxmail.com' }
-  s.source           = { :git => 'https://github.com/internetwei/LLDark.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.source           = { :git => 'https://github.com/internetWei/llDark.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '9.0'
-
-  s.source_files = 'LLDark/Classes/**/*'
   
-  # s.resource_bundles = {
-  #   'LLDark' => ['LLDark/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.source_files = 'Classes/*.{h, m}'
 end
