@@ -17,18 +17,25 @@
 
 @implementation LLDarkWindow
 
++ (void)load {
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(didFinishLaunching) name:UIApplicationDidFinishLaunchingNotification object:nil];
+}
+
++ (void)didFinishLaunching {
+    if (@available(iOS 13.0, *)) {
+        ll_CodeSync({
+            _oldUserInterfaceStyle = (LLUserInterfaceStyle)UITraitCollection.currentTraitCollection.userInterfaceStyle;
+            _userInterfaceStyle = _oldUserInterfaceStyle;
+        });
+    }
+}
+
 + (instancetype)sharedInstance {
     static LLDarkWindow *shareWindow = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         shareWindow = [[self alloc] init];
         shareWindow.frame = UIScreen.mainScreen.bounds;
-        if (@available(iOS 13.0, *)) {
-            ll_CodeSync({
-                _oldUserInterfaceStyle = (LLUserInterfaceStyle)UITraitCollection.currentTraitCollection.userInterfaceStyle;
-                _userInterfaceStyle = _oldUserInterfaceStyle;
-            });
-        }
         shareWindow.userInteractionEnabled = NO;
         shareWindow.windowLevel = UIWindowLevelAlert + 1;
         shareWindow.hidden = NO;
