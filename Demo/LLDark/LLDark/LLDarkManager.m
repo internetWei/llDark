@@ -39,6 +39,7 @@ static NSString * const ll_user_theme_identifier = @"ll_user_theme_identifier";
             UIScene *scene = UIApplication.sharedApplication.connectedScenes.anyObject;
             darkWindow.windowScene = (UIWindowScene *)scene;
         }
+        [darkWindow setRootViewController:[UIViewController new]];
         [darkWindow makeKeyAndVisible];
         for (UIWindow *window in UIApplication.sharedApplication.windows) {
             if (window.hidden == NO && window != darkWindow) {
