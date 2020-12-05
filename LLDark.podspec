@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'LLDark'
-  s.version          = '0.1.9'
+  s.version          = '1.0.0'
   s.summary          = 'A powerful dark theme framework for iOS, designed to quickly adapt to dark mode.'
   s.homepage         = 'https://github.com/internetWei/llDark'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
