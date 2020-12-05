@@ -32,6 +32,20 @@ static NSString * const ll_user_theme_identifier = @"ll_user_theme_identifier";
     }
     
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(themeDidChange) name:ThemeDidChangeNotification object:nil];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        UIWindow *darkWindow = [LLDarkWindow sharedInstance];
+        if (@available(iOS 13.0, *)) {
+            UIScene *scene = UIApplication.sharedApplication.connectedScenes.anyObject;
+            darkWindow.windowScene = (UIWindowScene *)scene;
+        }
+        [darkWindow makeKeyAndVisible];
+        for (UIWindow *window in UIApplication.sharedApplication.windows) {
+            if (window.hidden == NO && window != darkWindow) {
+                [window makeKeyWindow];
+            }
+        }
+    });
 }
 
 

@@ -8,12 +8,6 @@
 #import "LLDarkWindow.h"
 
 #import "LLDarkDefine.h"
-#if __has_include("AppDelegate.h")
-#import "AppDelegate.h"
-#endif
-#if __has_include("SceneDelegate.h")
-#import "SceneDelegate.h"
-#endif
 #import "LLLaunchScreen.h"
 #import "LLDarkManager.h"
 #import "UIView+Refresh.h"
@@ -85,56 +79,3 @@ static LLUserInterfaceStyle _oldUserInterfaceStyle;
 }
 
 @end
-
-
-#if __has_include("SceneDelegate.h")
-
-@implementation SceneDelegate (Theme)
-
-+ (void)load {
-    if (@available(iOS 13.0, *)) {
-        method_exchangeImplementations(class_getInstanceMethod(self, @selector(scene:willConnectToSession:options:)), class_getInstanceMethod(self, @selector(ll_scene:willConnectToSession:options:)));
-    }
-}
-
-- (void)ll_scene:(UIScene *)scene willConnectToSession:(UISceneSession *)session options:(UISceneConnectionOptions *)connectionOptions API_AVAILABLE(ios(13.0)) {
-    [LLLaunchScreen initialization];
-    
-    UIWindowScene *windowScene = (UIWindowScene *)scene;
-    LLDarkWindow *themeWindow = LLDarkWindow.sharedInstance;
-    themeWindow.windowScene = windowScene;
-    [themeWindow makeKeyAndVisible];
-    [self ll_scene:scene willConnectToSession:session options:connectionOptions];
-}
-
-@end
-
-#endif
-
-
-#if __has_include("AppDelegate.h")
-@implementation AppDelegate (Theme)
-
-+ (void)load {
-#if __has_include("SceneDelegate.h")
-    if (UIDevice.currentDevice.systemVersion.floatValue < 13.0) {
-        method_exchangeImplementations(class_getInstanceMethod(self, @selector(application:didFinishLaunchingWithOptions:)), class_getInstanceMethod(self, @selector(ll_application:didFinishLaunchingWithOptions:)));
-    }
-#else
-    method_exchangeImplementations(class_getInstanceMethod(self, @selector(application:didFinishLaunchingWithOptions:)), class_getInstanceMethod(self, @selector(ll_application:didFinishLaunchingWithOptions:)));
-#endif
-    
-}
-
-- (BOOL)ll_application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [LLLaunchScreen initialization];
-    
-    LLDarkWindow *themeWindow = LLDarkWindow.sharedInstance;
-    [themeWindow setRootViewController:[UIViewController new]];
-    [themeWindow makeKeyAndVisible];
-    BOOL status = [self ll_application:application didFinishLaunchingWithOptions:launchOptions];
-    return status;
-}
-
-@end
-#endif
