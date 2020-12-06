@@ -144,7 +144,7 @@ Installation
 
 ### Manually
 1. Download all the files in the LLdark subdirectory.
-2. Add (drag and drop) the LLDark folder in the LLDark project to your project.
+2. Add (drag and drop) the LLDark folder to your project.
 3. Import LLDark.h.
 
 Requirements
@@ -323,7 +323,7 @@ Tips:
 
 ### 手动安装
 1. 下载 LLDark 文件夹内的所有内容。
-2. 将 LLDark 工程中的LLDark文件夹添加(拖放)到你的工程。
+2. 将LLDark文件夹添加(拖放)到你的工程。
 3. 导入 "LLDark.h"。
 
 系统要求
