@@ -282,6 +282,9 @@ static char * const ll_darkImageName_identifier = "ll_darkImageName_identifier";
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         NSArray *t_arry = [NSUserDefaults.standardUserDefaults objectForKey:@"ll_imageAssets"];
+#if DEBUG
+        t_arry = nil;
+#endif
         if (t_arry) {
             _imageAssets = [NSMutableSet setWithArray:t_arry];
         } else {
@@ -296,6 +299,9 @@ static char * const ll_darkImageName_identifier = "ll_darkImageName_identifier";
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         NSArray *t_arry = [NSUserDefaults.standardUserDefaults objectForKey:@"ll_imageFiles"];
+#if DEBUG
+        t_arry = nil;
+#endif
         if (t_arry) {
             _imageFiles = [NSMutableSet setWithArray:t_arry];
         } else {
@@ -310,6 +316,9 @@ static char * const ll_darkImageName_identifier = "ll_darkImageName_identifier";
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         NSDictionary *t_dict = [NSUserDefaults.standardUserDefaults objectForKey:@"ll_imageNameFiles"];
+#if DEBUG
+        t_dict = nil;
+#endif
         if (t_dict) {
             _imageNameFiles = [t_dict mutableCopy];
         } else {

@@ -27,6 +27,7 @@
             _oldUserInterfaceStyle = (LLUserInterfaceStyle)UITraitCollection.currentTraitCollection.userInterfaceStyle;
             _userInterfaceStyle = _oldUserInterfaceStyle;
         });
+        [LLLaunchScreen initialization];
     }
 }
 

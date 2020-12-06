@@ -8,6 +8,7 @@
 #import "AppDelegate.h"
 
 #import "ViewController.h"
+#import "OttoFPSButton.h"
 
 @interface AppDelegate ()
 
@@ -26,6 +27,9 @@
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
         self.window.rootViewController = nav;
         [self.window makeKeyAndVisible];
+
+        OttoFPSButton *btn = [OttoFPSButton setTouchWithFrame:CGRectMake(0, 44, 80, 30) titleFont:[UIFont systemFontOfSize:15.0] backgroundColor:[UIColor colorWithWhite:0.0 alpha:0.7] backgroundImage:nil];
+        [self.window addSubview:btn];
     }
     return YES;
 }

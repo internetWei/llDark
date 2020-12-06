@@ -282,8 +282,9 @@ else if (size <= 4 * _size_ ) { \
                 // 是否大于265 byte?
                 struct dummy {char tmp;};
                 for (int i = 0; i < size; i++) va_arg(args, struct dummy);
-                NSString *tips = [NSString stringWithFormat:@"ll_performSelectorWithArgs不支持的类型:%s (%lu bytes)", [sig getArgumentTypeAtIndex:index], (unsigned long)size];
-                NSAssert(NO, tips);
+                NSLog(@"ll_performSelectorWithArgs不支持的类型:%s (%lu bytes)",
+                      [sig getArgumentTypeAtIndex:index],(unsigned long)size);
+                NSAssert(NO, nil);
             }
 #undef case_size
         }

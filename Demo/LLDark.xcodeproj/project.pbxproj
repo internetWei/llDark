@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6A1CA934257A8B490016D59B /* webImage2.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A1CA932257A8B490016D59B /* webImage2.png */; };
 		6A1CA935257A8B490016D59B /* webImage1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A1CA933257A8B490016D59B /* webImage1.png */; };
+		6A290188257CACDA00C97340 /* OttoFPSButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A290187257CACDA00C97340 /* OttoFPSButton.m */; };
 		6A438430257A4C9F000B6A59 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A43842F257A4C9F000B6A59 /* AppDelegate.m */; };
 		6A438433257A4C9F000B6A59 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A438432257A4C9F000B6A59 /* SceneDelegate.m */; };
 		6A438436257A4C9F000B6A59 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A438435257A4C9F000B6A59 /* ViewController.m */; };
@@ -49,6 +50,8 @@
 /* Begin PBXFileReference section */
 		6A1CA932257A8B490016D59B /* webImage2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = webImage2.png; sourceTree = "<group>"; };
 		6A1CA933257A8B490016D59B /* webImage1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = webImage1.png; sourceTree = "<group>"; };
+		6A290186257CACDA00C97340 /* OttoFPSButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttoFPSButton.h; sourceTree = "<group>"; };
+		6A290187257CACDA00C97340 /* OttoFPSButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttoFPSButton.m; sourceTree = "<group>"; };
 		6A43842B257A4C9F000B6A59 /* LLDark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LLDark.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A43842E257A4C9F000B6A59 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6A43842F257A4C9F000B6A59 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -125,6 +128,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6A290185257CACDA00C97340 /* OttoFPSButton */ = {
+			isa = PBXGroup;
+			children = (
+				6A290186257CACDA00C97340 /* OttoFPSButton.h */,
+				6A290187257CACDA00C97340 /* OttoFPSButton.m */,
+			);
+			path = OttoFPSButton;
+			sourceTree = "<group>";
+		};
 		6A438422257A4C9F000B6A59 = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +156,7 @@
 		6A43842D257A4C9F000B6A59 /* LLDark */ = {
 			isa = PBXGroup;
 			children = (
+				6A290185257CACDA00C97340 /* OttoFPSButton */,
 				6A438592257A51D2000B6A59 /* Resource */,
 				6A438540257A50DC000B6A59 /* LLDark */,
 				6A43842E257A4C9F000B6A59 /* AppDelegate.h */,
@@ -312,6 +325,7 @@
 				6A43856E257A50DF000B6A59 /* NSMutableDictionary+Refresh.m in Sources */,
 				6A43856F257A50DF000B6A59 /* LLDarkManager.m in Sources */,
 				6A43857C257A50DF000B6A59 /* UIViewController+Refresh.m in Sources */,
+				6A290188257CACDA00C97340 /* OttoFPSButton.m in Sources */,
 				6A438575257A50DF000B6A59 /* CATextLayer+Dark.m in Sources */,
 				6A438578257A50DF000B6A59 /* NSObject+Dark.m in Sources */,
 				6A438577257A50DF000B6A59 /* UIImage+Dark.m in Sources */,
