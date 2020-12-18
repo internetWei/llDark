@@ -40,7 +40,6 @@ static char * const ll_theme_darkColor_identifier = "ll_theme_darkColor_identifi
         
         if (!darkColor) darkColor = self.darkColor;
         if (!darkColor) darkColor = LLDarkSource.darkColorForKey(lightColor);
-        if (!darkColor) darkColor = lightColor;
         
         return UIColor.dynamicThemeColor(lightColor, darkColor);
     };
@@ -52,8 +51,10 @@ static char * const ll_theme_darkColor_identifier = "ll_theme_darkColor_identifi
     };
 }
 
-+ (UIColor * (^) (UIColor *lightColor, UIColor *darkColor))dynamicThemeColor {
-    return ^(UIColor *lightColor, UIColor *darkColor) {
++ (UIColor * (^) (UIColor *lightColor, UIColor * _Nullable darkColor))dynamicThemeColor {
+    return ^(UIColor *lightColor, UIColor * _Nullable darkColor) {
+        
+        if (!darkColor) return (UIColor *)lightColor;
         
         lightColor = lightColor.deepColor;
         darkColor = darkColor.deepColor;
@@ -64,7 +65,7 @@ static char * const ll_theme_darkColor_identifier = "ll_theme_darkColor_identifi
         darkColor.lightColor = lightColor;
         darkColor.darkColor = darkColor;
         
-        return correctObj(lightColor, darkColor);
+        return (UIColor *)correctObj(lightColor, darkColor);
     };
 }
 
