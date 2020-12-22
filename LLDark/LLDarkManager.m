@@ -37,7 +37,9 @@ static NSString * const ll_user_theme_identifier = @"ll_user_theme_identifier";
         UIWindow *darkWindow = [LLDarkWindow sharedInstance];
         if (@available(iOS 13.0, *)) {
             UIScene *scene = UIApplication.sharedApplication.connectedScenes.anyObject;
-            darkWindow.windowScene = (UIWindowScene *)scene;
+            if (scene) {            
+                darkWindow.windowScene = (UIWindowScene *)scene;
+            }
         }
         [darkWindow setRootViewController:[UIViewController new]];
         [darkWindow makeKeyAndVisible];
