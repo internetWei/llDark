@@ -18,6 +18,10 @@
 @implementation LLDarkWindow
 
 + (void)load {
+    if (@available(iOS 13.0, *)) {
+        _oldUserInterfaceStyle = (LLUserInterfaceStyle)UITraitCollection.currentTraitCollection.userInterfaceStyle;
+        _userInterfaceStyle = _oldUserInterfaceStyle;
+    }
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(didFinishLaunching) name:UIApplicationDidFinishLaunchingNotification object:nil];
 }
 
