@@ -33,6 +33,21 @@
         });
         [LLLaunchScreen initialization];
     }
+
+    UIWindow *darkWindow = [self sharedInstance];
+    if (@available(iOS 13.0, *)) {
+        UIScene *scene = UIApplication.sharedApplication.connectedScenes.anyObject;
+        if (scene) {
+            darkWindow.windowScene = (UIWindowScene *)scene;
+        }
+    }
+    [darkWindow setRootViewController:[UIViewController new]];
+    [darkWindow makeKeyAndVisible];
+    for (UIWindow *window in UIApplication.sharedApplication.windows) {
+        if (window.hidden == NO && window != darkWindow) {
+            [window makeKeyWindow];
+        }
+    }
 }
 
 + (instancetype)sharedInstance {
