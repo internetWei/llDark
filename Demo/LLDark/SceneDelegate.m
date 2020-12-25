@@ -29,7 +29,7 @@
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
 
-    OttoFPSButton *btn = [OttoFPSButton setTouchWithFrame:CGRectMake(0, 44, 80, 30) titleFont:[UIFont systemFontOfSize:15.0] backgroundColor:[UIColor colorWithWhite:0.0 alpha:0.7] backgroundImage:nil];
+    OttoFPSButton *btn = [OttoFPSButton setTouchWithFrame:CGRectMake(UIScreen.mainScreen.bounds.size.width - 80, 44, 80, 30) titleFont:[UIFont systemFontOfSize:15.0] backgroundColor:[UIColor colorWithWhite:0.0 alpha:0.7] backgroundImage:nil];
     [self.window addSubview:btn];
 }
 
