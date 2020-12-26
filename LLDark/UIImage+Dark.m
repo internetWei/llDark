@@ -337,4 +337,62 @@ static char * const ll_darkImageName_identifier = "ll_darkImageName_identifier";
 #endif
 }
 
+/// 获取图片上某个点的颜色值(不包含alpha)。
++ (nullable NSArray<NSNumber *> *)pixelColorFromImage:(UIImage *)image point:(CGPoint)point {
+    // 判断点是否超出图像范围
+    if (!CGRectContainsPoint(CGRectMake(0, 0, image.size.width, image.size.height), point)) return nil;
+    
+    // 将像素绘制到一个1×1像素字节数组和位图上下文。
+    NSInteger pointX = trunc(point.x);
+    NSInteger pointY = trunc(point.y);
+    CGImageRef cgImage = image.CGImage;
+    CGFloat width = image.size.width;
+    CGFloat height = image.size.height;
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    int bytesPerPixel = 4;
+    int bytesPerRow = bytesPerPixel * 1;
+    NSUInteger bitsPerComponent = 8;
+    unsigned char pixelData[4] = {0, 0, 0, 0};
+    CGContextRef context = CGBitmapContextCreate(pixelData, 1, 1, bitsPerComponent, bytesPerRow, colorSpace, kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big);
+    CGColorSpaceRelease(colorSpace);
+    CGContextSetBlendMode(context, kCGBlendModeCopy);
+    
+    // 将指定像素绘制到上下文中
+    CGContextTranslateCTM(context, -pointX, pointY - height);
+    CGContextDrawImage(context, CGRectMake(0.0f, 0.0f, width, height), cgImage);
+    CGContextRelease(context);
+    
+    CGFloat red = (CGFloat)pixelData[0];
+    CGFloat green = (CGFloat)pixelData[1];
+    CGFloat blue = (CGFloat)pixelData[2];
+    return @[@(red), @(green), @(blue)];
+}
+
+- (BOOL)hasDarkImage {
+    // 获取图片右上角1×1像素点的颜色值。
+    NSArray<NSNumber *> *RGBArr = [UIImage pixelColorFromImage:self point:CGPointMake(self.size.width - 1, 1)];
+    
+    CGFloat max = [RGBArr.firstObject floatValue];
+    
+    // 找到颜色的最大值
+    for (NSNumber *number in RGBArr) {
+        if (max < [number floatValue]) {
+            max = [number floatValue];
+        }
+    }
+    
+    // 判断如果其他颜色小于最大值且差值在10以内则是暗色，并且最大值需小于190。
+    if (max >= 190) {
+        return NO;
+    }
+    
+    for (NSNumber *number in RGBArr) {
+        if ([number floatValue] + 10 < max) {
+            return NO;
+        }
+    }
+    
+    return YES;
+}
+
 @end

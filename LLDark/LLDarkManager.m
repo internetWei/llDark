@@ -14,6 +14,8 @@
 #import "NSObject+Dark.h"
 #import "NSObject+Refresh.h"
 
+#import <objc/runtime.h>
+
 /// APP主题模式存储标识符
 static NSString * const ll_user_theme_identifier = @"ll_user_theme_identifier";
 
@@ -107,6 +109,9 @@ static LLUserInterfaceStyle _userInterfaceStyle;
 }
 
 + (void)setUserInterfaceStyle:(LLUserInterfaceStyle)userInterfaceStyle {
+    /// ⓪.初始化启动图
+    [LLLaunchScreen initialization];
+    
     /// 判断LLUserInterfaceStyle是否合适。
     if (UIDevice.currentDevice.systemVersion.floatValue < 13.0 &&
         userInterfaceStyle == LLUserInterfaceStyleUnspecified) {
@@ -155,6 +160,14 @@ static LLUserInterfaceStyle _userInterfaceStyle;
     } else {
         return [self isDarkMode:kNilOptions];
     }
+}
+
++ (void)setLaunchScreenName:(NSString *)launchScreenName {
+    objc_setAssociatedObject(self, @selector(launchScreenName), launchScreenName, OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+
++ (NSString *)launchScreenName {
+    return objc_getAssociatedObject(self, @selector(launchScreenName));
 }
 
 + (LLUserInterfaceStyle)systemInterfaceStyle {

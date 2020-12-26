@@ -42,6 +42,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// YES：是主题图片，NO：不是主题图片。
 @property (nonatomic, readonly) BOOL isTheme;
 
+/// YES：是深色系图片，NO：是浅色系图片
+@property (nonatomic, readonly) BOOL hasDarkImage;
+
 /// 传递指定模式，并返回模式下对应的UIImage。
 - (UIImage * (^) (LLUserInterfaceStyle))resolvedImage;
 

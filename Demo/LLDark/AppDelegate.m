@@ -18,6 +18,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    NSLog(@"沙盒路径:%@", NSHomeDirectory());
     sleep(2);
     if (@available(iOS 13.0, *)) {} else {
         self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];

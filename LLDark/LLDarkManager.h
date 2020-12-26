@@ -13,6 +13,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LLDarkManager : NSObject
 
+/// 启动图文件名称，如果是名称LaunchScreen则不用传递。
+@property (nonatomic, class, nullable) NSString *launchScreenName;
+
 /**
  YES表示深色模式，NO表示浅色模式。
  

@@ -58,6 +58,9 @@ static inline NSInteger NSIntegerFromNSString(NSString *string) {
     return [string integerValue];
 }
 
+#define CGSizeMultiply(size, scale) \
+CGSizeMake(size.width * scale, size.height * scale)
+
 /// 获取APP的主要Window
 static inline UIWindow * currentWindow(void) {
     if (@available(iOS 13.0, *)) {
