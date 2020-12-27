@@ -141,7 +141,7 @@ static LLUserInterfaceStyle _userInterfaceStyle;
         [NSNotificationCenter.defaultCenter postNotificationName:ThemeDidChangeNotification object:@(userInterfaceStyle)];
         
         /// ④.修改启动图的主题模式
-        [LLLaunchScreen modifyLaunchScreen];
+        [LLLaunchScreen launchImageAdaptation];
     });
 }
 
@@ -176,6 +176,38 @@ static LLUserInterfaceStyle _userInterfaceStyle;
 
 + (BOOL)isSystemDarkMode {
     return (self.systemInterfaceStyle == LLUserInterfaceStyleDark);
+}
+
++ (void)setVerticalLightImage:(UIImage *)verticalLightImage {
+    LLLaunchScreen.verticalLightImage = verticalLightImage;
+}
+
++ (UIImage *)verticalLightImage {
+    return LLLaunchScreen.verticalLightImage;
+}
+
++ (void)setVerticalDarkImage:(UIImage *)verticalDarkImage {
+    LLLaunchScreen.verticalDarkImage = verticalDarkImage;
+}
+
++ (UIImage *)verticalDarkImage {
+    return LLLaunchScreen.verticalDarkImage;
+}
+
++ (void)setHorizontalLightImage:(UIImage *)horizontalLightImage {
+    LLLaunchScreen.horizontalLightImage = horizontalLightImage;
+}
+
++ (UIImage *)horizontalLightImage {
+    return LLLaunchScreen.horizontalLightImage;
+}
+
++ (void)setHorizontalDarkImage:(UIImage *)horizontalDarkImage {
+    LLLaunchScreen.horizontalDarkImage = horizontalDarkImage;
+}
+
++ (UIImage *)horizontalDarkImage {
+    return LLLaunchScreen.horizontalDarkImage;
 }
 
 @end

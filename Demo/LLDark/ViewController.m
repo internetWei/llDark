@@ -46,6 +46,17 @@
     }
 }
 
+- (void)changeLaunchImage {
+    NSString *path = [NSBundle.mainBundle pathForResource:@"customDarkImage" ofType:@".ktx"];
+    UIImage *image = [UIImage imageWithContentsOfFile:path];
+    LLDarkManager.verticalDarkImage = image;
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"深色启动图已修改，请切换到深色模式并重启" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
+    [alert addAction:cancelAction];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -107,12 +118,20 @@
     [systemButton addTarget:self action:@selector(systemEvent) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:systemButton];
     systemButton.frame = CGRectMake(CGRectGetMaxX(darkButton.frame) + 30.0, CGRectGetMinY(lightButton.frame), buttonWidth, 35.0);
+    
+    UIButton *changeLaunchScreen = [UIButton buttonWithType:UIButtonTypeSystem];
+    changeLaunchScreen.backgroundColor = kBlackColor;
+    [changeLaunchScreen setTitle:@"改变深色主题启动图" forState:UIControlStateNormal];
+    [changeLaunchScreen setTitleColor:kWhiteColor forState:UIControlStateNormal];
+    [changeLaunchScreen addTarget:self action:@selector(changeLaunchImage) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:changeLaunchScreen];
+    changeLaunchScreen.frame = CGRectMake(CGRectGetMinX(lightButton.frame), CGRectGetMaxY(systemButton.frame) + 20.0, screenWidth - 2 * 30.0, 35.0);
 
     UIImageView *imageView1 = [[UIImageView alloc] init];
     imageView1.backgroundColor = self.view.backgroundColor;
     imageView1.image = [UIImage themeImage:@"background_light"];
     [self.view addSubview:imageView1];
-    imageView1.frame = CGRectMake(30.0, CGRectGetMaxY(systemButton.frame) + 10.0, screenWidth - 2 * 30.0, (screenWidth - 2 * 30.0) / 3.0);
+    imageView1.frame = CGRectMake(30.0, CGRectGetMaxY(changeLaunchScreen.frame) + 10.0, screenWidth - 2 * 30.0, (screenWidth - 2 * 30.0) / 3.0);
 
     UILabel *imageView1Label = [[UILabel alloc] init];
     imageView1Label.text = @"本地图片";
@@ -207,6 +226,8 @@
     [attr insertAttributedString:t_attr atIndex:5];
     
     textLabel.attributedText = attr;
+    
+    
 }
 
 @end

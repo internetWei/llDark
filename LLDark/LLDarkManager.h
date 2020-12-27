@@ -5,7 +5,7 @@
 //  Created by LL on 2020/11/17.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 #import "LLDarkConfig.h"
 
@@ -15,6 +15,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 启动图文件名称，如果是名称LaunchScreen则不用传递。
 @property (nonatomic, class, nullable) NSString *launchScreenName;
+
+/// 设置此属性将会替换竖屏浅色启动图
+@property (nonatomic, class, nullable) UIImage *verticalLightImage;
+
+/// 设置此属性将会替换竖屏深色启动图
+@property (nonatomic, class, nullable) UIImage *verticalDarkImage;
+
+/// 设置此属性将会替换横屏浅色启动图
+@property (nonatomic, class, nullable) UIImage *horizontalLightImage;
+
+/// 设置此属性将会替换横屏深色启动图
+@property (nonatomic, class, nullable) UIImage *horizontalDarkImage;
 
 /**
  YES表示深色模式，NO表示浅色模式。

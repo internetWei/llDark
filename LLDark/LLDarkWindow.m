@@ -22,10 +22,10 @@
         _oldUserInterfaceStyle = (LLUserInterfaceStyle)UITraitCollection.currentTraitCollection.userInterfaceStyle;
         _userInterfaceStyle = _oldUserInterfaceStyle;
     }
-    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(didFinishLaunching) name:UIApplicationDidFinishLaunchingNotification object:nil];
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(didBecomeActive) name:UIApplicationDidBecomeActiveNotification object:nil];
 }
 
-+ (void)didFinishLaunching {
++ (void)didBecomeActive {
     if (@available(iOS 13.0, *)) {
         ll_CodeSync({
             _oldUserInterfaceStyle = (LLUserInterfaceStyle)UITraitCollection.currentTraitCollection.userInterfaceStyle;
@@ -47,6 +47,7 @@
             [window makeKeyWindow];
         }
     }
+    [NSNotificationCenter.defaultCenter removeObserver:self name:UIApplicationDidBecomeActiveNotification object:nil];
 }
 
 + (instancetype)sharedInstance {
