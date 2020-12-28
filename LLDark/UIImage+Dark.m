@@ -338,16 +338,16 @@ static char * const ll_darkImageName_identifier = "ll_darkImageName_identifier";
 }
 
 /// 获取图片上某个点的颜色值(不包含alpha)。
-+ (nullable NSArray<NSNumber *> *)pixelColorFromImage:(UIImage *)image point:(CGPoint)point {
+- (nullable NSArray<NSNumber *> *)pixelColorFromPoint:(CGPoint)point {
     // 判断点是否超出图像范围
-    if (!CGRectContainsPoint(CGRectMake(0, 0, image.size.width, image.size.height), point)) return nil;
+    if (!CGRectContainsPoint(CGRectMake(0, 0, self.size.width, self.size.height), point)) return nil;
     
     // 将像素绘制到一个1×1像素字节数组和位图上下文。
     NSInteger pointX = trunc(point.x);
     NSInteger pointY = trunc(point.y);
-    CGImageRef cgImage = image.CGImage;
-    CGFloat width = image.size.width;
-    CGFloat height = image.size.height;
+    CGImageRef cgImage = self.CGImage;
+    CGFloat width = self.size.width;
+    CGFloat height = self.size.height;
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
     int bytesPerPixel = 4;
     int bytesPerRow = bytesPerPixel * 1;
@@ -370,7 +370,7 @@ static char * const ll_darkImageName_identifier = "ll_darkImageName_identifier";
 
 - (BOOL)hasDarkImage {
     // 获取图片右上角1×1像素点的颜色值。
-    NSArray<NSNumber *> *RGBArr = [UIImage pixelColorFromImage:self point:CGPointMake(self.size.width - 1, 1)];
+    NSArray<NSNumber *> *RGBArr = [self pixelColorFromPoint:CGPointMake(self.size.width - 1, 1)];
     
     CGFloat max = [RGBArr.firstObject floatValue];
     

@@ -222,16 +222,34 @@ static NSString * const nameMapppingIdentifier = @"nameMapppingIdentifier";
             if (@available(iOS 13.0, *)) {
                 // 判断是横图还是竖图
                 if (tmpImage.size.width < tmpImage.size.height) {// 竖图
-                    if (tmpImage.hasDarkImage) {// 深色竖图
-                        [nameMappping setObject:name forKey:verticalDarkName];
-                    } else {// 浅色竖图
-                        [nameMappping setObject:name forKey:verticalLightName];
+                    if (_hasDarkImageBlock) {// 用户实现了自定义深色图片校验
+                        BOOL hasDark = _hasDarkImageBlock(tmpImage);
+                        if (hasDark) {
+                            [nameMappping setObject:name forKey:verticalDarkName];
+                        } else {
+                            [nameMappping setObject:name forKey:verticalLightName];
+                        }
+                    } else {
+                        if (tmpImage.hasDarkImage) {// 深色竖图
+                            [nameMappping setObject:name forKey:verticalDarkName];
+                        } else {// 浅色竖图
+                            [nameMappping setObject:name forKey:verticalLightName];
+                        }
                     }
                 } else {// 横图
-                    if (tmpImage.hasDarkImage) {// 深色横图
-                        [nameMappping setObject:name forKey:horizontalDarkName];
-                    } else {// 浅色横图
-                        [nameMappping setObject:name forKey:horizontalLightName];
+                    if (_hasDarkImageBlock) {
+                        BOOL hasDark = _hasDarkImageBlock(tmpImage);
+                        if (hasDark) {
+                            [nameMappping setObject:name forKey:horizontalDarkName];
+                        } else {
+                            [nameMappping setObject:name forKey:horizontalLightName];
+                        }
+                    } else {
+                        if (tmpImage.hasDarkImage) {// 深色横图
+                            [nameMappping setObject:name forKey:horizontalDarkName];
+                        } else {// 浅色横图
+                            [nameMappping setObject:name forKey:horizontalLightName];
+                        }
                     }
                 }
             } else {
@@ -556,6 +574,15 @@ static NSString *_launchScreenName;
 
 + (NSString *)launchScreenName {
     return _launchScreenName;
+}
+
+static BOOL (^_hasDarkImageBlock) (UIImage *image);
++ (void)setHasDarkImageBlock:(BOOL (^)(UIImage * _Nonnull))hasDarkImageBlock {
+    _hasDarkImageBlock = hasDarkImageBlock;
+}
+
++ (BOOL (^)(UIImage * _Nonnull))hasDarkImageBlock {
+    return _hasDarkImageBlock;
 }
 
 @end

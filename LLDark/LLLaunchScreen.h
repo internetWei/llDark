@@ -14,6 +14,14 @@ NS_ASSUME_NONNULL_BEGIN
 /// 启动图文件名称，如果是名称LaunchScreen则不用传递。
 @property (nonatomic, class, nullable) NSString *launchScreenName;
 
+/**
+ 自定义暗黑启动图校验
+ 
+ @discussion 默认情况下，通过获取图片右上角1×1像素单位的RGB值来判断该图片是不是暗黑系图片。
+ 如果实现了此方法，返回YES表示该图片是暗黑系图片，可以参考pixelColorFromPoint属性。
+ */
+@property (nonatomic, class) BOOL (^hasDarkImageBlock) (UIImage *image);
+
 /// 竖屏浅色启动图
 @property (nonatomic, class, nullable) UIImage *verticalLightImage;
 

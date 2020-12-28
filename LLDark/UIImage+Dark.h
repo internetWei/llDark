@@ -51,6 +51,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 传入图片的饱合度，在子线程中生成一张新饱合度的图片并在主线程中返回。
 - (void)darkImage:(void (^) (UIImage *darkImage))complete saturation:(CGFloat)value;
 
+/// 获取图片上某个点的RGB值(不包含alpha)。
+- (nullable NSArray<NSNumber *> *)pixelColorFromPoint:(CGPoint)point;
+
 @end
 
 NS_ASSUME_NONNULL_END
