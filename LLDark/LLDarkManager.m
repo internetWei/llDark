@@ -14,8 +14,6 @@
 #import "NSObject+Dark.h"
 #import "NSObject+Refresh.h"
 
-#import <objc/runtime.h>
-
 /// APP主题模式存储标识符
 static NSString * const ll_user_theme_identifier = @"ll_user_theme_identifier";
 
@@ -162,52 +160,12 @@ static LLUserInterfaceStyle _userInterfaceStyle;
     }
 }
 
-+ (void)setLaunchScreenName:(NSString *)launchScreenName {
-    objc_setAssociatedObject(self, @selector(launchScreenName), launchScreenName, OBJC_ASSOCIATION_COPY_NONATOMIC);
-}
-
-+ (NSString *)launchScreenName {
-    return objc_getAssociatedObject(self, @selector(launchScreenName));
-}
-
 + (LLUserInterfaceStyle)systemInterfaceStyle {
     return LLDarkWindow.userInterfaceStyle;
 }
 
 + (BOOL)isSystemDarkMode {
     return (self.systemInterfaceStyle == LLUserInterfaceStyleDark);
-}
-
-+ (void)setVerticalLightImage:(UIImage *)verticalLightImage {
-    LLLaunchScreen.verticalLightImage = verticalLightImage;
-}
-
-+ (UIImage *)verticalLightImage {
-    return LLLaunchScreen.verticalLightImage;
-}
-
-+ (void)setVerticalDarkImage:(UIImage *)verticalDarkImage {
-    LLLaunchScreen.verticalDarkImage = verticalDarkImage;
-}
-
-+ (UIImage *)verticalDarkImage {
-    return LLLaunchScreen.verticalDarkImage;
-}
-
-+ (void)setHorizontalLightImage:(UIImage *)horizontalLightImage {
-    LLLaunchScreen.horizontalLightImage = horizontalLightImage;
-}
-
-+ (UIImage *)horizontalLightImage {
-    return LLLaunchScreen.horizontalLightImage;
-}
-
-+ (void)setHorizontalDarkImage:(UIImage *)horizontalDarkImage {
-    LLLaunchScreen.horizontalDarkImage = horizontalDarkImage;
-}
-
-+ (UIImage *)horizontalDarkImage {
-    return LLLaunchScreen.horizontalDarkImage;
 }
 
 @end

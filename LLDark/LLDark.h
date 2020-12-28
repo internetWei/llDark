@@ -17,6 +17,7 @@
 #import <LLDark/UIImage+Dark.h>
 #import <LLDark/UIView+Dark.h>
 #import <LLDark/LLDarkSource.h>
+#import <LLDark/LLLaunchScreen.h>
 
 #else
 
@@ -27,6 +28,7 @@
 #import "UIImage+Dark.h"
 #import "UIView+Dark.h"
 #import "LLDarkSource.h"
+#import "LLLaunchScreen.h"
 
 #endif
 

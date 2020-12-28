@@ -51,8 +51,8 @@ static NSString * const nameMapppingIdentifier = @"nameMapppingIdentifier";
     }
     
     NSString *launchScreenName = @"LaunchScreen";
-    if (LLDarkManager.launchScreenName.length > 0) {
-        launchScreenName = LLDarkManager.launchScreenName;
+    if (LLLaunchScreen.launchScreenName.length > 0) {
+        launchScreenName = LLLaunchScreen.launchScreenName;
     }
     
     /*-------1.生成启动图资源-------*/
@@ -462,6 +462,10 @@ static NSString * const nameMapppingIdentifier = @"nameMapppingIdentifier";
         [data writeToFile:verticalLightPath atomically:YES];
         [self replaceLaunchImage:data toImageName:verticalLightName];
     } else {
+        NSString *localPath = [self launchImageBackupPath];
+        NSString *fullPath = [localPath stringByAppendingPathComponent:[verticalLightName stringByAppendingString:@".png"]];
+        NSData *data = [NSData dataWithContentsOfFile:fullPath];
+        [self replaceLaunchImage:data toImageName:verticalLightName];
         [NSFileManager.defaultManager removeItemAtPath:verticalLightPath error:nil];
     }
 }
@@ -482,6 +486,10 @@ static NSString * const nameMapppingIdentifier = @"nameMapppingIdentifier";
         [data writeToFile:verticalDarkPath atomically:YES];
         [self replaceLaunchImage:data toImageName:verticalDarkName];
     } else {
+        NSString *localPath = [self launchImageBackupPath];
+        NSString *fullPath = [localPath stringByAppendingPathComponent:[verticalDarkName stringByAppendingString:@".png"]];
+        NSData *data = [NSData dataWithContentsOfFile:fullPath];
+        [self replaceLaunchImage:data toImageName:verticalDarkName];
         [NSFileManager.defaultManager removeItemAtPath:verticalDarkPath error:nil];
     }
 }
@@ -502,6 +510,10 @@ static NSString * const nameMapppingIdentifier = @"nameMapppingIdentifier";
         [data writeToFile:horizontalLightPath atomically:YES];
         [self replaceLaunchImage:data toImageName:horizontalLightName];
     } else {
+        NSString *localPath = [self launchImageBackupPath];
+        NSString *fullPath = [localPath stringByAppendingPathComponent:[horizontalLightName stringByAppendingString:@".png"]];
+        NSData *data = [NSData dataWithContentsOfFile:fullPath];
+        [self replaceLaunchImage:data toImageName:horizontalLightName];
         [NSFileManager.defaultManager removeItemAtPath:horizontalLightPath error:nil];
     }
 }
@@ -522,6 +534,10 @@ static NSString * const nameMapppingIdentifier = @"nameMapppingIdentifier";
         [data writeToFile:horizontalDarkPath atomically:YES];
         [self replaceLaunchImage:data toImageName:horizontalDarkName];
     } else {
+        NSString *localPath = [self launchImageBackupPath];
+        NSString *fullPath = [localPath stringByAppendingPathComponent:[horizontalDarkName stringByAppendingString:@".png"]];
+        NSData *data = [NSData dataWithContentsOfFile:fullPath];
+        [self replaceLaunchImage:data toImageName:horizontalDarkName];
         [NSFileManager.defaultManager removeItemAtPath:horizontalDarkPath error:nil];
     }
 }
@@ -531,6 +547,15 @@ static NSString * const nameMapppingIdentifier = @"nameMapppingIdentifier";
     NSString *horizontalDarkPath = [localPath stringByAppendingPathComponent:[horizontalDarkName stringByAppendingString:@".png"]];
     
     return [UIImage imageWithContentsOfFile:horizontalDarkPath];
+}
+
+static NSString *_launchScreenName;
++ (void)setLaunchScreenName:(NSString *)launchScreenName {
+    _launchScreenName = launchScreenName;
+}
+
++ (NSString *)launchScreenName {
+    return _launchScreenName;
 }
 
 @end
