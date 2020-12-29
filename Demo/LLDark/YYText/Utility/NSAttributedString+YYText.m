@@ -1187,7 +1187,7 @@ return style. _attr_;
 }
 
 - (void)yy_setCharacterShape:(NSNumber *)characterShape range:(NSRange)range {
-    [self yy_setAttribute:(id)kCTCharacterShapeAttributeName value:characterShape range:range];
+//    [self yy_setAttribute:(id)kCTCharacterShapeAttributeName value:characterShape range:range];
 }
 
 - (void)yy_setRunDelegate:(CTRunDelegateRef)runDelegate range:(NSRange)range {
