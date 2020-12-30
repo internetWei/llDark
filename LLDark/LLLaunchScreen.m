@@ -108,22 +108,35 @@ static NSString * const nameMapppingIdentifier = @"nameMapppingIdentifier";
     [self createLaunchImageNameMapping];
 }
 
++ (void)restoreLaunchScreeen {
+    NSString *customPath = [self launchImageCustomPath];
+    for (NSString *name in [NSFileManager.defaultManager contentsOfDirectoryAtPath:customPath error:nil]) {
+        NSString *fullPath = [customPath stringByAppendingPathComponent:name];
+        [NSFileManager.defaultManager removeItemAtPath:fullPath error:nil];
+    }
+    
+    for (NSString *name in @[verticalLightName, verticalDarkName, horizontalLightName, horizontalDarkName]) {
+        [self replaceLaunchImage:name restore:YES];
+    }
+}
+
 + (void)launchImageAdaptation {
-    NSMutableArray *pathArray;
+    NSArray *pathArray;
     switch (LLDarkManager.userInterfaceStyle) {
         case LLUserInterfaceStyleUnspecified:
         {
-            pathArray = [NSMutableArray arrayWithObjects:verticalLightName, verticalDarkName, horizontalLightName, horizontalDarkName, nil];
+            
+            pathArray = @[verticalLightName, verticalDarkName, horizontalLightName, horizontalDarkName];
         }
             break;
         case LLUserInterfaceStyleLight:
         {
-            pathArray = [NSMutableArray arrayWithObjects:verticalLightName, horizontalLightName, nil];
+            pathArray = @[verticalLightName, horizontalLightName];
         }
             break;
         case LLUserInterfaceStyleDark:
         {
-            pathArray = [NSMutableArray arrayWithObjects:verticalDarkName, horizontalDarkName, nil];
+            pathArray = @[verticalDarkName, horizontalDarkName];
         }
             break;
     }
@@ -143,6 +156,13 @@ static NSString * const nameMapppingIdentifier = @"nameMapppingIdentifier";
     UIImage *replaceImage = [UIImage imageWithContentsOfFile:fullPath];
     
     if (!replaceImage) return;
+    
+    if ([name isEqualToString:verticalLightName] ||
+        [name isEqualToString:verticalDarkName]) {
+        replaceImage = [self resizeImage:replaceImage toPortraitScreenSize:YES];
+    } else {
+        replaceImage = [self resizeImage:replaceImage toPortraitScreenSize:NO];
+    }
     
     // 检查图片尺寸是否等同屏幕分辨率
     if (![self checkImageMatchScreenSize:replaceImage]) return;
@@ -438,7 +458,50 @@ static NSString * const nameMapppingIdentifier = @"nameMapppingIdentifier";
     return NO;
 }
 
+/// 将图片强行转换为某个尺寸
++ (UIImage *)resizeImage:(UIImage *)image toPortraitScreenSize:(BOOL)isPortrait {
+    CGSize imageSize = CGSizeApplyAffineTransform(image.size,
+                                                  CGAffineTransformMakeScale(image.scale, image.scale));
+    CGSize contextSize = [self contextSizeForPortrait:isPortrait];
+    
+    if (!CGSizeEqualToSize(imageSize, contextSize)) {
+        UIGraphicsBeginImageContext(contextSize);
+        CGFloat ratio = MAX((contextSize.width / image.size.width),
+                            (contextSize.height / image.size.height));
+        CGRect rect = CGRectMake(0, 0, image.size.width * ratio, image.size.height * ratio);
+        [image drawInRect:rect];
+        UIImage* resizedImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        return resizedImage;
+    }
+    
+    return image;
+}
+
++ (CGSize)contextSizeForPortrait:(BOOL)isPortrait {
+    CGFloat screenScale = [UIScreen mainScreen].scale;
+    CGSize screenSize = [UIScreen mainScreen].bounds.size;
+    CGFloat width = MIN(screenSize.width, screenSize.height);;
+    CGFloat height = MAX(screenSize.width, screenSize.height);
+    if (!isPortrait) {
+        width = MAX(screenSize.width, screenSize.height);
+        height = MIN(screenSize.width, screenSize.height);
+    }
+    CGSize contextSize = CGSizeMake(width * screenScale, height * screenScale);
+    return contextSize;
+}
+
 + (void)replaceLaunchImage:(NSData *)data toImageName:(NSString *)imageName {
+    UIImage *replaceImage = [UIImage imageWithData:data];
+    
+    if ([imageName isEqualToString:verticalLightName] ||
+        [imageName isEqualToString:verticalDarkName]) {
+        replaceImage = [self resizeImage:replaceImage toPortraitScreenSize:YES];
+    } else {
+        replaceImage = [self resizeImage:replaceImage toPortraitScreenSize:NO];
+    }
+    data = UIImageJPEGRepresentation(replaceImage, 1.0);
+    
     // 获取系统缓存启动图路径
     NSString *cacheDir = [self launchImageCacheDirectory];
     if (!cacheDir) return;

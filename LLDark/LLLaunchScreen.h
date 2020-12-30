@@ -39,6 +39,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)initialization;
 
+/// 恢复启动图为初始模样，可以解决启动图显示异常的问题。
++ (void)restoreLaunchScreeen;
+
 @end
 
 NS_ASSUME_NONNULL_END

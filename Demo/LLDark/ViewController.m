@@ -51,37 +51,69 @@
     }
 }
 
-- (void)changeLaunchImage {
+- (void)changeDarkVertical {
     if (@available(iOS 13.0, *)) {
-        NSString *path = [NSBundle.mainBundle pathForResource:@"customDarkImage" ofType:@".ktx"];
+        NSString *path = [NSBundle.mainBundle pathForResource:@"customVerticalDarkImage" ofType:@".ktx"];
         UIImage *image = [UIImage imageWithContentsOfFile:path];
         LLLaunchScreen.verticalDarkImage = image;
-        
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"深色启动图已修改，请切换到深色模式并重启" message:nil preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"深色竖屏启动图已修改，请切换到对应模式并重启APP" message:nil preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
+        [alert addAction:cancelAction];
+        [self presentViewController:alert animated:YES completion:nil];
+    } else {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"此功能仅能在iOS13以上系统使用" message:nil preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
         [alert addAction:cancelAction];
         [self presentViewController:alert animated:YES completion:nil];
     }
 }
 
-- (void)changeDarkVertical {
-    
-}
-
 - (void)changeDarkHorizontal {
-    
+    if (@available(iOS 13.0, *)) {
+        NSString *path = [NSBundle.mainBundle pathForResource:@"customHorizontalDarkImage" ofType:@".ktx"];
+        UIImage *image = [UIImage imageWithContentsOfFile:path];
+        LLLaunchScreen.horizontalDarkImage = image;
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"深色横屏启动图已修改，请切换到对应模式并重启APP" message:nil preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
+        [alert addAction:cancelAction];
+        [self presentViewController:alert animated:YES completion:nil];
+    } else {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"此功能仅能在iOS13以上系统使用" message:nil preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
+        [alert addAction:cancelAction];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
 }
 
 - (void)changeLightVertical {
+    NSString *path = [NSBundle.mainBundle pathForResource:@"customVerticaLightImage" ofType:@".ktx"];
+    UIImage *image = [UIImage imageWithContentsOfFile:path];
+    LLLaunchScreen.verticalLightImage = image;
     
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"浅色竖屏启动图已修改，请切换到对应模式并重启APP" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
+    [alert addAction:cancelAction];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)changeLightHorizontal {
+    NSString *path = [NSBundle.mainBundle pathForResource:@"customHorizontalLightImage" ofType:@".ktx"];
+    UIImage *image = [UIImage imageWithContentsOfFile:path];
+    LLLaunchScreen.horizontalLightImage = image;
     
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"浅色横屏启动图已修改，请切换到对应模式并重启APP" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
+    [alert addAction:cancelAction];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)restoreScreen {
+    [LLLaunchScreen restoreLaunchScreeen];
     
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"启动图已恢复至初始化状态，请重启APP" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
+    [alert addAction:cancelAction];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)viewDidLoad {
@@ -264,6 +296,7 @@
     [scrollView addSubview:textLabel];
     textLabel.frame = CGRectMake(30.0, CGRectGetMaxY(layer.frame) + 20.0, screenWidth - 2 * 30.0, 120);
     
+    /*
     NSMutableAttributedString *attr = [[NSMutableAttributedString alloc] initWithString:@"《游子吟》 \n 慈母手中线，游子身上衣。\n 临行密密缝，意恐迟迟归。 \n 谁言寸草心，报得三春晖。" attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:15.0], NSForegroundColorAttributeName : kBlackColor}];
     NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
     style.lineSpacing = 10.0;
@@ -271,6 +304,7 @@
     [attr addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, attr.length)];
     [attr addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:17.0] range:NSMakeRange(0, 4)];
     [attr addAttribute:NSBackgroundColorAttributeName value:UIColor.redColor.themeColor(UIColor.orangeColor) range:NSMakeRange(8, 5)];
+     
     NSShadow *shadow = [[NSShadow alloc] init];
     shadow.shadowColor = UIColor.redColor.themeColor(UIColor.orangeColor);
     shadow.shadowOffset = CGSizeMake(3, 5);
@@ -288,7 +322,35 @@
     attachment.bounds = CGRectMake(0, 0, 18, 18);
     NSAttributedString *t_attr = [NSAttributedString attributedStringWithAttachment:attachment];
     [attr insertAttributedString:t_attr atIndex:5];
+    */
     
+    NSMutableAttributedString *attr = [[NSMutableAttributedString alloc] initWithString:@"《游子吟》 \n 慈母手中线，游子身上衣。\n 临行密密缝，意恐迟迟归。 \n 谁言寸草心，报得三春晖。" attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:15.0], NSForegroundColorAttributeName : kBlackColor}];
+    NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
+    style.lineSpacing = 10.0;
+    style.alignment = NSTextAlignmentCenter;
+    [attr addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, attr.length)];
+    
+    NSMutableAttributedString *attachment = [NSMutableAttributedString yy_attachmentStringWithEmojiImage:[UIImage themeImage:@"durk_light"] fontSize:21.0];
+    [attr insertAttributedString:attachment atIndex:5];
+    
+    [attr addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:21.0] range:NSMakeRange(0, 4)];
+    [attr addAttribute:NSBackgroundColorAttributeName value:UIColor.redColor.themeColor(UIColor.orangeColor) range:NSMakeRange(9, 5)];
+    
+    /*
+     NSString *const YYTextBackedStringAttributeName = @"YYTextBackedString";
+     NSString *const YYTextBindingAttributeName = @"YYTextBinding";
+     
+     NSString *const YYTextShadowAttributeName = @"YYTextShadow";
+     NSString *const YYTextInnerShadowAttributeName = @"YYTextInnerShadow";
+     NSString *const YYTextUnderlineAttributeName = @"YYTextUnderline";
+     NSString *const YYTextStrikethroughAttributeName = @"YYTextStrikethrough";
+     NSString *const YYTextBorderAttributeName = @"YYTextBorder";
+     NSString *const YYTextBackgroundBorderAttributeName = @"YYTextBackgroundBorder";
+     NSString *const YYTextBlockBorderAttributeName = @"YYTextBlockBorder";
+     NSString *const YYTextAttachmentAttributeName = @"YYTextAttachment";
+     NSString *const YYTextHighlightAttributeName = @"YYTextHighlight";
+     */
+        
     textLabel.attributedText = attr;
     
     scrollView.contentSize = CGSizeMake(screenWidth, CGRectGetMaxY(textLabel.frame));
