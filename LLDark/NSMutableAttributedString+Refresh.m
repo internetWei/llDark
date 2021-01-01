@@ -32,7 +32,9 @@
                 if (color.isTheme) {
                     color = color.resolvedColor(userInterfaceStyle);
                     [self addAttribute:key value:color range:range];
-                    [self addAttribute:(id)kCTForegroundColorAttributeName value:color range:range];
+                    if ([key isEqualToString:NSForegroundColorAttributeName]) {
+                        [self addAttribute:(id)kCTForegroundColorAttributeName value:(id)color.CGColor range:range];
+                    }
                 }
                 continue;
             }

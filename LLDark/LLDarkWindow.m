@@ -45,8 +45,12 @@
     for (UIWindow *window in UIApplication.sharedApplication.windows) {
         if (window.hidden == NO && window != darkWindow) {
             [window makeKeyWindow];
+            if (@available(iOS 13.0, *)) {
+                window.overrideUserInterfaceStyle = (UIUserInterfaceStyle)LLDarkManager.userInterfaceStyle;
+            }
         }
     }
+    
     [NSNotificationCenter.defaultCenter removeObserver:self name:UIApplicationDidBecomeActiveNotification object:nil];
 }
 

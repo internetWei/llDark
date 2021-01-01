@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIColor (Dark)
 
-/// 删除主题属性，返回浅色状态下的颜色。
+/// 删除主题属性，并返回浅色状态下的颜色。
 @property (nonatomic, readonly) UIColor *removeTheme;
 
 /**

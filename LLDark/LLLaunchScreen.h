@@ -34,12 +34,13 @@ NS_ASSUME_NONNULL_BEGIN
 /// 横屏深色启动图
 @property (nonatomic, class, nullable) UIImage *horizontalDarkImage API_AVAILABLE(ios(13.0));
 
-/// 适配启动图
+/// 适配主题启动图，在主题切换时调用。
 + (void)launchImageAdaptation;
 
+/// 初始化启动图信息，不会替换任何启动图。
 + (void)initialization;
 
-/// 恢复启动图为初始模样，可以解决启动图显示异常的问题。
+/// 恢复启动图为初始状态，可以解决启动图显示异常的问题。
 + (void)restoreLaunchScreeen;
 
 @end

@@ -126,7 +126,11 @@ static LLUserInterfaceStyle _userInterfaceStyle;
         
         /// ①.修改系统的主题模式
         if (@available(iOS 13.0, *)) {
-            currentWindow().overrideUserInterfaceStyle = (UIUserInterfaceStyle)userInterfaceStyle;
+            for (UIWindow *window in UIApplication.sharedApplication.windows) {
+                if (window.hidden == NO && window != LLDarkWindow.sharedInstance) {
+                    window.overrideUserInterfaceStyle = (UIUserInterfaceStyle)userInterfaceStyle;
+                }
+            }
         }
         
         // ②.刷新当前可见的视图。
