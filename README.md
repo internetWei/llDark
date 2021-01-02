@@ -18,7 +18,7 @@ Features
 
 Demo
 ==============
-![Manual.gif](https://gitee.com/internetWei/llDark/raw/master/Demo/Resouces/manual.gif) ![System.gif](https://gitee.com/internetWei/llDark/raw/master/Demo/Resouces/followSystem.gif) ![Screen.gif](https://gitee.com/internetWei/llDark/raw/master/Demo/Resouces/screenSplace.gif) ![LightVertical.gif](https://gitee.com/internetWei/llDark/raw/master/Demo/Resouces/lightVerticalImage.gif)
+![Manual.gif](https://gitee.com/internetWei/llDark/raw/master/Demo/Resouces/manual.gif) ![System.gif](https://github.com/internetWei/llDark/blob/master/Demo/Resouces/followSystem.gif) ![Screen.gif](https://gitee.com/internetWei/llDark/raw/master/Demo/Resouces/screenSplace.gif) ![LightVertical.gif](https://gitee.com/internetWei/llDark/raw/master/Demo/Resouces/lightVerticalImage.gif)
 
 Usage
 ==============
