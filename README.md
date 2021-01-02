@@ -169,8 +169,7 @@ The project supports iOS 9.0 and Xcode 10.0 at least. If you want to use it on l
 Note
 ==============
 1. LLDark does not modify the style of the status bar, you need to monitor the theme mode to modify the style of the status bar.
-2. Due to system limitations, dark pictures need to be adapted and try not to put them in Assets.xcassets.
-    Sometimes the wrong theme image will be obtained.
+2. The image resources that need to be adapted to the dark theme are not recommended to be placed in `Assets.xcassets`. The test found that the images in NSAttributedString will not be refreshed when the theme is switched (loaded with `imageNamed:`). This is a system bug. The solution is to put the image under the project and load it with `themeImage:`.
 
 Known issues
 ==============
