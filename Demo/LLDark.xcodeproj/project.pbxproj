@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6A1CA934257A8B490016D59B /* webImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A1CA932257A8B490016D59B /* webImage.png */; };
 		6A290188257CACDA00C97340 /* OttoFPSButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A290187257CACDA00C97340 /* OttoFPSButton.m */; };
+		6A405F27259FDE5B007EA6D4 /* UIImage+YYWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A405F26259FDE5B007EA6D4 /* UIImage+YYWebImage.m */; };
 		6A438430257A4C9F000B6A59 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A43842F257A4C9F000B6A59 /* AppDelegate.m */; };
 		6A438433257A4C9F000B6A59 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A438432257A4C9F000B6A59 /* SceneDelegate.m */; };
 		6A438436257A4C9F000B6A59 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A438435257A4C9F000B6A59 /* ViewController.m */; };
@@ -86,6 +87,8 @@
 		6A1CA932257A8B490016D59B /* webImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = webImage.png; sourceTree = "<group>"; };
 		6A290186257CACDA00C97340 /* OttoFPSButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OttoFPSButton.h; sourceTree = "<group>"; };
 		6A290187257CACDA00C97340 /* OttoFPSButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OttoFPSButton.m; sourceTree = "<group>"; };
+		6A405F25259FDE5B007EA6D4 /* UIImage+YYWebImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+YYWebImage.h"; sourceTree = "<group>"; };
+		6A405F26259FDE5B007EA6D4 /* UIImage+YYWebImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+YYWebImage.m"; sourceTree = "<group>"; };
 		6A43842B257A4C9F000B6A59 /* LLDark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LLDark.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A43842E257A4C9F000B6A59 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6A43842F257A4C9F000B6A59 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -316,6 +319,8 @@
 				6A5D0784259985D60050AED8 /* String */,
 				6A5D078F259985D60050AED8 /* YYLabel.h */,
 				6A5D0790259985D60050AED8 /* Utility */,
+				6A405F25259FDE5B007EA6D4 /* UIImage+YYWebImage.h */,
+				6A405F26259FDE5B007EA6D4 /* UIImage+YYWebImage.m */,
 			);
 			path = YYText;
 			sourceTree = "<group>";
@@ -555,6 +560,7 @@
 				6A5D07A2259985D60050AED8 /* YYTextMagnifier.m in Sources */,
 				6AC7AC6F2583B28500E99728 /* UIView+Refresh.m in Sources */,
 				6A5D07B5259985D60050AED8 /* YYTextTransaction.m in Sources */,
+				6A405F27259FDE5B007EA6D4 /* UIImage+YYWebImage.m in Sources */,
 				6A5D07A8259985D60050AED8 /* YYTextSelectionView.m in Sources */,
 				6A5D07B2259985D60050AED8 /* NSParagraphStyle+YYText.m in Sources */,
 				6AC7AC7A2583B28500E99728 /* CALayer+Refresh.m in Sources */,

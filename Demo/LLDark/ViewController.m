@@ -10,6 +10,7 @@
 #import "LLDark.h"
 
 #import "YYText.h"
+#import "UIImage+YYWebImage.h"
 
 #define kColorRGBA(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
 #define kColorRGB(r,g,b) kColorRGBA(r,g,b,1.0)
@@ -17,6 +18,8 @@
 #define kWhiteColor UIColor.whiteColor.themeColor(nil)
 
 #define kBlackColor kColorRGB(27, 27, 27).themeColor(nil)
+
+#define kHightColor kColorRGB(255, 69, 0).themeColor(kColorRGB(14, 224, 0))
 
 //  状态栏高度
 #define kStatusBarHeight [[UIApplication sharedApplication] statusBarFrame].size.height
@@ -162,6 +165,7 @@
     lightButton.backgroundColor = kBlackColor;
     [lightButton setTitle:@"浅色模式" forState:UIControlStateNormal];
     [lightButton setTitleColor:kWhiteColor forState:UIControlStateNormal];
+    [lightButton setTitleColor:kHightColor forState:UIControlStateHighlighted];
     [lightButton addTarget:self action:@selector(lightEvent) forControlEvents:UIControlEventTouchUpInside];
     [scrollView addSubview:lightButton];
     CGFloat buttonWidth = (screenWidth - 2 * 30 - 2 * 30) / 3.0;
@@ -171,6 +175,7 @@
     darkButton.backgroundColor = kBlackColor;
     [darkButton setTitle:@"深色模式" forState:UIControlStateNormal];
     [darkButton setTitleColor:kWhiteColor forState:UIControlStateNormal];
+    [darkButton setTitleColor:kHightColor forState:UIControlStateHighlighted];
     [darkButton addTarget:self action:@selector(darkEvent) forControlEvents:UIControlEventTouchUpInside];
     [scrollView addSubview:darkButton];
     darkButton.frame = CGRectMake(CGRectGetMaxX(lightButton.frame) + 30.0, CGRectGetMinY(lightButton.frame), buttonWidth, 35.0);
@@ -179,6 +184,7 @@
     systemButton.backgroundColor = kBlackColor;
     [systemButton setTitle:@"跟随系统" forState:UIControlStateNormal];
     [systemButton setTitleColor:kWhiteColor forState:UIControlStateNormal];
+    [systemButton setTitleColor:kHightColor forState:UIControlStateHighlighted];
     [systemButton addTarget:self action:@selector(systemEvent) forControlEvents:UIControlEventTouchUpInside];
     [scrollView addSubview:systemButton];
     systemButton.frame = CGRectMake(CGRectGetMaxX(darkButton.frame) + 30.0, CGRectGetMinY(lightButton.frame), buttonWidth, 35.0);
@@ -187,6 +193,7 @@
     darkVerticalScreenButton.backgroundColor = kBlackColor;
     [darkVerticalScreenButton setTitle:@"修改深色竖屏启动图" forState:UIControlStateNormal];
     [darkVerticalScreenButton setTitleColor:kWhiteColor forState:UIControlStateNormal];
+    [darkVerticalScreenButton setTitleColor:kHightColor forState:UIControlStateHighlighted];
     [darkVerticalScreenButton addTarget:self action:@selector(changeDarkVertical) forControlEvents:UIControlEventTouchUpInside];
     [scrollView addSubview:darkVerticalScreenButton];
     darkVerticalScreenButton.frame = CGRectMake(CGRectGetMinX(lightButton.frame), CGRectGetMaxY(systemButton.frame) + 10.0, (screenWidth - 2 * 30.0) / 2.0 - 5.0, 35.0);
@@ -195,6 +202,7 @@
     darkHorizontalScreenButton.backgroundColor = kBlackColor;
     [darkHorizontalScreenButton setTitle:@"修改深色横屏启动图" forState:UIControlStateNormal];
     [darkHorizontalScreenButton setTitleColor:kWhiteColor forState:UIControlStateNormal];
+    [darkHorizontalScreenButton setTitleColor:kHightColor forState:UIControlStateHighlighted];
     [darkHorizontalScreenButton addTarget:self action:@selector(changeDarkHorizontal) forControlEvents:UIControlEventTouchUpInside];
     [scrollView addSubview:darkHorizontalScreenButton];
     darkHorizontalScreenButton.frame = CGRectMake(CGRectGetMaxX(darkVerticalScreenButton.frame) + 10.0, CGRectGetMinY(darkVerticalScreenButton.frame), CGRectGetWidth(darkVerticalScreenButton.frame), CGRectGetHeight(darkVerticalScreenButton.frame));
@@ -203,6 +211,7 @@
     lightVerticalScreenButton.backgroundColor = kBlackColor;
     [lightVerticalScreenButton setTitle:@"修改浅色竖屏启动图" forState:UIControlStateNormal];
     [lightVerticalScreenButton setTitleColor:kWhiteColor forState:UIControlStateNormal];
+    [lightVerticalScreenButton setTitleColor:kHightColor forState:UIControlStateHighlighted];
     [lightVerticalScreenButton addTarget:self action:@selector(changeLightVertical) forControlEvents:UIControlEventTouchUpInside];
     [scrollView addSubview:lightVerticalScreenButton];
     lightVerticalScreenButton.frame = CGRectMake(CGRectGetMinX(darkVerticalScreenButton.frame), CGRectGetMaxY(darkVerticalScreenButton.frame) + 10.0, CGRectGetWidth(darkVerticalScreenButton.frame), CGRectGetHeight(darkVerticalScreenButton.frame));
@@ -211,6 +220,7 @@
     lightHorizontalScreenButton.backgroundColor = kBlackColor;
     [lightHorizontalScreenButton setTitle:@"修改浅色横屏启动图" forState:UIControlStateNormal];
     [lightHorizontalScreenButton setTitleColor:kWhiteColor forState:UIControlStateNormal];
+    [lightHorizontalScreenButton setTitleColor:kHightColor forState:UIControlStateHighlighted];
     [lightHorizontalScreenButton addTarget:self action:@selector(changeLightHorizontal) forControlEvents:UIControlEventTouchUpInside];
     [scrollView addSubview:lightHorizontalScreenButton];
     lightHorizontalScreenButton.frame = CGRectMake(CGRectGetMinX(darkHorizontalScreenButton.frame), CGRectGetMaxY(darkHorizontalScreenButton.frame) + 10.0, CGRectGetWidth(darkVerticalScreenButton.frame), CGRectGetHeight(darkVerticalScreenButton.frame));
@@ -219,6 +229,7 @@
     restoreScreenButton.backgroundColor = kBlackColor;
     [restoreScreenButton setTitle:@"恢复为初始启动图" forState:UIControlStateNormal];
     [restoreScreenButton setTitleColor:kWhiteColor forState:UIControlStateNormal];
+    [restoreScreenButton setTitleColor:kHightColor forState:UIControlStateHighlighted];
     [restoreScreenButton addTarget:self action:@selector(restoreScreen) forControlEvents:UIControlEventTouchUpInside];
     [scrollView addSubview:restoreScreenButton];
     restoreScreenButton.frame = CGRectMake(CGRectGetMinX(darkVerticalScreenButton.frame), CGRectGetMaxY(lightVerticalScreenButton.frame) + 10.0, screenWidth - 2 * 30.0, CGRectGetHeight(darkVerticalScreenButton.frame));
@@ -288,70 +299,112 @@
     layer.endPoint = CGPointMake(1, 1);
     [scrollView.layer addSublayer:layer];
     layer.colors = @[UIColor.redColor.themeColor(UIColor.blueColor), UIColor.greenColor, UIColor.blueColor.themeColor(UIColor.redColor)];
-    layer.locations = @[@0.3, @0.6, @0.9];
+    layer.locations = @[@0.3, @0.4, @0.7];
     
     YYLabel *textLabel = [[YYLabel alloc] init];
     textLabel.numberOfLines = 0;
     textLabel.backgroundColor = UIColor.clearColor;
     [scrollView addSubview:textLabel];
-    textLabel.frame = CGRectMake(30.0, CGRectGetMaxY(layer.frame) + 20.0, screenWidth - 2 * 30.0, 120);
+    textLabel.frame = CGRectMake(30.0, CGRectGetMaxY(layer.frame) + 20.0, screenWidth - 2 * 30.0, 220);
     
-    /*
-    NSMutableAttributedString *attr = [[NSMutableAttributedString alloc] initWithString:@"《游子吟》 \n 慈母手中线，游子身上衣。\n 临行密密缝，意恐迟迟归。 \n 谁言寸草心，报得三春晖。" attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:15.0], NSForegroundColorAttributeName : kBlackColor}];
-    NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
-    style.lineSpacing = 10.0;
-    style.alignment = NSTextAlignmentCenter;
-    [attr addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, attr.length)];
-    [attr addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:17.0] range:NSMakeRange(0, 4)];
-    [attr addAttribute:NSBackgroundColorAttributeName value:UIColor.redColor.themeColor(UIColor.orangeColor) range:NSMakeRange(8, 5)];
-     
-    NSShadow *shadow = [[NSShadow alloc] init];
-    shadow.shadowColor = UIColor.redColor.themeColor(UIColor.orangeColor);
-    shadow.shadowOffset = CGSizeMake(3, 5);
-    [attr addAttribute:NSShadowAttributeName value:shadow range:NSMakeRange(14, 5)];
-    
-    [attr addAttribute:NSStrikethroughStyleAttributeName value:@(NSUnderlineStyleThick) range:NSMakeRange(20, 7)];
-    [attr addAttribute:NSStrikethroughColorAttributeName value:UIColor.redColor.themeColor(UIColor.orangeColor) range:NSMakeRange(20, 7)];
-    [attr addAttribute:NSStrokeWidthAttributeName value:@(1.5) range:NSMakeRange(28, 5)];
-    [attr addAttribute:NSStrokeColorAttributeName value:UIColor.blueColor.themeColor(UIColor.redColor) range:NSMakeRange(28, 5)];
-    [attr addAttribute:NSUnderlineStyleAttributeName value:@(NSUnderlineStyleDouble) range:NSMakeRange(34, 8)];
-    [attr addAttribute:NSUnderlineColorAttributeName value:UIColor.redColor.themeColor(UIColor.orangeColor) range:NSMakeRange(34, 8)];
-    
-    NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
-    attachment.image = [UIImage themeImage:@"durk_light"];
-    attachment.bounds = CGRectMake(0, 0, 18, 18);
-    NSAttributedString *t_attr = [NSAttributedString attributedStringWithAttachment:attachment];
-    [attr insertAttributedString:t_attr atIndex:5];
-    */
-    
-    NSMutableAttributedString *attr = [[NSMutableAttributedString alloc] initWithString:@"《游子吟》 \n 慈母手中线，游子身上衣。\n 临行密密缝，意恐迟迟归。 \n 谁言寸草心，报得三春晖。" attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:15.0], NSForegroundColorAttributeName : kBlackColor}];
+    NSMutableAttributedString *attr = [[NSMutableAttributedString alloc] initWithString:@"《清明日对酒》 \n 南北山头多墓田，清明祭扫各纷然。\n 纸灰飞作白蝴蝶，泪血染成红杜鹃。 \n 日落狐狸眠冢上，夜归儿女笑灯前。 \n 人生有酒须当醉，一滴何曾到九泉。" attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:15.0], NSForegroundColorAttributeName : kBlackColor}];
     NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
     style.lineSpacing = 10.0;
     style.alignment = NSTextAlignmentCenter;
     [attr addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, attr.length)];
     
     NSMutableAttributedString *attachment = [NSMutableAttributedString yy_attachmentStringWithEmojiImage:[UIImage themeImage:@"durk_light"] fontSize:21.0];
-    [attr insertAttributedString:attachment atIndex:5];
+    [attr insertAttributedString:attachment atIndex:7];
     
-    [attr addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:21.0] range:NSMakeRange(0, 4)];
-    [attr addAttribute:NSBackgroundColorAttributeName value:UIColor.redColor.themeColor(UIColor.orangeColor) range:NSMakeRange(9, 5)];
+    UIActivityIndicatorView *indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    indicatorView.color = UIColor.redColor.themeColor(UIColor.orangeColor);
+    [indicatorView startAnimating];
+    indicatorView.hidesWhenStopped = NO;
+    NSMutableAttributedString *attachment1 = [NSMutableAttributedString yy_attachmentStringWithContent:indicatorView contentMode:UIViewContentModeScaleAspectFit width:20 ascent:15 descent:0];
+    [attr insertAttributedString:attachment1 atIndex:8];
     
-    /*
-     NSString *const YYTextBackedStringAttributeName = @"YYTextBackedString";
-     NSString *const YYTextBindingAttributeName = @"YYTextBinding";
-     
-     NSString *const YYTextShadowAttributeName = @"YYTextShadow";
-     NSString *const YYTextInnerShadowAttributeName = @"YYTextInnerShadow";
-     NSString *const YYTextUnderlineAttributeName = @"YYTextUnderline";
-     NSString *const YYTextStrikethroughAttributeName = @"YYTextStrikethrough";
-     NSString *const YYTextBorderAttributeName = @"YYTextBorder";
-     NSString *const YYTextBackgroundBorderAttributeName = @"YYTextBackgroundBorder";
-     NSString *const YYTextBlockBorderAttributeName = @"YYTextBlockBorder";
-     NSString *const YYTextAttachmentAttributeName = @"YYTextAttachment";
-     NSString *const YYTextHighlightAttributeName = @"YYTextHighlight";
-     */
+    [attr addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:21.0] range:NSMakeRange(0, 7)];
+    [attr addAttribute:NSBackgroundColorAttributeName value:UIColor.redColor.themeColor(UIColor.orangeColor) range:NSMakeRange(12, 7)];
+    
+    YYTextShadow *shadow = [YYTextShadow shadowWithColor:UIColor.redColor.themeColor(UIColor.orangeColor) offset:CGSizeMake(3, 5) radius:0.0];
+    [attr addAttribute:YYTextShadowAttributeName value:shadow range:NSMakeRange(20, 7)];
         
+    YYTextDecoration *underline = [YYTextDecoration decorationWithStyle:YYTextLineStyleSingle width:@1.0 color:UIColor.redColor.themeColor(UIColor.orangeColor)];
+    [attr addAttribute:YYTextUnderlineAttributeName value:underline range:NSMakeRange(30, 7)];
+    
+    [attr yy_setTextHighlightRange:NSMakeRange(30, 7) color:kBlackColor backgroundColor:UIColor.orangeColor.themeColor(UIColor.redColor) userInfo:nil];
+    
+    [attr addAttribute:YYTextStrikethroughAttributeName value:underline range:NSMakeRange(38, 7)];
+    
+    YYTextBorder *border = [YYTextBorder borderWithLineStyle:YYTextLineStylePatternDot lineWidth:1.0 strokeColor:UIColor.redColor.themeColor(UIColor.orangeColor)];
+    [attr addAttribute:YYTextBorderAttributeName value:border range:NSMakeRange(49, 7)];
+    
+    [attr addAttribute:NSStrokeWidthAttributeName value:@(1.5) range:NSMakeRange(68, 7)];
+    [attr addAttribute:NSStrokeColorAttributeName value:kColorRGB(0, 250, 0).themeColor(kColorRGB(255, 215, 0)) range:NSMakeRange(68, 7)];
+    //设置中文倾斜
+    CGAffineTransform matrix = CGAffineTransformMake(1, 0, tanf(25 * (CGFloat)M_PI / 180), 1, 0, 0);
+    //设置反射。倾斜角度。
+    UIFontDescriptor *desc = [UIFontDescriptor fontDescriptorWithName:[UIFont systemFontOfSize:15].fontName matrix:matrix];
+    //取得系统字符并设置反射。
+    UIFont *italicFont = [UIFont fontWithDescriptor:desc size:14];
+    [attr addAttribute:NSFontAttributeName value:italicFont range:NSMakeRange(68, 7)];
+    
     textLabel.attributedText = attr;
+    YYTextLayout *layout = [YYTextLayout layoutWithContainerSize:CGSizeMake(CGFLOAT_MAX, 145) text:textLabel.attributedText];
+    
+    [textLabel sizeToFit];
+    CGRect frame = textLabel.frame;
+    frame.size.width = layout.textBoundingRect.size.width;
+    CGFloat minX = (screenWidth - CGRectGetWidth(frame)) / 2.0;
+    frame.origin.x = minX;
+    textLabel.frame = frame;
+    
+    YYTextBorder *border2 = [YYTextBorder borderWithLineStyle:YYTextLineStyleSingle lineWidth:1.0 strokeColor:UIColor.redColor.themeColor(UIColor.orangeColor)];
+    border2.cornerRadius = 5.0;
+    border2.insets = UIEdgeInsetsMake(0, CGRectGetWidth(textLabel.frame) / 2.0, 0, 10);
+    [attr addAttribute:YYTextBlockBorderAttributeName value:border2 range:NSMakeRange(59, 5)];
+    textLabel.attributedText = attr;
+    
+    textLabel.appearanceBindUpdater = ^(YYLabel * _Nonnull bindView) {
+        NSMutableAttributedString *t_attr = [bindView.attributedText mutableCopy];
+        CGSize size = CGSizeMake(20, 20);
+        if (LLDarkManager.isDarkMode) {
+            UIImage *background = [UIImage yy_imageWithSize:size drawBlock:^(CGContextRef context) {
+                UIColor *c0 = kColorRGB(221, 255, 7.65);
+                UIColor *c1 = kColorRGB(241, 148, 138);
+                                
+                [c0 setFill];
+                CGContextFillRect(context, CGRectMake(0, 0, size.width, size.height));
+                [c1 setStroke];
+                CGContextSetLineWidth(context, 2);
+                for (int i = 0; i < size.width * 2; i+= 4) {
+                    CGContextMoveToPoint(context, i, -2);
+                    CGContextAddLineToPoint(context, i - size.height, size.height + 2);
+                }
+                CGContextStrokePath(context);
+            }];
+            [t_attr addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithPatternImage:background] range:NSMakeRange(76, 7)];
+            [t_attr addAttribute:(id)kCTForegroundColorAttributeName value:(id)[UIColor colorWithPatternImage:background].CGColor range:NSMakeRange(76, 7)];
+        } else {
+            UIImage *background = [UIImage yy_imageWithSize:size drawBlock:^(CGContextRef context) {
+                UIColor *c0 = kColorRGB(221, 255, 7.65);
+                UIColor *c1 = kColorRGB(13.77, 224, 0);
+                
+                [c0 setFill];
+                CGContextFillRect(context, CGRectMake(0, 0, size.width, size.height));
+                [c1 setStroke];
+                CGContextSetLineWidth(context, 2);
+                for (int i = 0; i < size.width * 2; i+= 4) {
+                    CGContextMoveToPoint(context, i, -2);
+                    CGContextAddLineToPoint(context, i - size.height, size.height + 2);
+                }
+                CGContextStrokePath(context);
+            }];
+            [t_attr addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithPatternImage:background] range:NSMakeRange(76, 7)];
+            [t_attr addAttribute:(id)kCTForegroundColorAttributeName value:(id)[UIColor colorWithPatternImage:background].CGColor range:NSMakeRange(76, 7)];
+        }
+        bindView.attributedText = t_attr;
+    };
     
     scrollView.contentSize = CGSizeMake(screenWidth, CGRectGetMaxY(textLabel.frame));
 }
