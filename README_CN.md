@@ -1,6 +1,6 @@
 LLDark
 ==============
-[![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/internetWei/llDark/blob/master/LICENSE)&nbsp; [![CocoaPods](https://img.shields.io/badge/pod-1.0.8-blue)](http://cocoapods.org/pods/LLDark)&nbsp; [![Platform](https://img.shields.io/badge/platform-ios-lightgrey)](https://www.apple.com/nl/ios)&nbsp; [![Support](https://img.shields.io/badge/support-iOS%209%2B-blue)](https://www.apple.com/nl/ios)
+[![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/internetWei/llDark/blob/master/LICENSE)&nbsp; [![CocoaPods](https://img.shields.io/badge/pod-1.0.9-blue)](http://cocoapods.org/pods/LLDark)&nbsp; [![Platform](https://img.shields.io/badge/platform-ios-lightgrey)](https://www.apple.com/nl/ios)&nbsp; [![Support](https://img.shields.io/badge/support-iOS%209%2B-blue)](https://www.apple.com/nl/ios)
 
 适用于iOS的深色主题框架，快速简单的适配深色模式。
 国内用户可以访问[这个链接](https://gitee.com/internetWei/llDark)
@@ -169,6 +169,7 @@ Tips:
 ==============
 1. LLDark不会修改状态栏样式，需要自己监听主题模式修改状态栏样式。
 2. 需要适配深色主题的图片资源建议不要放在`Assets.xcassets`中，测试发现富文本中的图片在主题切换时并不会刷新(使用`imageNamed:`加载)，这是系统的BUG。解决办法就是将图片放在工程下，并且使用`themeImage:`加载。
+3. UIImage实例对象拥有一个`imageWithRenderingMode:`方法。调用此方法会重新生成并返回一个UIImage实例对象，这样会导致无法正常刷新。请使用`renderingModeFrom`方法代替。
 
 已知问题
 ==============

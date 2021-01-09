@@ -1,6 +1,6 @@
 LLDark
 ==============
-[![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/internetWei/llDark/blob/master/LICENSE)&nbsp; [![CocoaPods](https://img.shields.io/badge/pod-1.0.8-blue)](http://cocoapods.org/pods/LLDark)&nbsp; [![Platform](https://img.shields.io/badge/platform-ios-lightgrey)](https://www.apple.com/nl/ios)&nbsp; [![Support](https://img.shields.io/badge/support-iOS%209%2B-blue)](https://www.apple.com/nl/ios)
+[![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/internetWei/llDark/blob/master/LICENSE)&nbsp; [![CocoaPods](https://img.shields.io/badge/pod-1.0.9-blue)](http://cocoapods.org/pods/LLDark)&nbsp; [![Platform](https://img.shields.io/badge/platform-ios-lightgrey)](https://www.apple.com/nl/ios)&nbsp; [![Support](https://img.shields.io/badge/support-iOS%209%2B-blue)](https://www.apple.com/nl/ios)
 
 A dark theme framework for iOS, quickly and easily adapting to dark mode.
 Mainland China users can access[This link](https://gitee.com/internetWei/llDark)<br>
@@ -170,6 +170,7 @@ Note
 ==============
 1. LLDark does not modify the style of the status bar, you need to monitor the theme mode to modify the style of the status bar.
 2. The image resources that need to be adapted to the dark theme are not recommended to be placed in `Assets.xcassets`. The test found that the images in NSAttributedString will not be refreshed when the theme is switched (loaded with `imageNamed:`). This is a system bug. The solution is to put the image under the project and load it with `themeImage:`.
+3. UIImage instance object has an `imageWithRenderingMode:` method。Calling this method will regenerate and return a UIImage instance object，This will cause the normal refresh。Please use `renderingModeFrom` method instead。
 
 Known issues
 ==============
