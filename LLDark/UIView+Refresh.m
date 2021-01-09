@@ -20,6 +20,7 @@
 #import "UIImageView+Dark.h"
 #import "LLDarkSource.h"
 #import "NSObject+Dark.h"
+#import "UITabBarItem+Dark.h"
 
 @interface UIView ()
 
@@ -250,7 +251,7 @@
         }
     }
     
-    UIImage *selectedImage = item.selectedImage;
+    UIImage *selectedImage = item.selectedDarkImage;
     if (selectedImage.isTheme) {
         item.selectedImage = selectedImage.resolvedImage(self.userInterfaceStyle);
     }

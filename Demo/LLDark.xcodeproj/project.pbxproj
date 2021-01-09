@@ -57,6 +57,7 @@
 		6A5D07B6259985D60050AED8 /* UIView+YYText.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A5D079B259985D60050AED8 /* UIView+YYText.m */; };
 		6A5D07B7259985D60050AED8 /* YYTextAsyncLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A5D079E259985D60050AED8 /* YYTextAsyncLayer.m */; };
 		6A5D07B8259985D60050AED8 /* YYTextWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A5D079F259985D60050AED8 /* YYTextWeakProxy.m */; };
+		6AB5127625A9DCF00061A4E6 /* UITabBarItem+Dark.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB5127525A9DCF00061A4E6 /* UITabBarItem+Dark.m */; };
 		6AC7AC682583B28500E99728 /* UIView+Dark.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AC7AC3F2583B28500E99728 /* UIView+Dark.m */; };
 		6AC7AC692583B28500E99728 /* LLLaunchScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AC7AC402583B28500E99728 /* LLLaunchScreen.m */; };
 		6AC7AC6A2583B28500E99728 /* CATextLayer+Dark.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AC7AC412583B28500E99728 /* CATextLayer+Dark.m */; };
@@ -166,6 +167,8 @@
 		6A5D079E259985D60050AED8 /* YYTextAsyncLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextAsyncLayer.m; sourceTree = "<group>"; };
 		6A5D079F259985D60050AED8 /* YYTextWeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextWeakProxy.m; sourceTree = "<group>"; };
 		6A5D07A0259985D60050AED8 /* UIPasteboard+YYText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIPasteboard+YYText.h"; sourceTree = "<group>"; };
+		6AB5127425A9DCF00061A4E6 /* UITabBarItem+Dark.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITabBarItem+Dark.h"; sourceTree = "<group>"; };
+		6AB5127525A9DCF00061A4E6 /* UITabBarItem+Dark.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITabBarItem+Dark.m"; sourceTree = "<group>"; };
 		6AC7AC3C2583B28500E99728 /* UIImage+Dark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Dark.h"; sourceTree = "<group>"; };
 		6AC7AC3D2583B28500E99728 /* NSObject+Expand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Expand.h"; sourceTree = "<group>"; };
 		6AC7AC3E2583B28500E99728 /* UIColor+Dark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Dark.h"; sourceTree = "<group>"; };
@@ -431,6 +434,8 @@
 				6AC7AC552583B28500E99728 /* UIImage+Dark.m */,
 				6AC7AC4F2583B28500E99728 /* UIImageView+Dark.h */,
 				6AC7AC622583B28500E99728 /* UIImageView+Dark.m */,
+				6AB5127425A9DCF00061A4E6 /* UITabBarItem+Dark.h */,
+				6AB5127525A9DCF00061A4E6 /* UITabBarItem+Dark.m */,
 				6AC7AC522583B28500E99728 /* UIView+Dark.h */,
 				6AC7AC3F2583B28500E99728 /* UIView+Dark.m */,
 				6AC7AC592583B28500E99728 /* UIView+Refresh.h */,
@@ -580,6 +585,7 @@
 				6A5D07A1259985D60050AED8 /* YYTextView.m in Sources */,
 				6A5D07AB259985D60050AED8 /* YYLabel.m in Sources */,
 				6AC7AC6A2583B28500E99728 /* CATextLayer+Dark.m in Sources */,
+				6AB5127625A9DCF00061A4E6 /* UITabBarItem+Dark.m in Sources */,
 				6A5D07AA259985D60050AED8 /* YYTextDebugOption.m in Sources */,
 				6A438433257A4C9F000B6A59 /* SceneDelegate.m in Sources */,
 			);
