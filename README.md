@@ -4,7 +4,8 @@ LLDark
 
 A dark theme framework for iOS, quickly and easily adapting to dark mode.
 Mainland China users can access[This link](https://gitee.com/internetWei/llDark)<br>
-[中文介绍](https://github.com/internetWei/llDark/blob/master/README_CN.md)
+[中文介绍](https://github.com/internetWei/llDark/blob/master/README_CN.md)<br>
+[github does not display picture solutions](https://zhuanlan.zhihu.com/p/107691233)
 
 Features
 ==============
