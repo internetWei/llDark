@@ -152,10 +152,9 @@ Tips:
 Installation
 ==============
 ### CocoaPods
-1. Update cocoapods to the latest version.
-2. Add pod 'LLDark' to your Podfile.
-3. Run pod install or pod update.
-4. Import <LLDark/LLDark.h>.
+1. Add pod 'LLDark' to your Podfile.
+2. Run pod install --repo-update.
+3. Import <LLDark/LLDark.h>.
 
 ### Manually
 1. Download all the files in the LLdark subdirectory.
