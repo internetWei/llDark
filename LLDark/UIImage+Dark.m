@@ -163,7 +163,8 @@ static char * const ll_darkImageName_identifier = "ll_darkImageName_identifier";
         
         // 判断之前是不是获取过
         if ([self.imageNameFiles objectForKey:imageName]) {
-            return (id)[self.imageNameFiles objectForKey:imageName];
+            NSString *lastPathComponent = [self.imageNameFiles objectForKey:imageName];
+            return (id)[NSBundle.mainBundle pathForResource:lastPathComponent ofType:nil];
         }
         
         NSString *res = imageName.stringByDeletingPathExtension;
@@ -191,7 +192,7 @@ static char * const ll_darkImageName_identifier = "ll_darkImageName_identifier";
             }
         }
         
-        if (path) [UIImage.imageNameFiles setObject:path forKey:imageName];
+        if (path) [UIImage.imageNameFiles setObject:[path lastPathComponent] forKey:imageName];
         
         return (id)path;
     };
@@ -291,6 +292,10 @@ static char * const ll_darkImageName_identifier = "ll_darkImageName_identifier";
             _imageAssets = [NSMutableSet set];
         }
     });
+    if ([UIImage isNewVersion]) {
+        _imageAssets = [NSMutableSet set];
+        [NSUserDefaults.standardUserDefaults removeObjectForKey:@"ll_imageAssets"];
+    }
     return _imageAssets;
 }
 
@@ -308,6 +313,10 @@ static char * const ll_darkImageName_identifier = "ll_darkImageName_identifier";
             _imageFiles = [NSMutableSet set];
         }
     });
+    if ([UIImage isNewVersion]) {
+        _imageFiles = [NSMutableSet set];
+        [NSUserDefaults.standardUserDefaults removeObjectForKey:@"ll_imageFiles"];
+    }
     return _imageFiles;
 }
 
@@ -325,6 +334,10 @@ static char * const ll_darkImageName_identifier = "ll_darkImageName_identifier";
             _imageNameFiles = [NSMutableDictionary dictionary];
         }
     });
+    if ([UIImage isNewVersion]) {
+        _imageNameFiles = [NSMutableDictionary dictionary];
+        [NSUserDefaults.standardUserDefaults removeObjectForKey:@"ll_imageNameFiles"];
+    }
     return _imageNameFiles;
 }
 
@@ -393,6 +406,25 @@ static char * const ll_darkImageName_identifier = "ll_darkImageName_identifier";
     }
     
     return YES;
+}
+
+/// 是不是新版本
+static NSString *_ll_dark_version = nil;
++ (BOOL)isNewVersion {
+    if (_ll_dark_version == nil) {
+        NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+        NSString *app_version = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
+        NSString *old_app_version = [NSUserDefaults.standardUserDefaults objectForKey:@"llDark_app_version"];
+        
+        if ([app_version isEqualToString:old_app_version]) {
+            _ll_dark_version = @"0";
+        } else {
+            [NSUserDefaults.standardUserDefaults setObject:app_version forKey:@"llDark_app_version"];
+            _ll_dark_version = @"1";
+        }
+    }
+    
+    return [_ll_dark_version isEqualToString:@"1"];
 }
 
 @end
