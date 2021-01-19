@@ -1,6 +1,6 @@
 //
 //  AppDelegate.h
-//  LLDark
+//  LLDark <https://github.com/internetWei/llDark>
 //
 //  Created by LL on 2020/12/4.
 //
