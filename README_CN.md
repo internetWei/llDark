@@ -179,7 +179,7 @@ Tips:
 ==============
 如果你有更好的改进，please pull reqeust me
 
-如果你有任何更好的意见，请创建一个[Issue](https://github.com/internetWei/llDark/issues)
+如果你有任何更好的意见，请创建一个[Issue](https://gitee.com/internetWei/llDark/issues)
 
 可以通过此邮箱联系作者`internetwei@foxmail.com`
 
