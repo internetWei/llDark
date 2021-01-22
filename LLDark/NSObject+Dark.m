@@ -9,27 +9,32 @@
 
 #import <objc/runtime.h>
 
-static char * const ll_themeDidChange_identifer = "ll_themeDidChange_identifer";
-static char * const ll_systemThemeDidChange_identifer = "ll_systemThemeDidChange_identifer";
-
 @implementation NSObject (Dark)
 
 - (void)setThemeDidChange:(void (^)(id))themeDidChange {
-    objc_setAssociatedObject(self, &ll_themeDidChange_identifer, themeDidChange, OBJC_ASSOCIATION_COPY_NONATOMIC);
-    [NSObject.themeTables addObject:self];
+    objc_setAssociatedObject(self, @selector(themeDidChange), themeDidChange, OBJC_ASSOCIATION_COPY_NONATOMIC);
+    if (themeDidChange) {
+        [NSObject.themeTables addObject:self];
+    } else {
+        [NSObject.themeTables removeObject:self];
+    }
 }
 
 - (void (^)(id))themeDidChange {
-    return objc_getAssociatedObject(self, &ll_themeDidChange_identifer);
+    return objc_getAssociatedObject(self, @selector(themeDidChange));
 }
 
 - (void)setSystemThemeDidChange:(void (^)(id))systemThemeDidChange {
-    objc_setAssociatedObject(self, &ll_systemThemeDidChange_identifer, systemThemeDidChange, OBJC_ASSOCIATION_COPY_NONATOMIC);
-    [NSObject.systemThemeTables addObject:self];
+    objc_setAssociatedObject(self, @selector(systemThemeDidChange), systemThemeDidChange, OBJC_ASSOCIATION_COPY_NONATOMIC);
+    if (systemThemeDidChange) {
+        [NSObject.systemThemeTables addObject:self];
+    } else {
+        [NSObject.systemThemeTables removeObject:self];
+    }
 }
 
 - (void (^)(id))systemThemeDidChange {
-    return objc_getAssociatedObject(self, &ll_systemThemeDidChange_identifer);
+    return objc_getAssociatedObject(self, @selector(systemThemeDidChange));
 }
 
 - (void)setUserInterfaceStyle:(LLUserInterfaceStyle)userInterfaceStyle {
@@ -54,6 +59,12 @@ static NSHashTable *_systemThemeTables;
         _systemThemeTables = [NSHashTable weakObjectsHashTable];
     }
     return _systemThemeTables;
+}
+
++ (void (^)(SEL _Nonnull, SEL _Nonnull))methodExchange {
+    return ^(SEL sel1, SEL sel2) {
+        method_exchangeImplementations(class_getInstanceMethod(self, sel1), class_getInstanceMethod(self, sel2));
+    };
 }
 
 /// 防止其他对象访问崩溃

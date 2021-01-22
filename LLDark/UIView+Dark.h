@@ -12,14 +12,16 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UIView (Dark)
 
 /**
- View需要刷新时会回调。
+ 当View对象需要刷新时回调
  
- @discussion 不同于themeDidChange，
- 仅当View需要刷新时才会回调(例如当前是“跟随系统”，系统主题是深色模式，手动切换到深色模式是不会刷新的)。
+ @discussion 仅当UI需要刷新时才会回调
+ 
+ 例如以下情况不会触发回调：
+ 
+ LLUserInterfaceStyleUnspecified(系统是深色模式)->LLUserInterfaceStyleDark
  */
 @property (nonatomic, copy) void(^appearanceBindUpdater)(id bindView);
 
-/// YES表示当前对象是深色模式，NO表示当前对象是浅色模式。
 @property (nonatomic, assign) BOOL isDarkMode;
 
 @end

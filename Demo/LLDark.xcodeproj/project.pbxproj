@@ -197,7 +197,6 @@
 		6AC7AC552583B28500E99728 /* UIImage+Dark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Dark.m"; sourceTree = "<group>"; };
 		6AC7AC562583B28500E99728 /* CAShapeLayer+Dark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CAShapeLayer+Dark.m"; sourceTree = "<group>"; };
 		6AC7AC572583B28500E99728 /* LLDarkDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLDarkDefine.h; sourceTree = "<group>"; };
-		6AC7AC582583B28500E99728 /* UIViewController+Refresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Refresh.h"; sourceTree = "<group>"; };
 		6AC7AC592583B28500E99728 /* UIView+Refresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Refresh.h"; sourceTree = "<group>"; };
 		6AC7AC5A2583B28500E99728 /* LLDarkConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLDarkConfig.h; sourceTree = "<group>"; };
 		6AC7AC5B2583B28500E99728 /* LLDarkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLDarkManager.h; sourceTree = "<group>"; };
@@ -440,7 +439,6 @@
 				6AC7AC3F2583B28500E99728 /* UIView+Dark.m */,
 				6AC7AC592583B28500E99728 /* UIView+Refresh.h */,
 				6AC7AC462583B28500E99728 /* UIView+Refresh.m */,
-				6AC7AC582583B28500E99728 /* UIViewController+Refresh.h */,
 				6AC7AC452583B28500E99728 /* UIViewController+Refresh.m */,
 			);
 			name = LLDark;
@@ -738,6 +736,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.LLDark;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -761,6 +760,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.LLDark;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -10,18 +10,19 @@
 #import <objc/runtime.h>
 
 #import "UIImage+Dark.h"
+#import "NSObject+Dark.h"
 
 @implementation UITabBarItem (Dark)
 
 + (void)load {
-    method_exchangeImplementations(class_getInstanceMethod(self, @selector(setSelectedImage:)), class_getInstanceMethod(self, @selector(ll_setSelectedImage:)));
+    self.methodExchange(@selector(setSelectedImage:), @selector(ll_setSelectedImage:));
 }
 
 - (void)ll_setSelectedImage:(UIImage *)image {
+    [self ll_setSelectedImage:image];
     if (image.isTheme) {
         self.selectedDarkImage = image;
     }
-    [self ll_setSelectedImage:image];
 }
 
 - (void)setSelectedDarkImage:(UIImage *)selectedDarkImage {

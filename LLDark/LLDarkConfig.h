@@ -11,9 +11,9 @@
 /**
  通知观察者APP主题已发生改变，新的主题以NSNumber形式存储在通知的object参数中。
  
- 不管是由于系统主题变化还是主动切换主题导致的变化，只要APP的主题发生了变化就会在主线程中发送通知。
+ @discussion 不管是系统主题变化还是手动切换主题变化，都会在主线程中发送通知。
  
- 页面UI不一定会刷新，例如当前是“跟随系统”，系统是浅色模式，点击切换到浅色模式。
+ 只要主题发生变化就会发送通知，不管页面UI是否刷新，例如从LLUserInterfaceStyleUnspecified(系统是深色模式)->LLUserInterfaceStyleDark也会发送通知。
  */
 static NSString * const ThemeDidChangeNotification = @"ThemeDidChangeNotification";
 
@@ -24,12 +24,20 @@ static NSString * const ThemeDidChangeNotification = @"ThemeDidChangeNotificatio
  
  后台情况下也可能会触发该通知。
  */
+
+/**
+ 通知观察者系统主题已发生改变，新的主题以NSNumber形式存储在通知的object参数中。
+ 
+ @discussion 只要系统主题发生变化就会在主线程中发送通知。
+ 
+ 后台情况也可能会触发通知，如有必要请做好前/后台判断逻辑。
+ */
 static NSString * const SystemThemeDidChangeNotification = @"SystemThemeDidChangeNotification";
 
 /**
  APP主题模式
  
- iOS13及以下机型使用LLUserInterfaceStyleUnspecified将被替换为LLUserInterfaceStyleLight。
+ iOS13及以下机型使用`LLUserInterfaceStyleUnspecified`将被解释为`LLUserInterfaceStyleLight`。
  */
 typedef NS_ENUM(NSInteger, LLUserInterfaceStyle) {
     LLUserInterfaceStyleUnspecified = 0,/**< 跟随系统*/

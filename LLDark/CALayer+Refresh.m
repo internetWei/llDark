@@ -57,7 +57,6 @@
     }
 }
 
-/// 刷新单个Layer
 - (void)refreshSingleLayer {
     if (self.userInterfaceStyle == LLUserInterfaceStyleUnspecified) {    
         self.isDarkMode = LLDarkManager.isDarkMode;
@@ -87,7 +86,7 @@
     if ([self isKindOfClass:CATextLayer.class]) {
         CATextLayer *t_textLayer = (CATextLayer *)self;
         
-        UIColor *foregroundColor = t_textLayer.foregoundThemeColor;
+        UIColor *foregroundColor = t_textLayer.foregroundThemeColor;
         if (foregroundColor.isTheme) {
             t_textLayer.foregroundColor = foregroundColor.resolvedCGColor(self.userInterfaceStyle);
         }

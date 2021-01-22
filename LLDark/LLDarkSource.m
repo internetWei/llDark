@@ -12,9 +12,9 @@
 @interface LLDarkSource ()
 
 /**
- 深色颜色主题资源
+ 深色Color主题资源
  
- @discussion Key是浅色主题下的颜色，value是深色主题的颜色。
+ @discussion key是浅色主题下的颜色，value是深色主题的颜色。
  
  样例代码
  
@@ -27,6 +27,7 @@
  }
  */
 @property (nonatomic, readonly, class) NSMutableDictionary<UIColor *, UIColor *> *darkColorTheme;
+
 
 /**
  深色图片主题资源
@@ -43,9 +44,10 @@
  
  }
  
- 不用考虑倍图关系，@2x、@3x不用写。
+ 不用考虑倍图关系，不用写@2x、@3x。
  */
 @property (nonatomic, readonly, class) NSMutableDictionary<NSString *, NSString *> *darkImageTheme;
+
 
 /// 包含在此集合中的类名将会执行自定义刷新操作(例如YYLabel、YYTextView)。
 @property (nonatomic, readonly, class) NSSet<NSString *> *thirdList;
@@ -58,26 +60,24 @@ static NSMutableDictionary<UIColor *, UIColor *> *_darkColorTheme;
 static NSMutableDictionary<NSString *, NSString *> *_darkImageTheme;
 static NSSet<NSString *> *_thirdList;
 + (void)initialize {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        _darkColorTheme = [NSMutableDictionary dictionary];
-        _darkImageTheme = [NSMutableDictionary dictionary];
-        NSDictionary *t_dict = [self ll_get:@"llDarkTheme"];
-        for (id key in t_dict) {
-            id value = [t_dict objectForKey:key];
-            if ([key isKindOfClass:NSString.class]) {
-                [_darkImageTheme setValue:value forKey:key];
-                continue;
-            }
-            if ([key isKindOfClass:UIColor.class]) {
-                [_darkColorTheme setValue:value forKey:key];
-                continue;
-            }
+    _darkColorTheme = [NSMutableDictionary dictionary];
+    _darkImageTheme = [NSMutableDictionary dictionary];
+    NSDictionary *t_dict = [self ll_get:@"llDarkTheme"];
+    for (id key in t_dict) {
+        id value = [t_dict objectForKey:key];
+        if ([key isKindOfClass:NSString.class]) {
+            [_darkImageTheme setValue:value forKey:key];
+            continue;
         }
-        NSArray *t_array = @[@"YYLabel", @"YYTextView"];
-        t_array = [t_array arrayByAddingObjectsFromArray:[self ll_get:@"thirdControlClassName"]];
-        _thirdList = [NSSet setWithArray:t_array];
-    });
+        if ([key isKindOfClass:UIColor.class]) {
+            [_darkColorTheme setValue:value forKey:key];
+            continue;
+        }
+    }
+    
+    NSArray *t_array = @[@"YYLabel", @"YYTextView"];
+    t_array = [t_array arrayByAddingObjectsFromArray:[self ll_get:@"thirdControlClassName"]];
+    _thirdList = [NSSet setWithArray:t_array];
 }
 
 + (void)updateDarkTheme:(NSDictionary *)darkTheme {

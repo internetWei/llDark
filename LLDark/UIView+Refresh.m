@@ -24,7 +24,6 @@
 
 @interface UIView ()
 
-/// YES：需要刷新，NO：不用刷新
 @property (nonatomic, assign, readonly) BOOL isNeedRefresh;
 
 @property (nonatomic, readonly) NSString *className;

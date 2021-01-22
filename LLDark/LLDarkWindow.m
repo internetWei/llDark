@@ -7,7 +7,6 @@
 
 #import "LLDarkWindow.h"
 
-#import "LLDarkDefine.h"
 #import "LLLaunchScreen.h"
 #import "LLDarkManager.h"
 #import "UIView+Refresh.h"
@@ -26,13 +25,6 @@
 }
 
 + (void)didBecomeActive {
-    if (@available(iOS 13.0, *)) {
-        ll_CodeSync({
-            _oldUserInterfaceStyle = (LLUserInterfaceStyle)UITraitCollection.currentTraitCollection.userInterfaceStyle;
-            _userInterfaceStyle = _oldUserInterfaceStyle;
-        });
-    }
-
     UIWindow *darkWindow = [self sharedInstance];
     if (@available(iOS 13.0, *)) {
         UIScene *scene = UIApplication.sharedApplication.connectedScenes.anyObject;

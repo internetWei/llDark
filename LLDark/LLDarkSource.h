@@ -15,11 +15,14 @@ NS_ASSUME_NONNULL_BEGIN
 /// 更新深色资源文件
 + (void)updateDarkTheme:(NSDictionary *)darkTheme;
 
-/// 根据浅色主题Color获取深色主题下的Color
+
+/// 获取深色主题下的Color对象
 + (nullable UIColor * (^) (UIColor *key))darkColorForKey;
 
-/// 根据浅色主题图片名称获取深色主题下的图片名称
+
+/// 获取深色主题下的ImageName对象
 + (nullable NSString * (^) (NSString *key))darkImageForKey;
+
 
 /// 需要单独刷新的第3方控件列表
 + (BOOL (^)(NSString *className))thirdControlList;

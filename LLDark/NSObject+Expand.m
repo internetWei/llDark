@@ -7,6 +7,8 @@
 
 #import "NSObject+Expand.h"
 
+#import <UIKit/UIKit.h>
+
 @implementation NSObject (Expand)
 
 - (void)ll_set:(NSString *)aSelector withObject:(nullable id)object {

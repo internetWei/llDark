@@ -58,7 +58,7 @@
     if (@available(iOS 13.0, *)) {
         NSString *path = [NSBundle.mainBundle pathForResource:@"customVerticalDarkImage" ofType:@".ktx"];
         UIImage *image = [UIImage imageWithContentsOfFile:path];
-        LLLaunchScreen.verticalDarkImage = image;
+        [LLLaunchScreen replaceLaunchImage:image launchImageType:LLDarkLaunchImageTypeVerticalDark compressionQuality:0.8 validation:nil];
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"深色竖屏启动图已修改，请切换到对应模式并重启APP" message:nil preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
         [alert addAction:cancelAction];
@@ -75,7 +75,7 @@
     if (@available(iOS 13.0, *)) {
         NSString *path = [NSBundle.mainBundle pathForResource:@"customHorizontalDarkImage" ofType:@".ktx"];
         UIImage *image = [UIImage imageWithContentsOfFile:path];
-        LLLaunchScreen.horizontalDarkImage = image;
+        [LLLaunchScreen replaceLaunchImage:image launchImageType:LLDarkLaunchImageTypeHorizontalDark compressionQuality:0.8 validation:nil];
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"深色横屏启动图已修改，请切换到对应模式并重启APP" message:nil preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
         [alert addAction:cancelAction];
@@ -91,7 +91,7 @@
 - (void)changeLightVertical {
     NSString *path = [NSBundle.mainBundle pathForResource:@"customVerticaLightImage" ofType:@".ktx"];
     UIImage *image = [UIImage imageWithContentsOfFile:path];
-    LLLaunchScreen.verticalLightImage = image;
+    [LLLaunchScreen replaceLaunchImage:image launchImageType:LLDarkLaunchImageTypeVerticalLight compressionQuality:0.8 validation:nil];
     
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"浅色竖屏启动图已修改，请切换到对应模式并重启APP" message:nil preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
@@ -102,7 +102,7 @@
 - (void)changeLightHorizontal {
     NSString *path = [NSBundle.mainBundle pathForResource:@"customHorizontalLightImage" ofType:@".ktx"];
     UIImage *image = [UIImage imageWithContentsOfFile:path];
-    LLLaunchScreen.horizontalLightImage = image;
+    [LLLaunchScreen replaceLaunchImage:image launchImageType:LLDarkLaunchImageTypeHorizontalLight compressionQuality:0.8 validation:nil];
     
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"浅色横屏启动图已修改，请切换到对应模式并重启APP" message:nil preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
@@ -111,7 +111,7 @@
 }
 
 - (void)restoreScreen {
-    [LLLaunchScreen restoreLaunchScreeen];
+    [LLLaunchScreen restoreAsBefore];
     
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"启动图已恢复至初始化状态，请重启APP" message:nil preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
@@ -298,7 +298,7 @@
     layer.startPoint = CGPointMake(0, 0);
     layer.endPoint = CGPointMake(1, 1);
     [scrollView.layer addSublayer:layer];
-    layer.colors = @[UIColor.redColor.themeColor(UIColor.blueColor), UIColor.greenColor, UIColor.blueColor.themeColor(UIColor.redColor)];
+    layer.colors = @[UIColor.redColor, UIColor.greenColor, UIColor.blueColor];
     layer.locations = @[@0.3, @0.4, @0.7];
     
     YYLabel *textLabel = [[YYLabel alloc] init];

@@ -5,8 +5,6 @@
 //  Created by LL on 2020/11/28.
 //
 
-#import "UIViewController+Refresh.h"
-
 #import <objc/runtime.h>
 
 #import "NSObject+Dark.h"
@@ -15,7 +13,7 @@
 @implementation UIViewController (Refresh)
 
 + (void)load {
-    method_exchangeImplementations(class_getInstanceMethod(self, @selector(viewDidLayoutSubviews)), class_getInstanceMethod(self, @selector(ll_viewDidLayoutSubviews)));
+    self.methodExchange(@selector(viewDidLayoutSubviews), @selector(ll_viewDidLayoutSubviews));
 }
 
 - (void)ll_viewDidLayoutSubviews {

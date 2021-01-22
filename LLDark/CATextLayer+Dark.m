@@ -10,28 +10,27 @@
 #import <objc/runtime.h>
 
 #import "UIColor+Dark.h"
-
-static char * const ll_foregroundThemeColor_identifier = "ll_foregroundThemeColor_identifier";
+#import "NSObject+Dark.h"
 
 @implementation CATextLayer (Dark)
 
 + (void)load {
-    method_exchangeImplementations(class_getInstanceMethod(self, @selector(setForegroundColor:)), class_getInstanceMethod(self, @selector(setForegoundThemeColor:)));
+    self.methodExchange(@selector(setForegroundColor:), @selector(setForegroundThemeColor:));
 }
 
-- (void)setForegoundThemeColor:(id)foregoundThemeColor {
-    if ([foregoundThemeColor isKindOfClass:UIColor.class]) {
-        [self setForegoundThemeColor:(id)[foregoundThemeColor CGColor]];
-        if ([foregoundThemeColor isTheme]) {
-            objc_setAssociatedObject(self, &ll_foregroundThemeColor_identifier, foregoundThemeColor, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+- (void)setForegroundThemeColor:(id)foregroundThemeColor {
+    if ([foregroundThemeColor isKindOfClass:UIColor.class]) {
+        [self setForegroundThemeColor:(id)[foregroundThemeColor CGColor]];
+        if ([foregroundThemeColor isTheme]) {
+            objc_setAssociatedObject(self, @selector(foregroundThemeColor), foregroundThemeColor, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         }
     } else {
-        [self setForegoundThemeColor:foregoundThemeColor];
+        [self setForegroundThemeColor:foregroundThemeColor];
     }
 }
 
-- (UIColor *)foregoundThemeColor {
-    return objc_getAssociatedObject(self, &ll_foregroundThemeColor_identifier);
+- (UIColor *)foregroundThemeColor {
+    return objc_getAssociatedObject(self, @selector(foregroundThemeColor));
 }
 
 @end

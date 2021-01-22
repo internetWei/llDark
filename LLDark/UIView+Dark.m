@@ -13,30 +13,18 @@
 #import "UIView+Refresh.h"
 #import "NSObject+Dark.h"
 
-static char * const ll_appearanceBindUpdater_identifer = "ll_appearanceBindUpdater_identifer";
-static char * const ll_backgroundColor_identifier = "ll_backgroundColor_identifier";
-static char * const ll_view_darkMode_identifier = "ll_view_darkMode_identifier";
-
-@interface UIView ()
-
-@property (nonatomic, strong) UIColor *ll_backgroundColor;
-
-@end
-
 @implementation UIView (Dark)
 
 + (void)load {
     // 交换backgroundColor的set和get方法(因为backgroundColor有copy属性，导致每次赋值地址都发生改变)。
-    method_exchangeImplementations(class_getInstanceMethod(self, @selector(setBackgroundColor:)), class_getInstanceMethod(self, @selector(setLl_backgroundColor:)));
-    method_exchangeImplementations(class_getInstanceMethod(self, @selector(backgroundColor)), class_getInstanceMethod(self, @selector(ll_backgroundColor)));
-
-    // 交换didMoveToWindow方法，以实现在视图即将显示时刷新UI。
-    method_exchangeImplementations(class_getInstanceMethod(self, @selector(didMoveToWindow)), class_getInstanceMethod(self, @selector(ll_didMoveToWindow)));
+    self.methodExchange(@selector(setBackgroundColor:), @selector(setLl_backgroundColor:));
     
-    // 交换初始化方法，以实现在视图创建时记录View的主题模式。
-    method_exchangeImplementations(class_getInstanceMethod(self, @selector(initWithFrame:)), class_getInstanceMethod(self, @selector(ll_initWithFrame:)));
-    method_exchangeImplementations(class_getInstanceMethod(self, @selector(initWithCoder:)), class_getInstanceMethod(self, @selector(ll_initWithCoder:)));
-    method_exchangeImplementations(class_getInstanceMethod(self, @selector(layoutSubviews)), class_getInstanceMethod(self, @selector(ll_layoutSubviews)));
+    self.methodExchange(@selector(backgroundColor), @selector(ll_backgroundColor));
+    self.methodExchange(@selector(didMoveToWindow), @selector(ll_didMoveToWindow));
+    
+    self.methodExchange(@selector(initWithFrame:), @selector(ll_initWithFrame:));
+    self.methodExchange(@selector(initWithCoder:), @selector(ll_initWithCoder:));
+    self.methodExchange(@selector(layoutSubviews), @selector(ll_layoutSubviews));
 }
 
 - (instancetype)ll_initWithFrame:(CGRect)rect {
@@ -71,28 +59,28 @@ static char * const ll_view_darkMode_identifier = "ll_view_darkMode_identifier";
 
 - (void)setLl_backgroundColor:(UIColor *)ll_backgroundColor {
     [self setLl_backgroundColor:ll_backgroundColor];
-    objc_setAssociatedObject(self, &ll_backgroundColor_identifier, ll_backgroundColor, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, @selector(ll_backgroundColor), ll_backgroundColor, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (UIColor *)ll_backgroundColor {
-    return objc_getAssociatedObject(self, &ll_backgroundColor_identifier);
+    return objc_getAssociatedObject(self, @selector(ll_backgroundColor));
 }
 
 - (void)setIsDarkMode:(BOOL)isDarkMode {
-    objc_setAssociatedObject(self, &ll_view_darkMode_identifier, @(isDarkMode), OBJC_ASSOCIATION_ASSIGN);
+    objc_setAssociatedObject(self, @selector(isDarkMode), @(isDarkMode), OBJC_ASSOCIATION_ASSIGN);
 }
 
 - (BOOL)isDarkMode {
-    return [objc_getAssociatedObject(self, &ll_view_darkMode_identifier) boolValue];
+    return [objc_getAssociatedObject(self, @selector(isDarkMode)) boolValue];
 }
 
 - (void)setAppearanceBindUpdater:(void (^)(id _Nonnull))appearanceBindUpdater {
-    objc_setAssociatedObject(self, &ll_appearanceBindUpdater_identifer, appearanceBindUpdater, OBJC_ASSOCIATION_COPY_NONATOMIC);
+    objc_setAssociatedObject(self, @selector(appearanceBindUpdater), appearanceBindUpdater, OBJC_ASSOCIATION_COPY_NONATOMIC);
     !appearanceBindUpdater ?: appearanceBindUpdater(self);
 }
 
 - (void (^)(id _Nonnull))appearanceBindUpdater {
-    return objc_getAssociatedObject(self, &ll_appearanceBindUpdater_identifer);
+    return objc_getAssociatedObject(self, @selector(appearanceBindUpdater));
 }
 
 @end

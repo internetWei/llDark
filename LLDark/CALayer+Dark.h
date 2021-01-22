@@ -12,7 +12,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CALayer (Dark)
 
-/// YES表示当前对象是深色模式，NO表示当前对象是浅色模式。
 @property (nonatomic, assign) BOOL isDarkMode;
 
 @property (nonatomic, nullable) UIColor *borderThemeColor;

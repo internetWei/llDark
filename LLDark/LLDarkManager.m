@@ -9,18 +9,17 @@
 
 #import "LLDarkWindow.h"
 #import "LLDarkDefine.h"
-#import "LLLaunchScreen.h"
 #import "UIView+Refresh.h"
 #import "NSObject+Dark.h"
 #import "NSObject+Refresh.h"
 
 /// APP主题模式存储标识符
-static NSString * const ll_user_theme_identifier = @"ll_user_theme_identifier";
+static NSString * const llDark_user_theme_identifier = @"llDark_user_theme_identifier";
 
 @implementation LLDarkManager
 
 + (void)initialize {
-    NSString *theme = [[NSUserDefaults standardUserDefaults] objectForKey:ll_user_theme_identifier];
+    NSString *theme = [[NSUserDefaults standardUserDefaults] objectForKey:llDark_user_theme_identifier];
     
     _userInterfaceStyle = NSIntegerFromNSString(theme);
     if (!theme && UIDevice.currentDevice.systemVersion.floatValue < 13.0) {
@@ -35,19 +34,19 @@ static NSString * const ll_user_theme_identifier = @"ll_user_theme_identifier";
 }
 
 
-/// APP主题已发生改变
+/// APP主题发生改变
 + (void)themeDidChange {
     for (NSObject *obj in NSObject.themeTables) {
         !obj.themeDidChange ?: obj.themeDidChange(obj);
     }
 }
 
-/// 系统主题已发生改变
+/// 系统主题发生改变
 + (void)systemThemeDidChange API_AVAILABLE(ios(13.0)) {
     if (self.userInterfaceStyle == LLUserInterfaceStyleUnspecified) {
         // 上次暗黑状态
         BOOL originDark = [self isDarkMode:LLDarkWindow.oldUserInterfaceStyle];
-        // 当前的暗黑状态
+        // 当前暗黑状态
         BOOL currentDark = self.isDarkMode;
         
         if (originDark != currentDark) {
@@ -64,20 +63,20 @@ static NSString * const ll_user_theme_identifier = @"ll_user_theme_identifier";
 
 /// 刷新当前正在显示的视图
 + (void)refreshDisplayedView {
-    // ①.刷新window上的视图，例如弹窗。
+    // 1.刷新window上的视图，例如window上的弹窗
     [self refreshWindow];
     
-    // ②.刷新视图控制器上的视图
+    // 2.刷新视图控制器上的视图
     [self refreshViewController];
 }
 
-/// 刷新UIWindow上的视图，例如弹窗
+/// 刷新window上的视图，例如window上的弹窗
 + (void)refreshWindow {
     if (currentWindow().userInterfaceStyle != LLUserInterfaceStyleUnspecified) return;
+    
     for (UIView *view in currentWindow().subviews) {
-        if (![view isMemberOfClass:NSClassFromString(@"UITransitionView")]) {
-            [view refresh];
-        }
+        if ([view isMemberOfClass:NSClassFromString(@"UITransitionView")] == YES) continue;
+        [view refresh];
     }
 }
 
@@ -107,10 +106,6 @@ static LLUserInterfaceStyle _userInterfaceStyle;
 }
 
 + (void)setUserInterfaceStyle:(LLUserInterfaceStyle)userInterfaceStyle {
-    /// ⓪.初始化启动图
-    [LLLaunchScreen initialization];
-    
-    /// 判断LLUserInterfaceStyle是否合适。
     if (UIDevice.currentDevice.systemVersion.floatValue < 13.0 &&
         userInterfaceStyle == LLUserInterfaceStyleUnspecified) {
         userInterfaceStyle = LLUserInterfaceStyleLight;
@@ -124,7 +119,7 @@ static LLUserInterfaceStyle _userInterfaceStyle;
     
     dispatch_async(dispatch_get_main_queue(), ^{
         
-        /// ①.修改系统的主题模式
+        /// 1.修改系统的主题模式
         if (@available(iOS 13.0, *)) {
             for (UIWindow *window in UIApplication.sharedApplication.windows) {
                 if (window.hidden == NO && window != LLDarkWindow.sharedInstance) {
@@ -133,17 +128,14 @@ static LLUserInterfaceStyle _userInterfaceStyle;
             }
         }
         
-        // ②.刷新当前可见的视图。
+        // 2.刷新当前可见的视图。
         if (originDark != currentDark) {
             [self refreshDisplayedView];
         }
         
-        /// ③.保存主题模式并发送主题已改变通知
-        [NSUserDefaults.standardUserDefaults setObject:NSStringFromInteger(userInterfaceStyle) forKey:ll_user_theme_identifier];
+        /// 3.保存主题模式并发送主题已改变通知
+        [NSUserDefaults.standardUserDefaults setObject:NSStringFromInteger(userInterfaceStyle) forKey:llDark_user_theme_identifier];
         [NSNotificationCenter.defaultCenter postNotificationName:ThemeDidChangeNotification object:@(userInterfaceStyle)];
-        
-        /// ④.修改启动图的主题模式
-        [LLLaunchScreen launchImageAdaptation];
     });
 }
 

@@ -10,22 +10,20 @@
 #import <objc/runtime.h>
 
 #import "UIColor+Dark.h"
-
-static char * const ll_fillThemeColor_identifier = "ll_fillThemeColor_identifier";
-static char * const ll_strokeThemeColor_identifier = "ll_strokeThemeColor_identifier";
+#import "NSObject+Dark.h"
 
 @implementation CAShapeLayer (Dark)
 
 + (void)load {
-    method_exchangeImplementations(class_getInstanceMethod(self, @selector(setFillColor:)), class_getInstanceMethod(self, @selector(setFillThemeColor:)));
-    method_exchangeImplementations(class_getInstanceMethod(self, @selector(setStrokeColor:)), class_getInstanceMethod(self, @selector(setStrokeThemeColor:)));
+    CAShapeLayer.methodExchange(@selector(setFillColor:), @selector(setFillThemeColor:));
+    CAShapeLayer.methodExchange(@selector(setStrokeColor:), @selector(setStrokeThemeColor:));
 }
 
 - (void)setFillThemeColor:(id)fillThemeColor {
     if ([fillThemeColor isKindOfClass:UIColor.class]) {
         [self setFillThemeColor:(id)[fillThemeColor CGColor]];
         if ([fillThemeColor isTheme]) {
-            objc_setAssociatedObject(self, &ll_fillThemeColor_identifier, fillThemeColor, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+            objc_setAssociatedObject(self, @selector(fillThemeColor), fillThemeColor, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         }
     } else {
         [self setFillThemeColor:fillThemeColor];
@@ -33,14 +31,14 @@ static char * const ll_strokeThemeColor_identifier = "ll_strokeThemeColor_identi
 }
 
 - (UIColor *)fillThemeColor {
-    return objc_getAssociatedObject(self, &ll_fillThemeColor_identifier);
+    return objc_getAssociatedObject(self, @selector(fillThemeColor));
 }
 
 - (void)setStrokeThemeColor:(id)strokeThemeColor {
     if ([strokeThemeColor isKindOfClass:UIColor.class]) {
         [self setStrokeThemeColor:(id)[strokeThemeColor CGColor]];
         if ([strokeThemeColor isTheme]) {
-            objc_setAssociatedObject(self, &ll_strokeThemeColor_identifier, strokeThemeColor, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+            objc_setAssociatedObject(self, @selector(strokeThemeColor), strokeThemeColor, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         }
     } else {
         [self setStrokeThemeColor:strokeThemeColor];
@@ -48,7 +46,7 @@ static char * const ll_strokeThemeColor_identifier = "ll_strokeThemeColor_identi
 }
 
 - (UIColor *)strokeThemeColor {
-    return objc_getAssociatedObject(self, &ll_strokeThemeColor_identifier);
+    return objc_getAssociatedObject(self, @selector(strokeThemeColor));
 }
 
 @end

@@ -14,6 +14,7 @@
 #import "CALayer+Refresh.h"
 #import "UIView+Refresh.h"
 #import "NSMutableDictionary+Refresh.h"
+#import <CoreText/CTStringAttributes.h>
 
 @implementation NSMutableAttributedString (Refresh)
 

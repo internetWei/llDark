@@ -17,10 +17,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// 创建一个主题图片，并返回当前主题下的图片对象。
 + (UIImage * _Nullable (^) (NSString *lightImageName, NSString * _Nullable darkImageName))themeImage;
 
-/// 和themeImage作用一致。方便全局替换imageNamed:。
+/// 和themeImage作用一致。方便全局替换`imageNamed:`
 + (nullable UIImage *)themeImage:(NSString *)lightImageName;
 
-/// 删除主题属性，返回浅色状态下的图片。
+/// 删除主题属性，返回浅色状态下的图片
 @property (nonatomic, readonly) UIImage *removeTheme;
 
 /**
@@ -30,7 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (UIImage * _Nullable (^) (NSString *))imageNamed;
 
-/// 返回使用指定渲染模式渲染的图像
+/// 返回使用指定渲染模式渲染的主题图片
 - (UIImage * (^) (UIImageRenderingMode))renderingModeFrom;
 
 
@@ -39,10 +39,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark ----------分割线----------
 
-/// YES：是主题图片，NO：不是主题图片。
 @property (nonatomic, readonly) BOOL isTheme;
 
-/// YES：是深色系图片，NO：是浅色系图片
 @property (nonatomic, readonly) BOOL hasDarkImage;
 
 /// 传递指定模式，并返回模式下对应的UIImage。
@@ -53,6 +51,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 获取图片上某个点的RGB值(不包含alpha)。
 - (nullable NSArray<NSNumber *> *)pixelColorFromPoint:(CGPoint)point;
+
+- (UIImage *)resizeImageWithDirection:(BOOL)vertical;
 
 @end
 

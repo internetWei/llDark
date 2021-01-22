@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CATextLayer (Dark)
 
-@property (nonatomic, nullable) UIColor *foregoundThemeColor;
+@property (nonatomic, nullable) UIColor *foregroundThemeColor;
 
 @end
 

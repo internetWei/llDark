@@ -9,10 +9,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef NS_ENUM(NSInteger, LLDarkLaunchImageType) {
+    LLDarkLaunchImageTypeVerticalLight,   /**< 竖屏浅色启动图*/
+    LLDarkLaunchImageTypeVerticalDark API_AVAILABLE(ios(13.0)) ,    /**< 竖屏深色启动图*/
+    LLDarkLaunchImageTypeHorizontalLight, /**< 横屏浅色启动图*/
+    LLDarkLaunchImageTypeHorizontalDark API_AVAILABLE(ios(13.0)),  /**< 横屏深色启动图*/
+};
+
 @interface LLLaunchScreen : NSObject
 
-/// 启动图文件名称，如果是名称LaunchScreen则不用传递。
-@property (nonatomic, class, nullable) NSString *launchScreenName;
 
 /**
  自定义暗黑启动图校验规则
@@ -22,26 +27,36 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, class) BOOL (^hasDarkImageBlock) (UIImage *image);
 
-/// 竖屏浅色启动图
-@property (nonatomic, class, nullable) UIImage *verticalLightImage;
 
-/// 竖屏深色启动图
-@property (nonatomic, class, nullable) UIImage *verticalDarkImage API_AVAILABLE(ios(13.0));
+/**
+ 将所有启动图恢复为默认启动图
+ 
+ @discussion 此操作具有破坏性，会丢失已修改的启动图。
+ */
++ (void)restoreAsBefore;
 
-/// 横屏浅色启动图
-@property (nonatomic, class, nullable) UIImage *horizontalLightImage;
 
-/// 横屏深色启动图
-@property (nonatomic, class, nullable) UIImage *horizontalDarkImage API_AVAILABLE(ios(13.0));
+/// 获取指定模式下的启动图对象
++ (nullable UIImage *)launchImageFromLaunchImageType:(LLDarkLaunchImageType)launchImageType;
 
-/// 适配主题启动图，在主题切换时调用。
-+ (void)launchImageAdaptation;
 
-/// 初始化启动图信息，不会替换任何启动图。
-+ (void)initialization;
+/// 替换指定启动图
+/// @param replaceImage 需要写入的图片，传入nil表示恢复为默认启动图。
+/// @param launchImageType 替换的图片类型
+/// @param quality 图片压缩比例，默认为0.8
+/// @param validationBlock 自定义校验回调，返回YES表示替换，NO表示不替换。
++ (BOOL)replaceLaunchImage:(nullable UIImage *)replaceImage
+           launchImageType:(LLDarkLaunchImageType)launchImageType
+        compressionQuality:(CGFloat)quality
+          validation:(BOOL (^ _Nullable) (UIImage *originImage, UIImage *replaceImage))validationBlock;
 
-/// 恢复启动图为初始状态，可以解决启动图显示异常的问题。
-+ (void)restoreLaunchScreeen;
+
+/// 替换所有竖屏启动图
++ (void)replaceVerticalLaunchImage:(nullable UIImage *)verticalImage;
+
+
+/// 替换所有横屏启动图
++ (void)replaceHorizontalLaunchImage:(nullable UIImage *)horizontalImage;
 
 @end
 
