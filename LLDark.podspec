@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'LLDark'
-  s.version          = '1.1.1'
+  s.version          = '1.1.2'
   s.summary          = 'A powerful dark theme framework for iOS, designed to quickly adapt to dark mode.'
   s.homepage         = 'https://github.com/internetWei/llDark'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
@@ -17,5 +17,18 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '9.0'
   
-  s.source_files = 'LLDark/*'
+  s.source_files = 'LLDark/LLDark.h'
+
+  s.subspec 'Dark' do |ss|
+      ss.source_files = 'LLDark/Dark/*.{h,m}'
+  end
+
+  s.subspec 'Refresh' do |ss|
+      ss.source_files = 'LLDark/Refresh/*.{h,m}'
+  end
+
+  s.subspec 'Tools' do |ss|
+      ss.source_files = 'LLDark/Tools/*.{h,m}'
+  end
+
 end
