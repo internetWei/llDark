@@ -120,19 +120,21 @@
         CAGradientLayer *t_gradientLayer = (CAGradientLayer *)self;
         
         NSArray *colors = t_gradientLayer.themeColors;
-        [self.singletonArray removeAllObjects];
-        for (id obj in colors) {
-            if ([obj isKindOfClass:UIColor.class]) {
-                if ([obj isTheme]) {
-                    UIColor *color = (UIColor *)obj;
-                    color = color.resolvedColor(self.userInterfaceStyle);
-                    [self.singletonArray addObject:color];
-                    continue;
+        if (colors.count > 0) {
+            [self.singletonArray removeAllObjects];
+            for (id obj in colors) {
+                if ([obj isKindOfClass:UIColor.class]) {
+                    if ([obj isTheme]) {
+                        UIColor *color = (UIColor *)obj;
+                        color = color.resolvedColor(self.userInterfaceStyle);
+                        [self.singletonArray addObject:color];
+                        continue;
+                    }
                 }
+                [self.singletonArray addObject:obj];
             }
-            [self.singletonArray addObject:obj];
+            t_gradientLayer.colors = self.singletonArray;
         }
-        t_gradientLayer.colors = self.singletonArray;
         return;
     }
 }
