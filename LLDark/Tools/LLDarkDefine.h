@@ -9,8 +9,8 @@
 #define LLDarkDefine_h
 
 #import <UIKit/UIKit.h>
-#if __has_include(<LLDarkManager.h>)
-#import <LLDarkManager.h>
+#if __has_include(<LLDark/LLDarkManager.h>)
+#import <LLDark/LLDarkManager.h>
 #else
 #import "LLDarkManager.h"
 #endif

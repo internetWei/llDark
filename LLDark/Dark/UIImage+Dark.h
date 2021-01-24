@@ -7,8 +7,8 @@
 
 #import <UIKit/UIKit.h>
 
-#if __has_include(<LLDark/LLDark.h>)
-#import <LLDarkConfig.h>
+#if __has_include(<LLDark/LLDarkConfig.h>)
+#import <LLDark/LLDarkConfig.h>
 #else
 #import "LLDarkConfig.h"
 #endif

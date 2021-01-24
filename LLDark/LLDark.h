@@ -8,11 +8,12 @@
 #ifndef LLDark_h
 #define LLDark_h
 
-FOUNDATION_EXPORT double LLDarkVersionNumber;
-
-FOUNDATION_EXPORT const unsigned char LLDarkVersionString[];
+#import <Foundation/Foundation.h>
 
 #if __has_include(<LLDark/LLDark.h>)
+
+FOUNDATION_EXPORT double LLDarkVersionNumber;
+FOUNDATION_EXPORT const unsigned char LLDarkVersionString[];
 
 #import <LLDark/LLDarkManager.h>
 #import <LLDark/UIImageView+Dark.h>
