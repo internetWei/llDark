@@ -7,7 +7,11 @@
 
 #import <UIKit/UIKit.h>
 
+#if __has_include(<LLDark/LLDark.h>)
+#import <LLDarkConfig.h>
+#else
 #import "LLDarkConfig.h"
+#endif
 
 NS_ASSUME_NONNULL_BEGIN
 

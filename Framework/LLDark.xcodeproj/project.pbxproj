@@ -143,9 +143,9 @@
 		6A434FC625BD154D008EE8BC /* LLDark */ = {
 			isa = PBXGroup;
 			children = (
+				6A434FE125BD154D008EE8BC /* LLDark.h */,
 				6A434FC725BD154D008EE8BC /* Tools */,
 				6A434FD525BD154D008EE8BC /* Refresh */,
-				6A434FE125BD154D008EE8BC /* LLDark.h */,
 				6A434FE225BD154D008EE8BC /* Dark */,
 			);
 			name = LLDark;
@@ -480,6 +480,8 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				OTHER_CFLAGS = "-fembed-bitcode";
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_BUNDLE_IDENTIFIER = com.internetwei.lldark.LLDark;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -504,6 +506,8 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				OTHER_CFLAGS = "-fembed-bitcode";
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_BUNDLE_IDENTIFIER = com.internetwei.lldark.LLDark;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
