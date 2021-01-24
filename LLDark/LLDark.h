@@ -36,6 +36,7 @@ FOUNDATION_EXPORT const unsigned char LLDarkVersionString[];
 #import <LLDark/CAShapeLayer+Dark.h>
 #import <LLDark/CATextLayer+Dark.h>
 #import <LLDark/UITabBarItem+Dark.h>
+#import <LLDark/LLDarkDefine.h>
 
 #else
 
