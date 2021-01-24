@@ -298,7 +298,7 @@
     layer.startPoint = CGPointMake(0, 0);
     layer.endPoint = CGPointMake(1, 1);
     [scrollView.layer addSublayer:layer];
-    layer.colors = @[UIColor.redColor, UIColor.greenColor, UIColor.blueColor];
+    layer.colors = @[UIColor.redColor.themeColor(UIColor.blueColor), UIColor.greenColor, UIColor.blueColor.themeColor(UIColor.redColor)];
     layer.locations = @[@0.3, @0.4, @0.7];
     
     YYLabel *textLabel = [[YYLabel alloc] init];

@@ -7,7 +7,11 @@
 
 #import <Foundation/Foundation.h>
 
+#if __has_include(<LLDarkConfig.h>)
+#import <LLDarkConfig.h>
+#else
 #import "LLDarkConfig.h"
+#endif
 
 NS_ASSUME_NONNULL_BEGIN
 

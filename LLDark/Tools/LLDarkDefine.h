@@ -9,7 +9,11 @@
 #define LLDarkDefine_h
 
 #import <UIKit/UIKit.h>
+#if __has_include(<LLDarkManager.h>)
+#import <LLDarkManager.h>
+#else
 #import "LLDarkManager.h"
+#endif
 
 NS_ASSUME_NONNULL_BEGIN
 
