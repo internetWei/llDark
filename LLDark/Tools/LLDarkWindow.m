@@ -21,10 +21,26 @@
         _oldUserInterfaceStyle = (LLUserInterfaceStyle)UITraitCollection.currentTraitCollection.userInterfaceStyle;
         _userInterfaceStyle = _oldUserInterfaceStyle;
     }
-    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(didBecomeActive) name:UIApplicationDidBecomeActiveNotification object:nil];
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(windowDidBecomeActive) name:UIApplicationDidBecomeActiveNotification object:nil];
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(windowDidResign:) name:UIWindowDidResignKeyNotification object:nil];
 }
 
-+ (void)didBecomeActive {
++ (void)windowDidResign:(NSNotification *)noti {
+    if (LLDarkWindow.sharedInstance != UIApplication.sharedApplication.keyWindow) return;
+    
+    for (UIWindow *window in UIApplication.sharedApplication.windows) {
+        if (window.hidden == YES) continue;
+        if (window == LLDarkWindow.sharedInstance) continue;
+        if (window == noti.object) continue;
+        
+        [window makeKeyWindow];
+        if (@available(iOS 13.0, *)) {
+            window.overrideUserInterfaceStyle = (UIUserInterfaceStyle)LLDarkManager.userInterfaceStyle;
+        }
+    }
+}
+
++ (void)windowDidBecomeActive {
     UIWindow *darkWindow = [self sharedInstance];
     if (@available(iOS 13.0, *)) {
         UIScene *scene = UIApplication.sharedApplication.connectedScenes.anyObject;
