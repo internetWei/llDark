@@ -27,6 +27,14 @@
     return self.lightColor.deepColor;
 }
 
+- (CGColorRef)CGThemeColor {
+    if (self.isTheme == NO) {
+        return self.CGColor;
+    }
+
+    return self.lightColor.themeCGColor(self.darkColor);
+}
+
 - (UIColor * _Nonnull (^)(UIColor * _Nullable))themeColor {
     return ^(UIColor * _Nullable darkColor) {
         UIColor *lightColor = self;

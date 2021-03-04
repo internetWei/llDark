@@ -20,6 +20,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 删除主题属性，并返回浅色状态下的颜色。
 @property (nonatomic, readonly) UIColor *removeTheme;
 
+/// 将一个themeColor转换成CGColor
+@property (nonatomic, readonly) CGColorRef CGThemeColor;
+
 /**
  创建一个主题颜色
  
