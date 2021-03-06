@@ -396,9 +396,9 @@
 			isa = PBXGroup;
 			children = (
 				6A434F7825BD11ED008EE8BC /* LLDark.h */,
-				6A434F5E25BD11ED008EE8BC /* Tools */,
-				6A434F6C25BD11ED008EE8BC /* Refresh */,
 				6A434F7925BD11ED008EE8BC /* Dark */,
+				6A434F6C25BD11ED008EE8BC /* Refresh */,
+				6A434F5E25BD11ED008EE8BC /* Tools */,
 			);
 			name = LLDark;
 			path = ../../LLDark;
@@ -407,19 +407,19 @@
 		6A434F5E25BD11ED008EE8BC /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				6A434F5F25BD11ED008EE8BC /* NSObject+Expand.h */,
-				6A434F6025BD11ED008EE8BC /* LLLaunchScreen.m */,
+				6A434F6825BD11ED008EE8BC /* LLDarkConfig.h */,
+				6A434F6725BD11ED008EE8BC /* LLDarkDefine.h */,
+				6A434F6925BD11ED008EE8BC /* LLDarkManager.h */,
 				6A434F6125BD11ED008EE8BC /* LLDarkManager.m */,
-				6A434F6225BD11ED008EE8BC /* LLThird.m */,
+				6A434F6A25BD11ED008EE8BC /* LLDarkSource.h */,
 				6A434F6325BD11ED008EE8BC /* LLDarkSource.m */,
+				6A434F6B25BD11ED008EE8BC /* LLDarkWindow.h */,
 				6A434F6425BD11ED008EE8BC /* LLDarkWindow.m */,
 				6A434F6525BD11ED008EE8BC /* LLLaunchScreen.h */,
+				6A434F6025BD11ED008EE8BC /* LLLaunchScreen.m */,
+				6A434F6225BD11ED008EE8BC /* LLThird.m */,
+				6A434F5F25BD11ED008EE8BC /* NSObject+Expand.h */,
 				6A434F6625BD11ED008EE8BC /* NSObject+Expand.m */,
-				6A434F6725BD11ED008EE8BC /* LLDarkDefine.h */,
-				6A434F6825BD11ED008EE8BC /* LLDarkConfig.h */,
-				6A434F6925BD11ED008EE8BC /* LLDarkManager.h */,
-				6A434F6A25BD11ED008EE8BC /* LLDarkSource.h */,
-				6A434F6B25BD11ED008EE8BC /* LLDarkWindow.h */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -427,17 +427,17 @@
 		6A434F6C25BD11ED008EE8BC /* Refresh */ = {
 			isa = PBXGroup;
 			children = (
-				6A434F6D25BD11ED008EE8BC /* NSObject+Refresh.m */,
-				6A434F6E25BD11ED008EE8BC /* UIViewController+Refresh.m */,
-				6A434F6F25BD11ED008EE8BC /* UIView+Refresh.m */,
 				6A434F7025BD11ED008EE8BC /* CALayer+Refresh.h */,
-				6A434F7125BD11ED008EE8BC /* NSMutableDictionary+Refresh.h */,
-				6A434F7225BD11ED008EE8BC /* NSMutableAttributedString+Refresh.m */,
-				6A434F7325BD11ED008EE8BC /* UIView+Refresh.h */,
-				6A434F7425BD11ED008EE8BC /* NSObject+Refresh.h */,
 				6A434F7525BD11ED008EE8BC /* CALayer+Refresh.m */,
 				6A434F7625BD11ED008EE8BC /* NSMutableAttributedString+Refresh.h */,
+				6A434F7225BD11ED008EE8BC /* NSMutableAttributedString+Refresh.m */,
+				6A434F7125BD11ED008EE8BC /* NSMutableDictionary+Refresh.h */,
 				6A434F7725BD11ED008EE8BC /* NSMutableDictionary+Refresh.m */,
+				6A434F7425BD11ED008EE8BC /* NSObject+Refresh.h */,
+				6A434F6D25BD11ED008EE8BC /* NSObject+Refresh.m */,
+				6A434F7325BD11ED008EE8BC /* UIView+Refresh.h */,
+				6A434F6F25BD11ED008EE8BC /* UIView+Refresh.m */,
+				6A434F6E25BD11ED008EE8BC /* UIViewController+Refresh.m */,
 			);
 			path = Refresh;
 			sourceTree = "<group>";
@@ -445,26 +445,26 @@
 		6A434F7925BD11ED008EE8BC /* Dark */ = {
 			isa = PBXGroup;
 			children = (
-				6A434F7A25BD11ED008EE8BC /* UIImage+Dark.h */,
-				6A434F7B25BD11ED008EE8BC /* UIColor+Dark.h */,
-				6A434F7C25BD11ED008EE8BC /* UIView+Dark.m */,
-				6A434F7D25BD11ED008EE8BC /* CATextLayer+Dark.m */,
-				6A434F7E25BD11ED008EE8BC /* UITabBarItem+Dark.m */,
-				6A434F7F25BD11ED008EE8BC /* CAShapeLayer+Dark.h */,
-				6A434F8025BD11ED008EE8BC /* NSObject+Dark.m */,
-				6A434F8125BD11ED008EE8BC /* CALayer+Dark.m */,
-				6A434F8225BD11ED008EE8BC /* UIImageView+Dark.h */,
-				6A434F8325BD11ED008EE8BC /* CAGradientLayer+Dark.m */,
-				6A434F8425BD11ED008EE8BC /* UIView+Dark.h */,
-				6A434F8525BD11ED008EE8BC /* UIColor+Dark.m */,
-				6A434F8625BD11ED008EE8BC /* UIImage+Dark.m */,
-				6A434F8725BD11ED008EE8BC /* CAShapeLayer+Dark.m */,
-				6A434F8825BD11ED008EE8BC /* UITabBarItem+Dark.h */,
-				6A434F8925BD11ED008EE8BC /* CATextLayer+Dark.h */,
-				6A434F8A25BD11ED008EE8BC /* NSObject+Dark.h */,
-				6A434F8B25BD11ED008EE8BC /* UIImageView+Dark.m */,
 				6A434F8C25BD11ED008EE8BC /* CAGradientLayer+Dark.h */,
+				6A434F8325BD11ED008EE8BC /* CAGradientLayer+Dark.m */,
 				6A434F8D25BD11ED008EE8BC /* CALayer+Dark.h */,
+				6A434F8125BD11ED008EE8BC /* CALayer+Dark.m */,
+				6A434F7F25BD11ED008EE8BC /* CAShapeLayer+Dark.h */,
+				6A434F8725BD11ED008EE8BC /* CAShapeLayer+Dark.m */,
+				6A434F8925BD11ED008EE8BC /* CATextLayer+Dark.h */,
+				6A434F7D25BD11ED008EE8BC /* CATextLayer+Dark.m */,
+				6A434F8A25BD11ED008EE8BC /* NSObject+Dark.h */,
+				6A434F8025BD11ED008EE8BC /* NSObject+Dark.m */,
+				6A434F7B25BD11ED008EE8BC /* UIColor+Dark.h */,
+				6A434F8525BD11ED008EE8BC /* UIColor+Dark.m */,
+				6A434F7A25BD11ED008EE8BC /* UIImage+Dark.h */,
+				6A434F8625BD11ED008EE8BC /* UIImage+Dark.m */,
+				6A434F8225BD11ED008EE8BC /* UIImageView+Dark.h */,
+				6A434F8B25BD11ED008EE8BC /* UIImageView+Dark.m */,
+				6A434F8825BD11ED008EE8BC /* UITabBarItem+Dark.h */,
+				6A434F7E25BD11ED008EE8BC /* UITabBarItem+Dark.m */,
+				6A434F8425BD11ED008EE8BC /* UIView+Dark.h */,
+				6A434F7C25BD11ED008EE8BC /* UIView+Dark.m */,
 			);
 			path = Dark;
 			sourceTree = "<group>";
@@ -752,8 +752,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NXMAY6U4X8;
 				INFOPLIST_FILE = Demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -772,8 +773,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NXMAY6U4X8;
 				INFOPLIST_FILE = Demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
