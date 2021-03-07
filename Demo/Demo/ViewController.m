@@ -16,108 +16,10 @@
 #define kColorRGB(r,g,b) kColorRGBA(r,g,b,1.0)
 
 #define kWhiteColor UIColor.whiteColor.themeColor(nil)
-
 #define kBlackColor kColorRGB(27, 27, 27).themeColor(nil)
-
 #define kHightColor kColorRGB(255, 69, 0).themeColor(kColorRGB(14, 224, 0))
 
-//  状态栏高度
-#define kStatusBarHeight [[UIApplication sharedApplication] statusBarFrame].size.height
-
-@interface ViewController ()
-
-@end
-
 @implementation ViewController
-
-- (void)lightEvent {
-    LLDarkManager.userInterfaceStyle = LLUserInterfaceStyleLight;
-}
-
-- (void)darkEvent {
-    LLDarkManager.userInterfaceStyle = LLUserInterfaceStyleDark;
-}
-
-- (void)systemEvent {
-    LLDarkManager.userInterfaceStyle = LLUserInterfaceStyleUnspecified;
-}
-
-- (void)changeStatusBarStyle {
-    if (LLDarkManager.isDarkMode) {
-        UIApplication.sharedApplication.statusBarStyle = UIStatusBarStyleLightContent;
-    } else {
-        if (@available(iOS 13.0, *)) {
-            UIApplication.sharedApplication.statusBarStyle = UIStatusBarStyleDarkContent;
-        } else {
-            UIApplication.sharedApplication.statusBarStyle = UIStatusBarStyleDefault;
-        }
-    }
-}
-
-- (void)changeDarkVertical {
-    if (@available(iOS 13.0, *)) {
-        NSString *path = [NSBundle.mainBundle pathForResource:@"customVerticalDarkImage" ofType:@".ktx"];
-        UIImage *image = [UIImage imageWithContentsOfFile:path];
-        [LLLaunchScreen replaceLaunchImage:image launchImageType:LLDarkLaunchImageTypeVerticalDark compressionQuality:0.8 validation:nil];
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"深色竖屏启动图已修改，请切换到对应模式并重启APP" message:nil preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
-        [alert addAction:cancelAction];
-        [self presentViewController:alert animated:YES completion:nil];
-    } else {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"此功能仅能在iOS13以上系统使用" message:nil preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
-        [alert addAction:cancelAction];
-        [self presentViewController:alert animated:YES completion:nil];
-    }
-}
-
-- (void)changeDarkHorizontal {
-    if (@available(iOS 13.0, *)) {
-        NSString *path = [NSBundle.mainBundle pathForResource:@"customHorizontalDarkImage" ofType:@".ktx"];
-        UIImage *image = [UIImage imageWithContentsOfFile:path];
-        [LLLaunchScreen replaceLaunchImage:image launchImageType:LLDarkLaunchImageTypeHorizontalDark compressionQuality:0.8 validation:nil];
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"深色横屏启动图已修改，请切换到对应模式并重启APP" message:nil preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
-        [alert addAction:cancelAction];
-        [self presentViewController:alert animated:YES completion:nil];
-    } else {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"此功能仅能在iOS13以上系统使用" message:nil preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
-        [alert addAction:cancelAction];
-        [self presentViewController:alert animated:YES completion:nil];
-    }
-}
-
-- (void)changeLightVertical {
-    NSString *path = [NSBundle.mainBundle pathForResource:@"customVerticaLightImage" ofType:@".ktx"];
-    UIImage *image = [UIImage imageWithContentsOfFile:path];
-    [LLLaunchScreen replaceLaunchImage:image launchImageType:LLDarkLaunchImageTypeVerticalLight compressionQuality:0.8 validation:nil];
-    
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"浅色竖屏启动图已修改，请切换到对应模式并重启APP" message:nil preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
-    [alert addAction:cancelAction];
-    [self presentViewController:alert animated:YES completion:nil];
-}
-
-- (void)changeLightHorizontal {
-    NSString *path = [NSBundle.mainBundle pathForResource:@"customHorizontalLightImage" ofType:@".ktx"];
-    UIImage *image = [UIImage imageWithContentsOfFile:path];
-    [LLLaunchScreen replaceLaunchImage:image launchImageType:LLDarkLaunchImageTypeHorizontalLight compressionQuality:0.8 validation:nil];
-    
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"浅色横屏启动图已修改，请切换到对应模式并重启APP" message:nil preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
-    [alert addAction:cancelAction];
-    [self presentViewController:alert animated:YES completion:nil];
-}
-
-- (void)restoreScreen {
-    [LLLaunchScreen restoreAsBefore];
-    
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"启动图已恢复至初始化状态，请重启APP" message:nil preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
-    [alert addAction:cancelAction];
-    [self presentViewController:alert animated:YES completion:nil];
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -126,10 +28,10 @@
     self.navigationController.navigationBar.barTintColor = kWhiteColor;
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBar.shadowImage = [UIImage new];
-    
+    self.view.backgroundColor = kWhiteColor;
     
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(changeStatusBarStyle) name:ThemeDidChangeNotification object:nil];
-    [NSNotificationCenter.defaultCenter postNotificationName:ThemeDidChangeNotification object:nil];
+    [self changeStatusBarStyle];
 
     self.themeDidChange = ^(UIViewController * _Nonnull bindView) {
         switch (LLDarkManager.userInterfaceStyle) {
@@ -150,44 +52,49 @@
                 break;
         }
     };
-
     !self.themeDidChange ?: self.themeDidChange(self);
     
-    self.view.backgroundColor = kWhiteColor;
+    
     CGFloat screenWidth = UIScreen.mainScreen.bounds.size.width;
+    CGFloat screenHeight = UIScreen.mainScreen.bounds.size.height;
     
     UIScrollView *scrollView = [[UIScrollView alloc] init];
     scrollView.backgroundColor = UIColor.clearColor;
+    CGFloat statusBarHeight = [[UIApplication sharedApplication] statusBarFrame].size.height;
+    scrollView.frame = CGRectMake(0, 0, screenWidth, screenHeight - (statusBarHeight + 44.0));
     [self.view addSubview:scrollView];
-    scrollView.frame = CGRectMake(0, 0, screenWidth, UIScreen.mainScreen.bounds.size.height - (kStatusBarHeight + 44.0));
 
+    
     UIButton *lightButton = [UIButton buttonWithType:UIButtonTypeSystem];
     lightButton.backgroundColor = kBlackColor;
     [lightButton setTitle:@"浅色模式" forState:UIControlStateNormal];
     [lightButton setTitleColor:kWhiteColor forState:UIControlStateNormal];
     [lightButton setTitleColor:kHightColor forState:UIControlStateHighlighted];
     [lightButton addTarget:self action:@selector(lightEvent) forControlEvents:UIControlEventTouchUpInside];
-    [scrollView addSubview:lightButton];
     CGFloat buttonWidth = (screenWidth - 2 * 30 - 2 * 30) / 3.0;
     lightButton.frame = CGRectMake(30.0, 10.0, buttonWidth, 35.0);
-
+    [scrollView addSubview:lightButton];
+    
+    
     UIButton *darkButton = [UIButton buttonWithType:UIButtonTypeSystem];
     darkButton.backgroundColor = kBlackColor;
     [darkButton setTitle:@"深色模式" forState:UIControlStateNormal];
     [darkButton setTitleColor:kWhiteColor forState:UIControlStateNormal];
     [darkButton setTitleColor:kHightColor forState:UIControlStateHighlighted];
     [darkButton addTarget:self action:@selector(darkEvent) forControlEvents:UIControlEventTouchUpInside];
-    [scrollView addSubview:darkButton];
     darkButton.frame = CGRectMake(CGRectGetMaxX(lightButton.frame) + 30.0, CGRectGetMinY(lightButton.frame), buttonWidth, 35.0);
+    [scrollView addSubview:darkButton];
 
+    
     UIButton *systemButton = [UIButton buttonWithType:UIButtonTypeSystem];
     systemButton.backgroundColor = kBlackColor;
     [systemButton setTitle:@"跟随系统" forState:UIControlStateNormal];
     [systemButton setTitleColor:kWhiteColor forState:UIControlStateNormal];
     [systemButton setTitleColor:kHightColor forState:UIControlStateHighlighted];
     [systemButton addTarget:self action:@selector(systemEvent) forControlEvents:UIControlEventTouchUpInside];
-    [scrollView addSubview:systemButton];
     systemButton.frame = CGRectMake(CGRectGetMaxX(darkButton.frame) + 30.0, CGRectGetMinY(lightButton.frame), buttonWidth, 35.0);
+    [scrollView addSubview:systemButton];
+    
     
     UIButton *darkVerticalScreenButton = [UIButton buttonWithType:UIButtonTypeSystem];
     darkVerticalScreenButton.backgroundColor = kBlackColor;
@@ -195,8 +102,9 @@
     [darkVerticalScreenButton setTitleColor:kWhiteColor forState:UIControlStateNormal];
     [darkVerticalScreenButton setTitleColor:kHightColor forState:UIControlStateHighlighted];
     [darkVerticalScreenButton addTarget:self action:@selector(changeDarkVertical) forControlEvents:UIControlEventTouchUpInside];
-    [scrollView addSubview:darkVerticalScreenButton];
     darkVerticalScreenButton.frame = CGRectMake(CGRectGetMinX(lightButton.frame), CGRectGetMaxY(systemButton.frame) + 10.0, (screenWidth - 2 * 30.0) / 2.0 - 5.0, 35.0);
+    [scrollView addSubview:darkVerticalScreenButton];
+    
     
     UIButton *darkHorizontalScreenButton = [UIButton buttonWithType:UIButtonTypeSystem];
     darkHorizontalScreenButton.backgroundColor = kBlackColor;
@@ -204,8 +112,9 @@
     [darkHorizontalScreenButton setTitleColor:kWhiteColor forState:UIControlStateNormal];
     [darkHorizontalScreenButton setTitleColor:kHightColor forState:UIControlStateHighlighted];
     [darkHorizontalScreenButton addTarget:self action:@selector(changeDarkHorizontal) forControlEvents:UIControlEventTouchUpInside];
-    [scrollView addSubview:darkHorizontalScreenButton];
     darkHorizontalScreenButton.frame = CGRectMake(CGRectGetMaxX(darkVerticalScreenButton.frame) + 10.0, CGRectGetMinY(darkVerticalScreenButton.frame), CGRectGetWidth(darkVerticalScreenButton.frame), CGRectGetHeight(darkVerticalScreenButton.frame));
+    [scrollView addSubview:darkHorizontalScreenButton];
+    
     
     UIButton *lightVerticalScreenButton = [UIButton buttonWithType:UIButtonTypeSystem];
     lightVerticalScreenButton.backgroundColor = kBlackColor;
@@ -213,8 +122,9 @@
     [lightVerticalScreenButton setTitleColor:kWhiteColor forState:UIControlStateNormal];
     [lightVerticalScreenButton setTitleColor:kHightColor forState:UIControlStateHighlighted];
     [lightVerticalScreenButton addTarget:self action:@selector(changeLightVertical) forControlEvents:UIControlEventTouchUpInside];
-    [scrollView addSubview:lightVerticalScreenButton];
     lightVerticalScreenButton.frame = CGRectMake(CGRectGetMinX(darkVerticalScreenButton.frame), CGRectGetMaxY(darkVerticalScreenButton.frame) + 10.0, CGRectGetWidth(darkVerticalScreenButton.frame), CGRectGetHeight(darkVerticalScreenButton.frame));
+    [scrollView addSubview:lightVerticalScreenButton];
+    
     
     UIButton *lightHorizontalScreenButton = [UIButton buttonWithType:UIButtonTypeSystem];
     lightHorizontalScreenButton.backgroundColor = kBlackColor;
@@ -222,8 +132,9 @@
     [lightHorizontalScreenButton setTitleColor:kWhiteColor forState:UIControlStateNormal];
     [lightHorizontalScreenButton setTitleColor:kHightColor forState:UIControlStateHighlighted];
     [lightHorizontalScreenButton addTarget:self action:@selector(changeLightHorizontal) forControlEvents:UIControlEventTouchUpInside];
-    [scrollView addSubview:lightHorizontalScreenButton];
     lightHorizontalScreenButton.frame = CGRectMake(CGRectGetMinX(darkHorizontalScreenButton.frame), CGRectGetMaxY(darkHorizontalScreenButton.frame) + 10.0, CGRectGetWidth(darkVerticalScreenButton.frame), CGRectGetHeight(darkVerticalScreenButton.frame));
+    [scrollView addSubview:lightHorizontalScreenButton];
+    
     
     UIButton *restoreScreenButton = [UIButton buttonWithType:UIButtonTypeSystem];
     restoreScreenButton.backgroundColor = kBlackColor;
@@ -231,24 +142,27 @@
     [restoreScreenButton setTitleColor:kWhiteColor forState:UIControlStateNormal];
     [restoreScreenButton setTitleColor:kHightColor forState:UIControlStateHighlighted];
     [restoreScreenButton addTarget:self action:@selector(restoreScreen) forControlEvents:UIControlEventTouchUpInside];
-    [scrollView addSubview:restoreScreenButton];
     restoreScreenButton.frame = CGRectMake(CGRectGetMinX(darkVerticalScreenButton.frame), CGRectGetMaxY(lightVerticalScreenButton.frame) + 10.0, screenWidth - 2 * 30.0, CGRectGetHeight(darkVerticalScreenButton.frame));
+    [scrollView addSubview:restoreScreenButton];
 
+    
     UIImageView *imageView1 = [[UIImageView alloc] init];
     imageView1.backgroundColor = self.view.backgroundColor;
     imageView1.image = [UIImage themeImage:@"background_light"];
-    [scrollView addSubview:imageView1];
     imageView1.frame = CGRectMake(30.0, CGRectGetMaxY(restoreScreenButton.frame) + 10.0, screenWidth - 2 * 30.0, (screenWidth - 2 * 30.0) / 3.0);
-
+    [scrollView addSubview:imageView1];
+    
+    
     UILabel *imageView1Label = [[UILabel alloc] init];
     imageView1Label.text = @"本地图片";
     imageView1Label.textAlignment = NSTextAlignmentCenter;
     imageView1Label.backgroundColor = kWhiteColor;
     imageView1Label.textColor = kBlackColor;
     imageView1Label.font = [UIFont systemFontOfSize:12.0];
-    [imageView1 addSubview:imageView1Label];
     imageView1Label.frame = CGRectMake(CGRectGetWidth(imageView1.frame) - 65.0, CGRectGetHeight(imageView1.frame) - 25.0, 60.0, 20.0);
+    [imageView1 addSubview:imageView1Label];
 
+    
     UIImageView *imageView2 = [[UIImageView alloc] init];
     imageView2.backgroundColor = self.view.backgroundColor;
     imageView2.contentMode = UIViewContentModeScaleAspectFill;
@@ -258,9 +172,10 @@
         imageView2.image = image;
     });
     imageView2.darkStyle(LLDarkStyleSaturation, 0.1, @"webImage_1");
-    [scrollView addSubview:imageView2];
     imageView2.frame = CGRectMake(30.0, CGRectGetMaxY(imageView1.frame) + 10.0, (CGRectGetWidth(imageView1.frame) - 10.0) / 2.0, CGRectGetHeight(imageView1.frame));
+    [scrollView addSubview:imageView2];
 
+    
     UILabel *imageView2Label = [[UILabel alloc] init];
     imageView2Label.numberOfLines = 2;
     imageView2Label.textAlignment = NSTextAlignmentCenter;
@@ -268,9 +183,10 @@
     imageView2Label.font = [UIFont systemFontOfSize:12.0];
     imageView2Label.backgroundColor = kWhiteColor;
     imageView2Label.textColor = kBlackColor;
-    [imageView2 addSubview:imageView2Label];
     imageView2Label.frame = CGRectMake(CGRectGetWidth(imageView2.frame) - 75.0, CGRectGetHeight(imageView2.frame) - 35.0, 70.0, 30.0);
+    [imageView2 addSubview:imageView2Label];
 
+    
     UIImageView *imageView3 = [[UIImageView alloc] init];
     imageView3.contentMode = UIViewContentModeScaleAspectFill;
     imageView3.backgroundColor = self.view.backgroundColor;
@@ -280,9 +196,10 @@
         imageView3.image = image;
     });
     imageView3.darkStyle(LLDarkStyleMask, 0.5, @"webImage_2");
-    [scrollView addSubview:imageView3];
     imageView3.frame = CGRectMake(CGRectGetMaxX(imageView2.frame) + 10.0, CGRectGetMinY(imageView2.frame), CGRectGetWidth(imageView2.frame), CGRectGetHeight(imageView2.frame));
+    [scrollView addSubview:imageView3];
 
+    
     UILabel *imageView3Label = [[UILabel alloc] init];
     imageView3Label.numberOfLines = 2;
     imageView3Label.textAlignment = NSTextAlignmentCenter;
@@ -290,8 +207,9 @@
     imageView3Label.font = [UIFont systemFontOfSize:12.0];
     imageView3Label.backgroundColor = kWhiteColor;
     imageView3Label.textColor = kBlackColor;
-    [imageView3 addSubview:imageView3Label];
     imageView3Label.frame = CGRectMake(CGRectGetWidth(imageView3.frame) - 65.0, CGRectGetHeight(imageView3.frame) - 35.0, 60.0, 30.0);
+    [imageView3 addSubview:imageView3Label];
+    
     
     CAGradientLayer *layer = [CAGradientLayer layer];
     layer.frame = CGRectMake(30.0, CGRectGetMaxY(imageView2.frame) + 10.0, screenWidth - 2 * 30.0, 80.0);
@@ -301,11 +219,13 @@
     layer.colors = @[UIColor.redColor.themeColor(UIColor.blueColor), UIColor.greenColor, UIColor.blueColor.themeColor(UIColor.redColor)];
     layer.locations = @[@0.3, @0.4, @0.7];
     
+    
     YYLabel *textLabel = [[YYLabel alloc] init];
     textLabel.numberOfLines = 0;
     textLabel.backgroundColor = UIColor.clearColor;
-    [scrollView addSubview:textLabel];
     textLabel.frame = CGRectMake(30.0, CGRectGetMaxY(layer.frame) + 20.0, screenWidth - 2 * 30.0, 220);
+    [scrollView addSubview:textLabel];
+    
     
     NSMutableAttributedString *attr = [[NSMutableAttributedString alloc] initWithString:@"《清明日对酒》 \n 南北山头多墓田，清明祭扫各纷然。\n 纸灰飞作白蝴蝶，泪血染成红杜鹃。 \n 日落狐狸眠冢上，夜归儿女笑灯前。 \n 人生有酒须当醉，一滴何曾到九泉。" attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:15.0], NSForegroundColorAttributeName : kBlackColor}];
     NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
@@ -407,6 +327,95 @@
     };
     
     scrollView.contentSize = CGSizeMake(screenWidth, CGRectGetMaxY(textLabel.frame));
+}
+
+- (void)lightEvent {
+    LLDarkManager.userInterfaceStyle = LLUserInterfaceStyleLight;
+}
+
+- (void)darkEvent {
+    LLDarkManager.userInterfaceStyle = LLUserInterfaceStyleDark;
+}
+
+- (void)systemEvent {
+    LLDarkManager.userInterfaceStyle = LLUserInterfaceStyleUnspecified;
+}
+
+- (void)changeStatusBarStyle {
+    if (LLDarkManager.isDarkMode) {
+        UIApplication.sharedApplication.statusBarStyle = UIStatusBarStyleLightContent;
+    } else {
+        if (@available(iOS 13.0, *)) {
+            UIApplication.sharedApplication.statusBarStyle = UIStatusBarStyleDarkContent;
+        } else {
+            UIApplication.sharedApplication.statusBarStyle = UIStatusBarStyleDefault;
+        }
+    }
+}
+
+- (void)changeDarkVertical {
+    if (@available(iOS 13.0, *)) {
+        NSString *path = [NSBundle.mainBundle pathForResource:@"customVerticalDarkImage" ofType:@".ktx"];
+        UIImage *image = [UIImage imageWithContentsOfFile:path];
+        [LLLaunchScreen replaceLaunchImage:image launchImageType:LLDarkLaunchImageTypeVerticalDark compressionQuality:0.8 validation:nil];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"深色竖屏启动图已修改，请切换到对应模式并重启APP" message:nil preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
+        [alert addAction:cancelAction];
+        [self presentViewController:alert animated:YES completion:nil];
+    } else {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"此功能仅能在iOS13以上系统使用" message:nil preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
+        [alert addAction:cancelAction];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
+}
+
+- (void)changeDarkHorizontal {
+    if (@available(iOS 13.0, *)) {
+        NSString *path = [NSBundle.mainBundle pathForResource:@"customHorizontalDarkImage" ofType:@".ktx"];
+        UIImage *image = [UIImage imageWithContentsOfFile:path];
+        [LLLaunchScreen replaceLaunchImage:image launchImageType:LLDarkLaunchImageTypeHorizontalDark compressionQuality:0.8 validation:nil];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"深色横屏启动图已修改，请切换到对应模式并重启APP" message:nil preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
+        [alert addAction:cancelAction];
+        [self presentViewController:alert animated:YES completion:nil];
+    } else {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"此功能仅能在iOS13以上系统使用" message:nil preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
+        [alert addAction:cancelAction];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
+}
+
+- (void)changeLightVertical {
+    NSString *path = [NSBundle.mainBundle pathForResource:@"customVerticaLightImage" ofType:@".ktx"];
+    UIImage *image = [UIImage imageWithContentsOfFile:path];
+    [LLLaunchScreen replaceLaunchImage:image launchImageType:LLDarkLaunchImageTypeVerticalLight compressionQuality:0.8 validation:nil];
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"浅色竖屏启动图已修改，请切换到对应模式并重启APP" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
+    [alert addAction:cancelAction];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (void)changeLightHorizontal {
+    NSString *path = [NSBundle.mainBundle pathForResource:@"customHorizontalLightImage" ofType:@".ktx"];
+    UIImage *image = [UIImage imageWithContentsOfFile:path];
+    [LLLaunchScreen replaceLaunchImage:image launchImageType:LLDarkLaunchImageTypeHorizontalLight compressionQuality:0.8 validation:nil];
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"浅色横屏启动图已修改，请切换到对应模式并重启APP" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
+    [alert addAction:cancelAction];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (void)restoreScreen {
+    [LLLaunchScreen restoreAsBefore];
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"启动图已恢复至初始化状态，请重启APP" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
+    [alert addAction:cancelAction];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 @end
