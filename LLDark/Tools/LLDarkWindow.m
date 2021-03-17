@@ -69,8 +69,8 @@
         shareWindow = [[self alloc] init];
         shareWindow.frame = UIScreen.mainScreen.bounds;
         shareWindow.userInteractionEnabled = NO;
-        shareWindow.windowLevel = UIWindowLevelAlert + 1;
-        shareWindow.hidden = NO;
+        shareWindow.windowLevel = UIWindowLevelNormal - 1;
+        shareWindow.hidden = YES;
         shareWindow.opaque = NO;
         shareWindow.backgroundColor = [UIColor clearColor];
         shareWindow.layer.backgroundColor = [UIColor clearColor].CGColor;
