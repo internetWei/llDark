@@ -72,29 +72,41 @@ static NSString * const llDark_user_theme_identifier = @"llDark_user_theme_ident
 
 /// 刷新window上的视图，例如window上的弹窗
 + (void)refreshWindow {
-    if (currentWindow().userInterfaceStyle != LLUserInterfaceStyleUnspecified) return;
-    
-    for (UIView *view in currentWindow().subviews) {
-        if ([view isMemberOfClass:NSClassFromString(@"UITransitionView")] == YES) continue;
-        [view refresh];
+    for (UIWindow *window in UIApplication.sharedApplication.windows) {
+        if (window.userInterfaceStyle != LLUserInterfaceStyleUnspecified) continue;
+        if (window == LLDarkWindow.sharedInstance) continue;
+        if (window.hidden == YES) continue;
+        if (CGSizeEqualToSize(window.bounds.size, UIScreen.mainScreen.bounds.size) == NO) continue;
+        
+        for (UIView *view in window.subviews) {
+            if ([view isMemberOfClass:NSClassFromString(@"UITransitionView")] == YES) continue;
+            [view refresh];
+        }
     }
 }
 
 /// 刷新视图控制器上的视图
 + (void)refreshViewController {
-    UIViewController *vc = findCurrentShowingViewController();
-    
-    UINavigationController *nav = vc.navigationController;
-    UITabBarController *tab = vc.tabBarController;
-    
-    [vc.view refresh];
-    [nav.navigationBar refresh];
-    [nav.toolbar refresh];
-    [tab.tabBar refresh];
-    
-    if ([vc isKindOfClass:UISearchController.class]) {
-        UISearchController *searchVC = (UISearchController *)vc;
-        [searchVC.searchBar refresh];
+    for (UIWindow *window in UIApplication.sharedApplication.windows) {
+        if (window.userInterfaceStyle != LLUserInterfaceStyleUnspecified) continue;
+        if (window == LLDarkWindow.sharedInstance) continue;
+        if (window.hidden == YES) continue;
+        if (CGSizeEqualToSize(window.bounds.size, UIScreen.mainScreen.bounds.size) == NO) continue;
+        
+        UIViewController *t_vc = window.rootViewController;
+        t_vc = findCurrentShowingViewControllerFrom(t_vc);
+        UINavigationController *nav = t_vc.navigationController;
+        UITabBarController *tab = t_vc.tabBarController;
+        
+        [t_vc.view refresh];
+        [nav.navigationBar refresh];
+        [nav.toolbar refresh];
+        [tab.tabBar refresh];
+        
+        if ([t_vc isKindOfClass:UISearchController.class]) {
+            UISearchController *searchVC = (UISearchController *)t_vc;
+            [searchVC.searchBar refresh];
+        }
     }
 }
 

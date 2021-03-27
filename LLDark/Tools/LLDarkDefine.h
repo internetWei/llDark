@@ -34,15 +34,6 @@ static inline NSInteger NSIntegerFromNSString(NSString *string) {
 }
 
 
-static inline UIWindow * currentWindow(void) {
-    if (@available(iOS 13.0, *)) {
-        return UIApplication.sharedApplication.windows.firstObject;
-    } else {
-        return UIApplication.sharedApplication.keyWindow;
-    }
-}
-
-
 static inline UIViewController * findCurrentShowingViewControllerFrom(UIViewController *vc) {
     UIViewController *currentShowingVC = nil;
     if ([vc presentedViewController]) {
@@ -57,14 +48,6 @@ static inline UIViewController * findCurrentShowingViewControllerFrom(UIViewCont
     } else {
         currentShowingVC = vc;
     }
-    return currentShowingVC;
-}
-
-
-/// 获取当前显示的ViewController
-static inline UIViewController * findCurrentShowingViewController(void) {
-    UIViewController *vc = currentWindow().rootViewController;
-    UIViewController *currentShowingVC =  findCurrentShowingViewControllerFrom(vc);
     return currentShowingVC;
 }
 
