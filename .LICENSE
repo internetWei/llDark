@@ -1,0 +1,54 @@
+## 记录自己对这个项目未来的一些想法
+
+## 功能
+
+- [ ] 模仿SJVideoPlayer支持pod用gitee
+- [ ] 编写测试用例
+- [ ] CocoaPods使用文件夹分层
+- [ ] 编写博客总结知识点
+- [ ] 支持iPad、Mac、Watch、TVOS等平台
+- [ ] 分为2种实现方法，1：.backgroundColor，2：.ll.backgroundColor
+- [ ] 增加获取框架版本号的功能
+- [ ] UIButton支持网络图片加蒙层
+- [ ] 支持圆角图片加蒙层(现在的方案给圆角图片加蒙层会使圆角区域也显示出蒙层样式)
+- [ ] 主题色支持更改透明度
+- [ ] 支持与Swift混编
+- [ ] 支持网络图片适配深色模式
+- [ ] 适配UIVisualEffect、scrollView的滚动条等控件
+
+## 优化
+
+- [ ] 不在屏幕上的appearanceBindUpdater不要调用，等它回到屏幕上再调用
+- [ ] appearanceBindUpdater会在后台触发
+- [ ] 替换image时将现有属性也赋值一下(有时候UIImage对象的分类或其他属性上也有值，因为用户可能会对UIImage进行拉伸或其他操作)
+- [ ] 替换color时将现有属性也赋值一下
+- [ ] 给UIColor添加缓存(例如UIColor.redColor这种方式获取的图片，还有浅色系和深色系一样的主题色)
+- [ ] 只刷新有themeColor和themeImage的属性
+- [ ] 考虑SceneDelegate
+- [ ] 考虑多个Windows
+- [ ] 启动图模块现在是切换深色模式后自动修改启动图，将这个权利改为由用户控制
+
+## Bugs
+
+- [ ] 壳的登录页面，第三方登录文字在回到前台会异常
+- [ ] 启动图模块支持自动修复黑屏问题
+- [ ] 启动图模块支持更新系统自动替换为上次修改的启动图
+- [ ] 刷新时如果window上有弹窗会导致只刷新弹窗而弹窗后的页面未刷新
+- [ ] layoutSubviews后导致userInterfaceStyle不对导致颜色不对
+- [ ] 自定义一个ZTLockLabel继承自YYLabel导致没有刷新UI
+- [ ] 无法刷新YYLabel的textColor，具体表现在“被窝读书的’你终于来了’关键字”
+- [ ] 设置某个页面userInterfaceStyle没有应用到所有子页面windowLevel的问题
+- [ ] windowLevel的问题(无法通过UIApplication.sharedApplication.windows.firstObject获取当前window，导致新系统无法刷新状态栏)
+
+## 参考
+
+- SwiftTheme
+- DKNightVersion
+- BDPAppearance
+- LEETheme
+- QMUI
+- 百度适配暗黑模式
+- [京东适配暗黑模式](https://juejin.cn/post/6844904095430475783#comment)
+- 微软适配暗黑模式
+- iOS13 DarkMode适配（一）：https://juejin.im/post/5d889661e51d453b1e478b94
+- iOS13 DarkMode适配（二）：https://juejin.im/post/5d8c8709e51d457806260ea9

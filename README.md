@@ -192,3 +192,8 @@ The author can be contacted by this email`internetwei@foxmail.com`
 License
 ==============
 LLDark is released under the MIT license. See LICENSE file for details.
+
+
+## 参考
+
+- [深色模式设计思路](https://www.ui.cn/detail/663094.html?nopop=1)

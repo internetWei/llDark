@@ -192,3 +192,7 @@ Tips:
 许可证
 ==============
 LLDark 使用 MIT 许可证，详情见 LICENSE 文件。
+
+## 参考
+
+- [深色模式设计思路](https://www.ui.cn/detail/663094.html?nopop=1)
